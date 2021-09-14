@@ -1,3 +1,4 @@
+ArrayList<Player> dots = new ArrayList();
 class Player {
  PVector location = new PVector();
  PVector velocity = new PVector();
@@ -7,7 +8,8 @@ class Player {
    location.set(x,y);
    velocity.set(v,u);
    size = s;
- }
+   
+  }
  
  void drawPlayer(){
    fill(0,200,0);
