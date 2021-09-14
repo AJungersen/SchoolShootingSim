@@ -1,3 +1,4 @@
+ArrayList<Bullet> bullets = new ArrayList();
 class Bullet {
  PVector location = new PVector();
  PVector velocity = new PVector();
