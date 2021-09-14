@@ -17,13 +17,17 @@ class Bots extends Player {
  void movement(){
    location.add(velocity);
   }
- void botSum(float x,float y){//input Shooter location
- 
+ PVector botSum(float x,float y){//input Shooter location
+ PVector botsum = new PVector();
+   for(int i = 0; i < bots.size(); i++){ 
+     
+   }
+  return botsum;
   }
   
   void randomMovement(){
-    velocity.x = random(0.01, 1);
-    velocity.y = random(0.01, 1);
+    velocity.x = (random(2)-1)*random(0.01, 1);
+    velocity.y = (random(2)-1)*random(0.01, 1);
   }
   
   

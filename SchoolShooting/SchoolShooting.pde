@@ -1,4 +1,5 @@
   Shooter shooter;
+  Player player;
   void setup() {
   size(1000, 750);
   frameRate(144);
@@ -7,8 +8,10 @@
   OptionsScreen = new OptionsScreen();
   TextDisplayScreen = new TextDisplayScreen();
   shooter = new Shooter(500,500,10,10,10);
-  
-  
+  for(int i = 0; i < 100; i++){
+    bots.add(new Bots(400,400,random(2)-1,random(2)-1,10));
+  }
+  player = new Player(500,500,0,0,20);
   
 }
 
@@ -22,16 +25,18 @@ void draw()
   
   //Hr. shooter
   shooter.drawShooter();
-  shooter.movement();
+  shooter.movement(player.location.x,player.location.y,bots.get(1).botSum(shooter.location.x,shooter.location.y));
   shooter.shoot();
   
-  
-  for(int i = 0; i < bots.size(); i++){
-  bots.add(new Bots(1,1,1,1,1)); 
+  //bots
+  for(int i = 0; i < bots.size(); i++){ 
   bots.get(i).randomMovement();
   bots.get(i).movement();
   bots.get(i).drawBot();
-  
   }
  
+  //bullet
+  for(int i = 0; i < bullets.size(); i++){
+  bullets.get(i).drawBullet();
+  }
 }

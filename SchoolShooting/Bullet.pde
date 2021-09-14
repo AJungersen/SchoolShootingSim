@@ -8,6 +8,10 @@ class Bullet {
    location.set(x,y);
    velocity.set(v,u);
  }
+ void drawBullet(){
+  circle(location.x,location.y,size); 
+ }
+ 
  void updateLocation(){
  location.add(velocity);
  }
