@@ -1,6 +1,7 @@
-/*class Shooter extends Player {
- 
+class Shooter extends Player {
+
  Shooter(float x, float y,float v,float u,int s){
+   super(x,y,v,u,s);
    location.set(x,y);
    velocity.set(v,u);
    size = s;
@@ -10,30 +11,22 @@
    fill(255,0,0);
    circle(location.x,location.y,size);
  }
- void movement(float x,float y){//input player position
+ void movement(float x,float y){
+    //input player position
    velocity.add((x-location.x)/1000,(y-location.y)/1000);
-   velocity.add(botSum);
+   //velocity.add(botSum);
    location.add(velocity);
  }
  void shoot(){
-   
+   if(frameCount%144==0){
+     PVector closestBlob = new PVector();
+     float d = 1000;
+     for(int i=0; i<bots.size();i++){
+      if(sqrt(pow(bots.get(i).location.x-location.x,2)+pow(bots.get(i).location.y-location.y,2))<d){
+       closestBlob.set(bots.get(i).location.x-location.x,bots.get(i).location.y-location.y);
+      }
+     }
+     bullets.add(new Bullet(location.x,location.y,closestBlob.x/10,closestBlob.y/10));
+   }
  }
-}class Bots extends Player {
- 
- Bots(float x,float y,float v,float u,int s){
-   location.set(x,y);
-   velocity.set(v,u);
-   size = s;
- }
- 
- void drawBot(){
-   fill(150);
-   circle(location.x,location.y,size);
- }
- void movement(){
-   location.add(velocity);
- }
- void botSum(float x,float y){//input Shooter location
- 
- }
-}*/
+}
