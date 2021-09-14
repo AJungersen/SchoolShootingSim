@@ -10,7 +10,7 @@ class Player {
  }
  
  void drawPlayer(){
-   fill(255,0,0);
+   fill(0,200,0);
    circle(location.x,location.y,size);
  }
  void movement(){
