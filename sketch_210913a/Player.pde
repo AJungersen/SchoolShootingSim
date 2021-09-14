@@ -1,12 +1,12 @@
 class Player {
  PVector location = new PVector();
  PVector velocity = new PVector();
- float size;
+ int size;
  
  Player(float x,float y,float v,float u,int s){
    location.set(x,y);
    velocity.set(v,u);
-   size.set(s);
+   size = s;
  }
  
  void drawPlayer(){
