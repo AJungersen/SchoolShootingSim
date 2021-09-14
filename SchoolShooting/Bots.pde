@@ -1,4 +1,4 @@
-class Bots extends Player {
+/*class Bots extends Player {
  
  Bots(float x,float y,float v,float u,int s){
    location.set(x,y);
@@ -16,4 +16,4 @@ class Bots extends Player {
  void botSum(float x,float y){//input Shooter location
  
  }
-}
+}*/

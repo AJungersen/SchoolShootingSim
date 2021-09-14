@@ -1,5 +1,8 @@
+Items items = new Items();
+
 void setup()
 {
+  background(150);
   size(1000, 750);
   frameRate(60);
   
@@ -7,19 +10,26 @@ void setup()
   CaracterDisplayScreen = new CaracterDisplayScreen();
   OptionsScreen = new OptionsScreen();
   TextDisplayScreen = new TextDisplayScreen();
+
   
-  
+  items.RoomSwitch = true;
+  items.randomNumber = true;
+    
+    items.spawnItems();
+    println(items.numItems);
+    println(items.itemNum);
 }
 
 void draw()
 {
-  background(150);
+
   
   //Skærm indeling
-  PlayScreen.Draw();
-  CaracterDisplayScreen.Draw();
-  OptionsScreen.Draw();
-  TextDisplayScreen.Draw();
+  //PlayScreen.Draw();
+  //CaracterDisplayScreen.Draw();
+  //OptionsScreen.Draw();
+  //TextDisplayScreen.Draw();
   
- 
+  
+
 }
