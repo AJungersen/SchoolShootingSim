@@ -1,7 +1,4 @@
-class Shooter {
- PVector location = new PVector();
- PVector velocity = new PVector();
- float size;
+class Shooter extends Player {
  
  Shooter(float x, float y,float v,float u,int s){
    location.set(x,y);
@@ -17,5 +14,8 @@ class Shooter {
    velocity.add((x-location.x)/1000,(y-location.y)/1000);
    velocity.add(botSum);
    location.add(velocity);
+ }
+ void shoot(){
+   
  }
 }

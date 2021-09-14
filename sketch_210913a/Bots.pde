@@ -1,5 +1,4 @@
-arrayList 
-class Bots {
+class Bots extends Player {
  PVector location = new PVector();
  PVector velocity = new PVector();
  float size;
