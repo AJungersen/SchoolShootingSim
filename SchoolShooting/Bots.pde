@@ -1,4 +1,4 @@
-class Bots extends Player {
+class Bots {
  PVector location = new PVector();
  PVector velocity = new PVector();
  float size;
