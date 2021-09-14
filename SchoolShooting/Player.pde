@@ -3,7 +3,7 @@ class Player {
  PVector velocity = new PVector();
  float size;
  
- Player((x,y),(v,u),s){
+ Player(float x, float y, float v, float u, float s){
    location.set(x,y);
    velocity.set(v,u);
    size.set(s);
