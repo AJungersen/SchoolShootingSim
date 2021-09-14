@@ -1,5 +1,3 @@
-ArrayList <Bots> bots = new ArrayList<Bots>();
-
 
 class Bots extends Player {
 
@@ -23,7 +21,6 @@ class Bots extends Player {
      
    }
   return botsum;
-  }
   
   void randomMovement(){
     velocity.x = (random(2)-1)*random(0.01, 1);
@@ -32,3 +29,4 @@ class Bots extends Player {
   
   
 }
+
