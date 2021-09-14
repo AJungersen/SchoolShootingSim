@@ -2,6 +2,9 @@ ArrayList <Bots> bots = new ArrayList<Bots>();
 
 
 class Bots extends Player {
+ PVector location = new PVector();
+ PVector velocity = new PVector();
+ float size;
 
  Bots(float x,float y,float v,float u,float s){
    super(x, y, v, u, s);
@@ -11,7 +14,7 @@ class Bots extends Player {
    }
  
  void drawBot(){
-   fill(150);
+   fill(0);
    circle(location.x,location.y,size);
    }
  void movement(){
@@ -20,11 +23,9 @@ class Bots extends Player {
  void botSum(float x,float y){//input Shooter location
  
   }
-  
   void randomMovement(){
     velocity.x = random(0.01, 1);
     velocity.y = random(0.01, 1);
   }
-  
   
 }

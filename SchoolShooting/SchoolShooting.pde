@@ -22,5 +22,14 @@ void draw()
   shooter.drawShooter();
   shooter.movement();
   shooter.shoot();
+  
+  /*
+  for(int i = 0; i < bots.size(); i++){
+  bots.add(new Bots(1,1,1,1,1)); 
+  bots.add(bots.randomMovement();
+  bots.get(i) = bots.movement();
+  bots.get(i) = bots.drawBot();
+  
+  }*/
  
 }
