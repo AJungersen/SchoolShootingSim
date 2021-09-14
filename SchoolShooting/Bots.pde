@@ -1,3 +1,6 @@
+ArrayList <Bots> bots = new ArrayList<Bots>();
+
+
 class Bots extends Player {
  PVector location = new PVector();
  PVector velocity = new PVector();

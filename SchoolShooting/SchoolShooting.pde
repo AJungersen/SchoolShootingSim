@@ -1,4 +1,4 @@
-void setup() {
+  void setup() {
   size(1000, 750);
   frameRate(60);
   
