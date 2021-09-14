@@ -1,9 +1,7 @@
 class Shooter extends Player {
 
-
- Shooter(float x, float y, float v, float u, int s){
-   super(x, y, v, u, s);
-
+ Shooter(float x, float y,float v,float u,int s){
+   super(x,y,v,u,s);
    location.set(x,y);
    velocity.set(v,u);
    size = s;
@@ -20,17 +18,15 @@ class Shooter extends Player {
  }
  void shoot(){
    if(frameCount%144==0){
-
-     
-    }
-  }
-
-     /*PVector closestBlob = new PVector();
+     PVector closestBlob = new PVector();
      float d = 1000000;
      for(int i=0; i<bots.size();i++){
-      d = bots[i].location.x+bots[i].location.y;
-      
+      if(sqrt(pow(bots[i].location.x-location.x,2)+pow(bots[i].location.y-location.y,2))<d){
+       closestBlob.set(bots[i].location.x-location.x,bots[i].location.y-location.y);
+      }
      }
-     bullets.add(new Bullet(location.x,location.y, 0, 0,0);
-   */
+     bullets.add(new Bullet(location.x,location.y,closestBlob.x/10,closestBlob.y/10);
+   }
+ }
+ }
 }

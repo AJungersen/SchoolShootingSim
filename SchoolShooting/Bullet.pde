@@ -2,15 +2,14 @@ ArrayList<Bullet> bullets = new ArrayList();
 class Bullet {
  PVector location = new PVector();
  PVector velocity = new PVector();
- float size;
+ float size = 5;
  
- Bullet(float x, float y, float v, float u, float s){
+ Bullet(float x, float y, float v, float u){
    location.set(x,y);
    velocity.set(v,u);
-   size = s;
  }
  void updateLocation(){
- location.add(velocity);  
+ location.add(velocity);
  }
  void hit(){
    
