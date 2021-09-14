@@ -1,11 +1,10 @@
 Items items = new Items();
-
+  Shooter shooter;
+  Player player;
+  
 void setup()
 {
   background(150);
-  Shooter shooter;
-  Player player;
-  void setup() {
   size(1000, 750);
   frameRate(144);
   
@@ -54,4 +53,3 @@ void draw()
   bullets.get(i).drawBullet();
   }
 }
-
