@@ -2,9 +2,6 @@ ArrayList <Bots> bots = new ArrayList<Bots>();
 
 
 class Bots extends Player {
- PVector location = new PVector();
- PVector velocity = new PVector();
- float size;
 
  Bots(float x,float y,float v,float u,float s){
    super(x, y, v, u, s);

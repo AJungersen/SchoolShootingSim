@@ -19,14 +19,13 @@ class Shooter extends Player {
  void shoot(){
    if(frameCount%144==0){
      PVector closestBlob = new PVector();
-     float d = 1000000;
+     float d = 1000;
      for(int i=0; i<bots.size();i++){
-      if(sqrt(pow(bots[i].location.x-location.x,2)+pow(bots[i].location.y-location.y,2))<d){
-       closestBlob.set(bots[i].location.x-location.x,bots[i].location.y-location.y);
+      if(sqrt(pow(bots.get(i).location.x-location.x,2)+pow(bots.get(i).location.y-location.y,2))<d){
+       closestBlob.set(bots.get(i).location.x-location.x,bots.get(i).location.y-location.y);
       }
      }
-     bullets.add(new Bullet(location.x,location.y,closestBlob.x/10,closestBlob.y/10);
+     bullets.add(new Bullet(location.x,location.y,closestBlob.x/10,closestBlob.y/10));
    }
- }
  }
 }
