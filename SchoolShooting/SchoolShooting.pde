@@ -20,7 +20,6 @@ void setup()
     println(items.itemNum);
 
   shooter = new Shooter(500,500,10,10,10);
-
 }
 
 void draw()
@@ -37,12 +36,14 @@ void draw()
   shooter.movement();
   shooter.shoot();
   
-  /*
+  
   for(int i = 0; i < bots.size(); i++){
   bots.add(new Bots(1,1,1,1,1)); 
-  bots.add(bots.randomMovement();
-  bots.get(i) = bots.movement();
-  bots.get(i) = bots.drawBot();
-  
-  }*/
- }
+  bots.get(i).randomMovement();
+  bots.get(i).movement();
+  bots.get(i).drawBot();
+
+  }
+ 
+}
+
