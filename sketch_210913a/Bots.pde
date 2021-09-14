@@ -3,10 +3,10 @@ class Bots extends Player {
  PVector velocity = new PVector();
  float size;
  
- Bots((x,y),(v,u),s){
+ Bots(float x,float y,float v,float u,int s){
    location.set(x,y);
    velocity.set(v,u);
-   size.set(s);
+   size = s;
  }
  
  void drawBot(){
@@ -16,7 +16,7 @@ class Bots extends Player {
  void movement(){
    location.add(velocity);
  }
- void botSum(x,y){//input Shooter location
+ void botSum(float x,float y){//input Shooter location
  
  }
 }
