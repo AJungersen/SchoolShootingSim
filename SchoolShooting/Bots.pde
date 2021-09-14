@@ -3,7 +3,7 @@ class Bots extends Player {
  PVector velocity = new PVector();
  float size;
 
- Bots(float x,float y,float v,float u,int s){
+ Bots(float x,float y,float v,float u,float s){
    super(x, y, v, u, s);
    location.set(x,y);
    velocity.set(v,u);

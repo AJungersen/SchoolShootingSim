@@ -2,9 +2,9 @@ ArrayList<Player> dots = new ArrayList();
 class Player {
  PVector location = new PVector();
  PVector velocity = new PVector();
- int size;
+ float size;
  
- Player(float x,float y,float v,float u,int s){
+ Player(float x,float y,float v,float u,float s){
    location.set(x,y);
    velocity.set(v,u);
    size = s;
