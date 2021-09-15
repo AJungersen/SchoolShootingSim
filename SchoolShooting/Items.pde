@@ -4,7 +4,6 @@ class Items {
   boolean randomNumber = false;
   
   void spawnItems() {
-   frameRate(5);
     if(RoomSwitch == true) {
      if(randomNumber == true){
       numItems = int(random(1,10));
