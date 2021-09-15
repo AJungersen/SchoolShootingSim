@@ -33,6 +33,8 @@ class Items {
       }
     }
   }
+    }
+  }
 
   void drawItems() {
     if (randomNumber == true) {
@@ -98,5 +100,4 @@ class Items {
       }
       ellipse(mouseX, mouseY, 10, 10);
     }
- // }
-}
+  }
