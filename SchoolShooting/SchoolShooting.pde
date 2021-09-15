@@ -76,7 +76,7 @@ background(150);
   
   //bots
   for(int i = 0; i < bots.size(); i++){ 
-  bots.get(i).randomMovement();
+  bots.get(i).randomMovement(i);
   bots.get(i).movement();
   bots.get(i).drawBot();
   bots.get(i).flee(i);

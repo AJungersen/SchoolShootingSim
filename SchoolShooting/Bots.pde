@@ -32,9 +32,23 @@ class Bots extends Player {
    botsum.mult(5);
   return botsum;
  }
-  void randomMovement(){
+  void randomMovement(int i){
     velocity.x = (random(2)-1)*random(0.5, 2);
     velocity.y = (random(2)-1)*random(0.5, 2);
+    for(int j = 0; j < bots.size();j++){
+    if(dist(bots.get(i).location.x,bots.get(i).location.y,bots.get(j).location.y,bots.get(j).location.y)<10){
+      if(bots.get(i).location.x>bots.get(j).location.x){
+        bots.get(i).location.x+=0.2;
+      } else if(bots.get(i).location.x<bots.get(j).location.x){
+        bots.get(i).location.x+=0.2;
+      }
+      if(bots.get(i).location.y>bots.get(j).location.y){
+        bots.get(i).location.y+=0.2;
+      } else if(bots.get(i).location.y<bots.get(j).location.y){
+        bots.get(i).location.y+=0.2;
+        }
+      }
+    }
   }
   
   void flee(int i){
@@ -45,10 +59,17 @@ class Bots extends Player {
           } else if(bots.get(i).position.x!=temporaryWall.x){
             bots.get(i).position.x -= 0.01;
           }
+<<<<<<< Updated upstream
           if(bots.get(i).position.y!=temporaryWall.y && shooter.position.y<bots.get(i).position.y){
             bots.get(i).position.y += 0.01;
         } else if(bots.get(i).position.y!=temporaryWall.y){
           bots.get(i).position.y -= 0.01;
+=======
+          if(bots.get(i).location.y!=temporaryWall.y && shooter.location.y<bots.get(i).location.y){
+            bots.get(i).location.y += 0.01;
+          }else if(bots.get(i).location.y!=temporaryWall.y){
+          bots.get(i).location.y -= 0.01;
+>>>>>>> Stashed changes
         }
       }
     }
