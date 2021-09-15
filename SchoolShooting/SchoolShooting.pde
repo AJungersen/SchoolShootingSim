@@ -43,7 +43,7 @@ void draw()
   bots.get(i).movement();
   bots.get(i).drawBot();
   }
-  
+  bots.flee();
   //Hr. shooter
   shooter.drawShooter(); //<>//
   if(0<bots.size()){
