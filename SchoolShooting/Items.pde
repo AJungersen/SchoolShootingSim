@@ -36,7 +36,8 @@ class Items {
           println("ikke denne gang");
         }
       }
-     }
+    }
+  }
 
   void drawItems() {
       
