@@ -2,7 +2,15 @@ class Items {
   int numItems, itemNum;
   boolean RoomSwitch = false;
   boolean randomNumber = false;
-  
+  PVector itemSize = new PVector(100, 100);
+  PVector position = new PVector (100,100);
+  PVector testSize = new PVector(50, 50);
+  float itemRadius = 100;
+  float testRadius = 50;
+  color itemColor;
+
+
+
   void spawnItems() {
     if(RoomSwitch == true) {
      if(randomNumber == true){
@@ -12,65 +20,83 @@ class Items {
        println("yes");
        
      }
+    if (RoomSwitch == true) {
+      if (randomNumber == true) {
+        numItems = int(random(0, 10));
+        if (numItems > 5) {
+          items.drawItems();
+        }
+        if (numItems < 5) {
+          randomNumber = false; 
+          println("ikke denne gang");
+        }
+      }
     }
-   }
   }
-  
-  void drawItems(){
-    if(randomNumber == true) {
-     itemNum = int(random(1,6));
-     
-     switch(itemNum){
-       case 1:
+
+  void drawItems() {
+    if (randomNumber == true) {
+      itemNum = int(random(1, 6));
+
+      switch(itemNum) {
+      case 1:
+        itemColor =  color(255, 0, 0);
         println("koben");
-        fill(255,0,0);
-        ellipse(100,100,100,100);
-         break;
-         
-       case 2:
-        println("Nøgle");
-        fill(0,255,0);
-        ellipse(100,100,100,100);
-         break;
-         
-       case 3:
-         println("brugte løbesko");
-         fill(0,0,255);
-         ellipse(100,100,100,100);
-         break;
-         
-       case 4:
-         println("rundboldbat");
-         fill(255,0,0);
-         rect(100,100,100,100);
-         break;
-         
-       case 5:
-         println("stol");
-         fill(0,255,0);
-         rect(100,100,100,100);
-         break;
-         
-       case 6:
-         println("computer");
-         fill(0,0,255);
-         rect(100,100,100,100);
-         break;
-     }
+        fill(itemColor);
+        ellipse(position.x, position.y, itemSize.x, itemSize.y);
+        break;
+
+      case 2:
+        itemColor = color(0, 255, 0);
+        println("nøgle");
+        fill(itemColor);
+        ellipse(position.x, position.y, itemSize.x, itemSize.y);
+        break;
+
+      case 3:
+        itemColor = color(0, 0, 255);
+        println("brugte løbesko");
+        fill(itemColor);
+        ellipse(position.x, position.y, itemSize.x, itemSize.y);
+        break;
+
+      case 4:
+        itemColor = color(254, 3, 255);
+        println("rundboldbat");
+        fill(itemColor);
+        ellipse(position.x, position.y, itemSize.x, itemSize.y);
+        break;
+
+      case 5:
+        itemColor = color(254, 255, 3);
+        println("stol");
+        fill(itemColor);
+        ellipse(position.x, position.y, itemSize.x, itemSize.y);
+        break;
+
+      case 6:
+        itemColor = color(2, 254, 255);
+        println("computer");
+        fill(itemColor);
+        ellipse(position.x, position.y, itemSize.x, itemSize.y);
+        break;
+      }
     }
     RoomSwitch = false;
     randomNumber = false;
-   }
-      
-    
-    
-    
-    
- 
-    
+    println(items.numItems);
+    println(items.itemNum);
   }
-  
-  
-  
-  
-  
+
+  void detectItems () {
+    //if (items.randomNumber == true) { 
+      if (dist(mouseX, mouseY, position.x, position.y)  <  itemRadius/2) {
+        fill(0);
+        text("e to pick up", 200, 300);
+      } else {
+        fill(itemColor);
+      }
+      ellipse(mouseX, mouseY, 10, 10);
+    }
+ // }
+}

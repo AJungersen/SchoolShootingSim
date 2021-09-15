@@ -38,6 +38,10 @@ class PlayScreen
       fill(150);
       stroke(0);
       rect(x, y, xSize, ySize);
+      
+      
+      
+      items.spawnItems();
     }
 }
 

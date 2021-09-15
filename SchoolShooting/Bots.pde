@@ -22,8 +22,10 @@ class Bots extends Player {
  PVector botsum = new PVector();
    for(int i = 0; i < bots.size(); i++){ 
      calcVector.set(0,0);
+
      calcVector.add(bots.get(i).location.x-shooter.location.x,bots.get(i).location.y-shooter.location.y);
      calcVector.div(1+pow(dist(bots.get(i).location.x,shooter.location.x,bots.get(i).location.y,shooter.location.y),2));
+
      botsum.add(calcVector);
    }
    botsum.normalize();
