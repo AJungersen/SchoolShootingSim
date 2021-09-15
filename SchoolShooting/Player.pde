@@ -25,10 +25,10 @@ class Player {
          player.velocity.add(0,10);
        }
        if(keyCode == RIGHT){
-         player.velocity.add(-10,0);
+         player.velocity.add(10,0);
        }
        if(keyCode == LEFT){
-         player.velocity.add(10,0);
+         player.velocity.add(-10,0);
        }
     }
  }
