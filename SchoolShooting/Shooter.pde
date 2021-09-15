@@ -9,6 +9,7 @@ class Shooter extends Player {
  
  void drawShooter(){
    fill(255,0,0);
+   stroke(255,0,0);
    circle(location.x,location.y,size);
  }
  void movement(float x,float y,PVector botSum){//input player position

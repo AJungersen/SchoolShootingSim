@@ -20,7 +20,7 @@ void setup()
     println(items.itemNum);
 
   shooter = new Shooter(500,500,10,10,10);
-  for(int i = 0; i < 2; i++){
+  for(int i = 0; i < 100; i++){
     bots.add(new Bots(400,400,random(2)-1,random(2)-1,10));
   }
   player = new Player(500,500,0,0,20);
@@ -46,7 +46,9 @@ void draw()
   
   //Hr. shooter
   shooter.drawShooter(); //<>//
-  shooter.movement(player.location.x,player.location.y,bots.get(1).botSum(shooter.location.x,shooter.location.y));
+  if(0<bots.size()){
+  shooter.movement(player.location.x,player.location.y,bots.get(0).botSum(shooter.location.x,shooter.location.y));
+  }
   shooter.shoot();
   
  
@@ -54,5 +56,6 @@ void draw()
   for(int i = 0; i < bullets.size(); i++){
   bullets.get(i).drawBullet();
   bullets.get(i).updateLocation();
+  bullets.get(i).hit();
   }
 }
