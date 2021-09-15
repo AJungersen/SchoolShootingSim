@@ -7,8 +7,11 @@ class Bullet {
  Bullet(float x, float y, float v, float u){
    location.set(x,y);
    velocity.set(v,u);
+   velocity.normalize();
+   velocity.mult(10);
  }
  void drawBullet(){
+   fill(0);
   circle(location.x,location.y,size); 
  }
  
