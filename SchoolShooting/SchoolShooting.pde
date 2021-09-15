@@ -36,16 +36,17 @@ void draw()
   OptionsScreen.Draw();
   TextDisplayScreen.Draw();
   
-  //Hr. shooter
-  shooter.drawShooter();
-  shooter.movement(player.location.x,player.location.y,bots.get(1).botSum(shooter.location.x,shooter.location.y));
-  shooter.shoot();
-  
   //bots
   for(int i = 0; i < bots.size(); i++){ 
   bots.get(i).randomMovement();
   bots.get(i).movement();
   bots.get(i).drawBot();
+  
+  //Hr. shooter
+  shooter.drawShooter();
+  shooter.movement(player.location.x,player.location.y,bots.get(1).botSum(shooter.location.x,shooter.location.y));
+  shooter.shoot();
+  
   }
  
   //bullet
