@@ -12,6 +12,14 @@ class Items {
   
 
   void spawnItems() {
+    if(RoomSwitch == true) {
+     if(randomNumber == true){
+      numItems = int(random(1,10));
+      if (numItems >= 5){
+       items.drawItems(); 
+       println("yes");
+       
+     }
     if (RoomSwitch == true) {
       if (select == true) {
         numItems = int(random(0, 10));
@@ -29,8 +37,8 @@ class Items {
           randomNumber = false; 
           println("ikke denne gang");
         }
-      }    
-  
+      }
+     }
 
   void drawItems() {
       
@@ -92,5 +100,4 @@ class Items {
       }
       ellipse(mouseX, mouseY, 10, 10);
     }
- // }
-}
+  }

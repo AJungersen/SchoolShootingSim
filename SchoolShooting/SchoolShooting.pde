@@ -6,6 +6,7 @@ void setup()
 {
   background(150);
   size(1000, 750);
+  frameRate(60);
 
   PlayScreen = new PlayScreen();
   OptionsScreen = new OptionsScreen();
@@ -42,9 +43,9 @@ background(150);
   bots.get(i).flee(i);
   }
   //Hr. shooter
-  shooter.drawShooter(); //<>//
+  shooter.drawShooter(); //<>// //<>//
   if(0<bots.size()){
-  shooter.movement(player.location.x,player.location.y,bots.get(0).botSum(shooter.location.x,shooter.location.y));
+  shooter.movement(player.location.x,player.location.y,bots.get(0).botSum(shooter.location.x,shooter.location.y)); //<>//
   }
   shooter.shoot();
   
