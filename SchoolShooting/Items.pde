@@ -5,9 +5,7 @@ class Items {
   boolean randomNumber = false;
   PVector itemSize = new PVector(100, 100);
   PVector position = new PVector (100,100);
-  PVector testSize = new PVector(50, 50);
   float itemRadius = 100;
-  float testRadius = 50;
   color itemColor;
   
 
