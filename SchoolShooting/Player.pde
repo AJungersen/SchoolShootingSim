@@ -4,10 +4,10 @@ class Player {
  PVector velocity = new PVector();
  float size;
  
- Player(PVector _position, PVector _velocity, float _size){
-   position = _position.copy();
-   velocity = _velocity.copy();
-   size = _size;
+ Player(PVector p, PVector v, float s){
+   position = p.copy();
+   velocity = v.copy();
+   size = s;
    
   }
  
@@ -32,5 +32,7 @@ class Player {
        }
     }
  }
+ position.add(velocity);
+ velocity.set(0,0);
 }
 }

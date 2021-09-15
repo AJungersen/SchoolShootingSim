@@ -1,9 +1,9 @@
 class Shooter extends Player {
 
- Shooter(float x, float y,float v,float u,int s){
-   super(x,y,v,u,s);
-   position.set(x,y);
-   velocity.set(v,u);
+ Shooter(PVector p,PVector v,int s){
+   super(p,v,s);
+   position.set(p);
+   velocity.set(v);
    size = s;
  }
  

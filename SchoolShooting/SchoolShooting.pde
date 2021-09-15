@@ -16,11 +16,11 @@ void setup()
   items.select = true;
 
 
-  shooter = new Shooter(500, 500, 10, 10, 10);
+  shooter = new Shooter(new PVector(500, 500),new PVector(10, 10), 10);
   for (int i = 0; i < 100; i++) {
-    bots.add(new Bots(400, 400, random(2)-1, random(2)-1, 10));
+    bots.add(new Bots(new PVector(400, 400), new PVector(random(2)-1, random(2)-1), 10));
   }
-  //player = new Player(500, 500, 0, 0, 20);
+  player = new Player(new PVector(500, 500),new PVector(0, 0), 20);
   
   playScreen = new PlayScreen();
   optionsScreen = new OptionsScreen();
@@ -45,7 +45,7 @@ background(150);
 
   playScreen.Draw();
   optionsScreen.Draw();
-  textDisplayScreen.Draw();
+  textDisplayScreen.Draw(); //<>//
   
   pushMatrix();
   translate(-player.position.copy().x+width/2, -player.position.copy().y+height/2);
@@ -70,6 +70,9 @@ background(150);
   Classroom1_121();
   
   popMatrix();
+  
+  player.drawPlayer();
+  player.movement();
   
   //bots
   for(int i = 0; i < bots.size(); i++){ 

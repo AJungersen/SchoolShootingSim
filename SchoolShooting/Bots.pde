@@ -3,10 +3,10 @@ class Bots extends Player {
   PVector temporaryWall = new PVector(width,0);
   
   
- Bots(PVector _position, PVector _velocity, float _size){
-   super(_position, _velocity, _size);
-   position.set(x,y);
-   velocity.set(v,u);
+ Bots(PVector p, PVector v, float s){
+   super(p, v, s);
+   position.set(p);
+   velocity.set(v);
    size = s;
    }
  
