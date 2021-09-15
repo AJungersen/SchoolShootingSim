@@ -24,6 +24,9 @@ class Bullet {
     if(dist(bots.get(i).location.x,bots.get(i).location.y,location.x,location.y)<((size+bots.get(0).size)/2)){
      bots.remove(i);
      bullets.remove(this);
+     if(velocity.mag()==0){
+     bullets.remove(this);
+     }
     }
    }
  }

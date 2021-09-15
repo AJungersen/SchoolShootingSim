@@ -21,9 +21,6 @@ void setup()
     bots.add(new Bots(400, 400, random(2)-1, random(2)-1, 10));
   }
   player = new Player(500, 500, 0, 0, 20);
-
-
-
 }
 
 void draw()
@@ -45,10 +42,10 @@ background(150);
   //Hr. shooter
   shooter.drawShooter(); //<>// //<>//
   if(0<bots.size()){
-  shooter.movement(player.location.x,player.location.y,bots.get(0).botSum(shooter.location.x,shooter.location.y)); //<>//
+  shooter.movement(player.location.x,player.location.y,bots.get(0).botSum(shooter.location.x,shooter.location.y));
   }
   shooter.shoot();
-  
+   //<>//
  
   //bullet
   for(int i = 0; i < bullets.size(); i++){
