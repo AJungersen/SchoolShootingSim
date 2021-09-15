@@ -1,19 +1,19 @@
 ArrayList<Player> dots = new ArrayList();
 class Player {
- PVector location = new PVector();
+ PVector position = new PVector();
  PVector velocity = new PVector();
  float size;
  
- Player(float x,float y,float v,float u,float s){
-   location.set(x,y);
-   velocity.set(v,u);
-   size = s;
+ Player(PVector _position, PVector _velocity, float _size){
+   position = _position.copy();
+   velocity = _velocity.copy();
+   size = _size;
    
   }
  
  void drawPlayer(){
    fill(0,200,0);
-   circle(location.x,location.y,size);
+   circle(position.x,position.y,size);
  }
  void movement(){
     if(keyPressed==true){

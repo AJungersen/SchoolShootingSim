@@ -3,19 +3,19 @@ class Bots extends Player {
   PVector temporaryWall = new PVector(width,0);
   
   
- Bots(float x,float y,float v,float u,float s){
-   super(x, y, v, u, s);
-   location.set(x,y);
+ Bots(PVector _position, PVector _velocity, float _size){
+   super(_position, _velocity, _size);
+   position.set(x,y);
    velocity.set(v,u);
    size = s;
    }
  
  void drawBot(){
    fill(150);
-   circle(location.x,location.y,size);
+   circle(position.x,position.y,size);
    }
  void movement(){
-   location.add(velocity);
+   position.add(velocity);
   }
  PVector botSum(float x,float y){//input Shooter location
  PVector calcVector = new PVector();
@@ -23,8 +23,8 @@ class Bots extends Player {
    for(int i = 0; i < bots.size(); i++){ 
      calcVector.set(0,0);
 
-     calcVector.add(bots.get(i).location.x-shooter.location.x,bots.get(i).location.y-shooter.location.y);
-     calcVector.div(1+pow(dist(bots.get(i).location.x,shooter.location.x,bots.get(i).location.y,shooter.location.y),2));
+     calcVector.add(bots.get(i).position.x-shooter.position.x,bots.get(i).position.y-shooter.position.y);
+     calcVector.div(1+pow(dist(bots.get(i).position.x,shooter.position.x,bots.get(i).position.y,shooter.position.y),2));
 
      botsum.add(calcVector);
    }
@@ -38,17 +38,17 @@ class Bots extends Player {
   }
   
   void flee(int i){
-      if(dist(shooter.location.x,shooter.location.y,bots.get(i).location.x,bots.get(i).location.y)<10000){
+      if(dist(shooter.position.x,shooter.position.y,bots.get(i).position.x,bots.get(i).position.y)<10000){
         for(int j = 0; j < 1000;j++){
-          if(bots.get(i).location.x!=temporaryWall.x && shooter.location.x<bots.get(i).location.x){
-            bots.get(i).location.x += 0.01;
-          } else if(bots.get(i).location.x!=temporaryWall.x){
-            bots.get(i).location.x -= 0.01;
+          if(bots.get(i).position.x!=temporaryWall.x && shooter.position.x<bots.get(i).position.x){
+            bots.get(i).position.x += 0.01;
+          } else if(bots.get(i).position.x!=temporaryWall.x){
+            bots.get(i).position.x -= 0.01;
           }
-          if(bots.get(i).location.y!=temporaryWall.y && shooter.location.y<bots.get(i).location.y){
-            bots.get(i).location.y += 0.01;
-        } else if(bots.get(i).location.y!=temporaryWall.y){
-          bots.get(i).location.y -= 0.01;
+          if(bots.get(i).position.y!=temporaryWall.y && shooter.position.y<bots.get(i).position.y){
+            bots.get(i).position.y += 0.01;
+        } else if(bots.get(i).position.y!=temporaryWall.y){
+          bots.get(i).position.y -= 0.01;
         }
       }
     }

@@ -21,7 +21,7 @@ class Bullet {
  }
  void hit(){
    for(int i = 0; i<bots.size(); i++){
-    if(dist(bots.get(i).location.x,bots.get(i).location.y,location.x,location.y)<((size+bots.get(0).size)/2)){
+    if(dist(bots.get(i).position.x,bots.get(i).position.y,location.x,location.y)<((size+bots.get(0).size)/2)){
      bots.remove(i);
      bullets.remove(this);
      if(velocity.mag()==0){

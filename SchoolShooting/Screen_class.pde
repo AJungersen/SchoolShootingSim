@@ -3,29 +3,23 @@
 //Caracter display screen height 2/10
 //Options dispay screen height 2/10, width 1/2
 //Text display screen height 2/10, width 1/2
-  
-float xTextDisplayScreenSize = 0.5;
-float xOptionsScreenSize = 0.5;
 
-float yPlayScreenSize = 0.75;
-float yTextDisplayScreenSize = 0.25;
-float yOptionsScreenSize = 0.25;
+PVector playScreenSizePercentage = new PVector(1, 0.75);
+PVector textDisplayScreenSizePercentage = new PVector(0.5, 0.25);
+PVector optionsScreenSizePercentage = new PVector(0.5, 0.25);
 
 //--------------------------------------
 
-PlayScreen PlayScreen;
-
-OptionsScreen OptionsScreen;
-TextDisplayScreen TextDisplayScreen;
+PlayScreen playScreen;
+OptionsScreen optionsScreen;
+TextDisplayScreen textDisplayScreen;
 
 //--------------------------------------
 
 class PlayScreen
 {
-  float xSize = width;
-  float ySize = height * yPlayScreenSize;
-  float x = xSize/2;
-  float y = ySize/2;
+  PVector size = new PVector(width * playScreenSizePercentage.x, height * playScreenSizePercentage.y);
+  PVector position = new PVector(width/2, 0 + size.y/2);
   
     PlayScreen()
     {
@@ -35,26 +29,17 @@ class PlayScreen
     {
       rectMode(CENTER);
       strokeWeight(2);
-      fill(150);
+      noFill();
+      //fill(150);
       stroke(0);
-      rect(x, y, xSize, ySize);
-      
-      
-      
-      items.spawnItems();
+      rect(position.x, position.y, size.x, size.y);
     }
 }
 
-
-
-
-
 class OptionsScreen
 {
-  float xSize = width * xOptionsScreenSize;
-  float ySize = height * yOptionsScreenSize;
-  float x = xSize/2;
-  float y = ySize/2 + PlayScreen.ySize;
+  PVector size = new PVector(width * optionsScreenSizePercentage.x, height * optionsScreenSizePercentage.y);
+  PVector position = new PVector(size.x/2, size.y/2 + playScreen.size.y);
   
     OptionsScreen()
     {
@@ -66,17 +51,15 @@ class OptionsScreen
       strokeWeight(3);
       fill(240);
       stroke(141, 31, 31);
-      rect(x, y, xSize, ySize);
+      rect(position.x, position.y, size.x, size.y);
     }
 }
 
 
 class TextDisplayScreen
 {
-  float xSize = width * xTextDisplayScreenSize;
-  float ySize = height * yTextDisplayScreenSize;
-  float x = xSize/2 + OptionsScreen.xSize;
-  float y = ySize/2 + PlayScreen.ySize;
+  PVector Size = new PVector(width * textDisplayScreenSizePercentage.x, height * textDisplayScreenSizePercentage.y);
+  PVector Position = new PVector(Size.x/2 + optionsScreen.size.x, Size.y/2 + playScreen.size.y);
   
     TextDisplayScreen()
     {
@@ -88,6 +71,6 @@ class TextDisplayScreen
       strokeWeight(3);
       fill(240);
       stroke(141, 31, 31);
-      rect(x, y, xSize, ySize);
+      rect(Position.x, Position.y, Size.x, Size.y);
     }
 }
