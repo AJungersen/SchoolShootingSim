@@ -1,15 +1,13 @@
 class Items {
   int numItems, itemNum;
   boolean RoomSwitch = false;
+  boolean select = false;
   boolean randomNumber = false;
   PVector itemSize = new PVector(100, 100);
   PVector position = new PVector (100,100);
-  PVector testSize = new PVector(50, 50);
   float itemRadius = 100;
-  float testRadius = 50;
   color itemColor;
-
-
+  
 
   void spawnItems() {
     if(RoomSwitch == true) {
@@ -21,26 +19,28 @@ class Items {
        
      }
     if (RoomSwitch == true) {
-      if (randomNumber == true) {
+      if (select == true) {
         numItems = int(random(0, 10));
+        itemNum = int(random(1, 6));
+        randomNumber = true;
+        select = false;
+      }
+    }
         if (numItems > 5) {
+          println("test");
           items.drawItems();
+          
         }
         if (numItems < 5) {
           randomNumber = false; 
           println("ikke denne gang");
         }
       }
-    }
-  }
-    }
-  }
+     }
 
   void drawItems() {
-    if (randomNumber == true) {
-      itemNum = int(random(1, 6));
-
-      switch(itemNum) {
+      
+      switch(items.itemNum) {
       case 1:
         itemColor =  color(255, 0, 0);
         println("koben");
@@ -83,9 +83,7 @@ class Items {
         ellipse(position.x, position.y, itemSize.x, itemSize.y);
         break;
       }
-    }
-    RoomSwitch = false;
-    randomNumber = false;
+    
     println(items.numItems);
     println(items.itemNum);
   }

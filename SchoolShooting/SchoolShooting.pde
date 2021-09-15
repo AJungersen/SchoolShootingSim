@@ -13,7 +13,7 @@ void setup()
   TextDisplayScreen = new TextDisplayScreen();
 
   items.RoomSwitch = true;
-  items.randomNumber = true;
+  items.select = true;
 
 
   shooter = new Shooter(500, 500, 10, 10, 10);
@@ -48,11 +48,12 @@ background(150);
    //<>//
  
   //bullet
-  for(int i = 0; i < bullets.size(); i++){
+  for(int i = 0; i < bullets.size(); i++){ //<>//
   bullets.get(i).drawBullet();
   bullets.get(i).updateLocation();
   bullets.get(i).hit();
   }
-    items.spawnItems();
-    items.detectItems();
+  
+  items.spawnItems();
+  items.detectItems();
     }
