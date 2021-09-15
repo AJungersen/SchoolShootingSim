@@ -35,16 +35,18 @@ class Bots extends Player {
     velocity.y = (random(2)-1)*random(0.5, 2);
   }
   
-  void flee(){
-    for(int i = 0; i<bots.size(); i++){
+  void flee(int i){
       if(dist(shooter.location.x,shooter.location.y,bots.get(i).location.x,bots.get(i).location.y)<10000){
         for(int j = 0; j < 1000;j++){
-          if(bots.get(i).location.x!=temporaryWall.x){
-            bots.get(i).location.x+=0.1;
+          if(bots.get(i).location.x!=temporaryWall.x && shooter.location.x<bots.get(i).location.x){
+            bots.get(i).location.x += 0.01;
+          } else if(bots.get(i).location.x!=temporaryWall.x){
+            bots.get(i).location.x -= 0.01;
           }
-          if(bots.get(i).location.y!=temporaryWall.y){
-            bots.get(i).location.y+=0.1;
-          }
+          if(bots.get(i).location.y!=temporaryWall.y && shooter.location.y<bots.get(i).location.y){
+            bots.get(i).location.y += 0.01;
+        } else if(bots.get(i).location.y!=temporaryWall.y){
+          bots.get(i).location.y -= 0.01;
         }
       }
     }
