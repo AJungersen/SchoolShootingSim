@@ -12,10 +12,12 @@ class Shooter extends Player {
    stroke(255,0,0);
    circle(position.x,position.y,size);
  }
- void movement(float x,float y,PVector botSum){//input player position
+ void movement(float x,float y){//input player position
    velocity.set((x-position.x)/10,(y-position.y)/10);
-   velocity.add(botSum);
-   position.add(velocity);
+   if(0<bots.size()){
+   velocity.add(bots.get(0).botSum(shooter.position.x,shooter.position.y));
+   }
+   position.add(velocity.mult(0.5));
  }
  void shoot(){
    if(frameCount%5==0){

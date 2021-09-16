@@ -77,9 +77,7 @@ background(150);
   }
   //Hr. shooter
   shooter.drawShooter();
-  if(0<bots.size()){
-  shooter.movement(player.position.x,player.position.y,bots.get(0).botSum(shooter.position.x,shooter.position.y));
-  }
+  shooter.movement(player.position.x,player.position.y);
   shooter.shoot();
  
   //bullet
