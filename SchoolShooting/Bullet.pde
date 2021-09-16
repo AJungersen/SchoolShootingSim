@@ -8,7 +8,7 @@ class Bullet {
    location.set(x,y);
    velocity.set(v,u);
    velocity.normalize();
-   velocity.mult(10);
+   velocity.mult(20);
  }
  void drawBullet(){
    fill(0);
