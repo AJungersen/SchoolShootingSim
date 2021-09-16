@@ -99,6 +99,7 @@ class Room
          (_player.position.y < doorPosition1.y + _player.size/2))
       {
         roomSwitch = true;
+        items.RoomSwitch = true;
       }
       
       //---------- Wall collison depending on room placemnet side ----------
@@ -191,6 +192,7 @@ class Room
           (_player.position.y > TopBottomColision))
        {
          roomSwitch = true;
+         items.RoomSwitch = true;
        }
        else
        {
@@ -204,6 +206,7 @@ class Room
           (_player.position.y < TopBottomColision))
        {
          roomSwitch = true;
+         items.RoomSwitch = true;
        }
        else
        {
@@ -352,6 +355,7 @@ class Classroom extends Room
           (_player.position.y > playScreen.size.y - _player.size/2))
         {
           roomSwitch = true;
+          items.RoomSwitch = true;
         }
         else
         {
