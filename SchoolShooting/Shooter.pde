@@ -26,7 +26,11 @@ class Shooter extends Player {
      for(int i=0; i<bots.size();i++){
       if(sqrt(pow(bots.get(i).position.x-position.x,2)+pow(bots.get(i).position.y-position.y,2))<d){
        closestBlob.set(bots.get(i).position.x-position.x,bots.get(i).position.y-position.y);
+       d = closestBlob.mag();
       }
+     }
+     if(dist(player.position.x,player.position.y,position.x,position.y)<d){
+      closestBlob.set(player.position.x-position.x,player.position.y-position.y);
      }
      if(closestBlob.mag() != 0){
      bullets.add(new Bullet(position.x,position.y,closestBlob.x/10,closestBlob.y/10));
