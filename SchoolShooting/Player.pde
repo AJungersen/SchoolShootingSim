@@ -15,6 +15,20 @@ class Player {
    fill(0,200,0);
    circle(position.x,position.y,size);
  }
+ 
+ void strike(){
+   
+ if(keyPressed == true){
+     if(key == ' '){
+       if(random(10)>6){
+         //insert game won
+       }  else {
+         //insert game lost
+       }
+     }
+   }
+  }
+ 
  void movement(){
     if(keyPressed==true){
      if(key == CODED){
