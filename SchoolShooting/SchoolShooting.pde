@@ -48,7 +48,7 @@ background(150);
    //<>//
   //PlayScreen
   playScreen.Draw();
-  
+  /*
   //Hallways
   Hallway1_1();
   Hallway1_2();
@@ -60,7 +60,7 @@ background(150);
   //Classroooms
   Classroom1_119();
   Classroom1_121();
-  
+  */
   
   player.drawPlayer();
   player.movement();

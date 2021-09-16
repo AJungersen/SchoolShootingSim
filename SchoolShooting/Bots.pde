@@ -16,7 +16,7 @@ class Bots extends Player {
    }
  void movement(){
    velocity.normalize();
-   velocity.mult(5);
+   velocity.mult(3);
    position.add(velocity);
   }
  PVector botSum(float x,float y){//input Shooter location
