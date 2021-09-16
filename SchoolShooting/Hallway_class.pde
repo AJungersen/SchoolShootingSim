@@ -115,7 +115,7 @@ class Hallway
           textSize(56);
           fill(240);
           textFont(fontType);
-          text("Gang lukket på grund af corona", playScreen.size.x/2, playScreen.size.y - 50);
+          text("Gang lukket på grund af corona", player.position.x, playScreen.size.y - 50);
           collisonVerticalWallRight(_player);
         }
         else if(_hallwayDoor == HallwayDoorState.unlocked)
@@ -153,7 +153,7 @@ class Hallway
           textSize(56);
           fill(240);
           textFont(FontType);
-          text("Gang lukket på grund af corona", playScreen.size.x/2, playScreen.size.y - 50);
+          text("Gang lukket på grund af corona", player.position.x, playScreen.size.y - 50);
           collisonVerticalWallLeft(_player);
         }
         else if(_hallwayDoor == HallwayDoorState.unlocked)

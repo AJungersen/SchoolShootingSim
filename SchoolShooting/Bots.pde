@@ -15,6 +15,8 @@ class Bots extends Player {
    circle(position.x,position.y,size);
    }
  void movement(){
+   velocity.normalize();
+   velocity.mult(5);
    position.add(velocity);
   }
  PVector botSum(float x,float y){//input Shooter location
@@ -51,15 +53,9 @@ class Bots extends Player {
     }
   }
   
-  void flee(int i){
-      if(dist(shooter.position.x,shooter.position.y,bots.get(i).position.x,bots.get(i).position.y)<10000){
-        for(int j = 0; j < 1000;j++){
-          if(bots.get(i).position.x!=temporaryWall.x && shooter.position.x<bots.get(i).position.x){
-            bots.get(i).position.x += 0.01;
-          } else if(bots.get(i).position.x!=temporaryWall.x){
-            bots.get(i).position.x -= 0.01;
-          }
-        }
-      }
+  void flee(){
+    if(PVector.sub(shooter.position,position).mag()<1000){
+    velocity.add(PVector.sub(position,shooter.position).mult(0.2));
     }
   }
+}
