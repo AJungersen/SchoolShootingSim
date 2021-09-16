@@ -3,6 +3,7 @@ Shooter shooter;
 Player player;
 VicScreen vicScreen = new VicScreen();
 
+
 void setup()
 {
   background(150);
@@ -15,7 +16,6 @@ void setup()
 
   items.select = true;
   println(items.RoomSwitch);
-
 
 
   shooter = new Shooter(new PVector(1500, 1500),new PVector(10, 10), 25);//i thnik thids migth lock the shooter to a specific position. idk if it's meant as temporarily
@@ -39,7 +39,9 @@ void setup()
 
 void draw()
 {
-  //pushMatrix();//activate when activating vicscreen
+  if(vicScreen.won == true){
+    pushMatrix();//activate when activating vicscreen
+  }
 background(150);
   //Skærm indeling
  //<>//
