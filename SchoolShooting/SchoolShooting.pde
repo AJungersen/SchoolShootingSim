@@ -12,8 +12,8 @@ void setup()
   optionsScreen = new OptionsScreen();
   textDisplayScreen = new TextDisplayScreen();
 
-  items.RoomSwitch = true;
   items.select = true;
+  println(items.RoomSwitch);
 
 
   shooter = new Shooter(new PVector(500, 500),new PVector(10, 10), 10);
@@ -97,3 +97,13 @@ background(150);
   items.spawnItems();
   items.detectItems();
     }
+    
+    
+  void keyPressed() {
+   if(key == 'e') {
+     println("pick up succes");
+     items.position.x = textDisplayScreen.Position.x + 20;
+     items.position.y = textDisplayScreen.Position.y + 20;
+   }
+    
+  }

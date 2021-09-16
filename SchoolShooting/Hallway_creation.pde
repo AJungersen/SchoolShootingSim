@@ -11,6 +11,7 @@ void Hallway1_1()
     Room1_156RightSide = false;
     Hallway1_1 = true;
     BigRoom1_156RightSide.roomSwitch = false;
+    items.RoomSwitch = false;
     
     BigRoom1_156RightSide.exitingRoom(player);
   }
@@ -19,6 +20,7 @@ void Hallway1_1()
     Classroom1_119Activated = false;
     Hallway1_1 = true;
     Classroom1_119.roomSwitch = false;
+    items.RoomSwitch = false;
     
     Classroom1_119.ClassroomExist(player);
   }
@@ -53,6 +55,7 @@ void Hallway1_2()
     Room1_156LeftSide = false;
     Hallway1_2 = true;
     BigRoom1_156LeftSide.roomSwitch = false;
+    items.RoomSwitch = false;
     
     BigRoom1_156LeftSide.exitingRoom(player);
   }
@@ -61,6 +64,7 @@ void Hallway1_2()
     Classroom1_121Activated = false;
     Hallway1_2 = true;
     Classroom1_121.roomSwitch = false;
+    items.RoomSwitch = false;
     
     Classroom1_121.ClassroomExist(player);
   }

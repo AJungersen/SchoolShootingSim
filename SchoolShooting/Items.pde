@@ -1,11 +1,12 @@
 class Items {
-  int numItems, itemNum;
-  boolean RoomSwitch = false;
+  //itemStatus: 1=not in range,  2=in range,  3=picked up
+  int numItems, itemNum, itemStatus;
   boolean select = false;
+  boolean RoomSwitch = false;
   boolean randomNumber = false;
   PVector itemSize = new PVector(100, 100);
   PVector position = new PVector (100,100);
-  float itemRadius = 100;
+  float itemWidth = 100;
   color itemColor;
   
 
@@ -15,6 +16,7 @@ class Items {
       if (select == true) {
         numItems = int(random(0, 10));
         itemNum = int(random(1, 6));
+        itemStatus = 1;
         randomNumber = true;
         select = false;
       }
@@ -25,7 +27,6 @@ class Items {
         }
         if (numItems < 5) {
           randomNumber = false; 
-          println("ikke denne gang");
         }
       }
    
@@ -82,13 +83,13 @@ class Items {
   }
 
   void detectItems () {
-    //if (items.randomNumber == true) { 
-      if (dist(mouseX, mouseY, position.x, position.y)  <  itemRadius/2) {
+      if (dist(player.position.x, player.position.y, position.x, position.y)  <  itemWidth) {
         fill(0);
         text("e to pick up", 200, 300);
+        itemStatus = 2;
       } else {
         fill(itemColor);
+        itemStatus = 1;
       }
-      ellipse(mouseX, mouseY, 10, 10);
     }
   }
