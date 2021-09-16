@@ -16,7 +16,7 @@ void setup()
   println(items.RoomSwitch);
 
 
-  shooter = new Shooter(new PVector(500, 500),new PVector(10, 10), 25);
+  shooter = new Shooter(new PVector(1500, 1500),new PVector(10, 10), 25);
   for (int i = 0; i < 100; i++) {
     bots.add(new Bots(new PVector(400, 400), new PVector(random(2)-1, random(2)-1), 20));
   }
@@ -45,7 +45,7 @@ background(150);
   textDisplayScreen.Draw(); //<>//
   
   translate(-player.position.copy().x+width/2, -player.position.copy().y+height/2);
-   //<>//
+   //<>// //<>//
   //PlayScreen
   playScreen.Draw();
   /*
