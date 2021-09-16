@@ -16,9 +16,9 @@ void setup()
   items.select = true;
 
 
-  shooter = new Shooter(new PVector(500, 500),new PVector(10, 10), 10);
+  shooter = new Shooter(new PVector(500, 500),new PVector(10, 10), 25);
   for (int i = 0; i < 100; i++) {
-    bots.add(new Bots(new PVector(400, 400), new PVector(random(2)-1, random(2)-1), 10));
+    bots.add(new Bots(new PVector(400, 400), new PVector(random(2)-1, random(2)-1), 20));
   }
   //player = new Player(new PVector(500, 500),new PVector(0, 0), 20);
   
@@ -32,7 +32,7 @@ void setup()
   Classroom1_119 = new Classroom();
   Classroom1_121 = new Classroom();
   
-  player = new Player(new PVector(playScreen.size.x - 75, playScreen.size.y - 75), new PVector(0, 0), 50);
+  player = new Player(new PVector(playScreen.size.x - 75, playScreen.size.y - 75), new PVector(0, 0), 25);
 }
 
 void draw()
