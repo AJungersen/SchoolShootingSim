@@ -1,4 +1,4 @@
-Items items = new Items();
+Items items = new Items(); //<>// //<>// //<>// //<>//
 Shooter shooter;
 Player player;
 
@@ -44,11 +44,12 @@ background(150);
   optionsScreen.Draw();
   textDisplayScreen.Draw(); //<>//
   
+  pushMatrix();
   translate(-player.position.copy().x+width/2, -player.position.copy().y+height/2);
    //<>//
   //PlayScreen
   playScreen.Draw();
-  /*
+  
   //Hallways
   Hallway1_1();
   Hallway1_2();
@@ -60,7 +61,7 @@ background(150);
   //Classroooms
   Classroom1_119();
   Classroom1_121();
-  */
+  
   
   player.drawPlayer();
   player.movement();
@@ -88,17 +89,24 @@ background(150);
   bullets.get(i).updateLocation();
   bullets.get(i).hit();
   }
-  
+  if(items.newItem == true) {
   items.spawnItems();
   items.detectItems();
+  }
+  popMatrix();
+  
+ if(items.itemStatus == 3){
+  items.newItem = false;
+  items.position.set(750,700);
+  items.drawItems();
+  }
     }
     
     
   void keyPressed() {
    if(key == 'e') {
-     println("pick up succes");
-     items.position.x = textDisplayScreen.Position.x + 20;
-     items.position.y = textDisplayScreen.Position.y + 20;
+    items.position.set(750,700);
+    items.itemStatus = 3;   
    }
     
   }
