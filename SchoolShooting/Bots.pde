@@ -32,7 +32,7 @@ class Bots extends Player {
      botsum.add(calcVector);
    }
    botsum.normalize();
-   botsum.mult(5);
+   botsum.mult(10);
   return botsum;
  }
   void randomMovement(int i){
