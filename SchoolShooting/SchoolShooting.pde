@@ -95,6 +95,8 @@ background(150);
   items.detectItems();
   if(vicScreen.won == true){
     vicScreen.drawVicScreen();
+      } else if(vicScreen.lost == true){
+        vicScreen.drawDeathScreen();
       }
     }
     
