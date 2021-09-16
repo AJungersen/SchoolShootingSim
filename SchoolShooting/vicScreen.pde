@@ -1,5 +1,5 @@
 class VicScreen{
-
+  boolean won = false;//set this one to true, when exiting the final door
   
   
   
@@ -7,7 +7,7 @@ class VicScreen{
     
   }
   
-  void drawVicScreen(){
+  void drawVicScreen(){//do colours even matter?
     popMatrix();
     rectMode(CORNER);
     fill(0);
@@ -25,6 +25,7 @@ class VicScreen{
     if(mousePressed){
       if(mouseX>width/3 && mouseY>height*0.7 && mouseX<2*width/6 && mouseY<80){
         //code to reset game
+        won = false;
       }
     }
   }

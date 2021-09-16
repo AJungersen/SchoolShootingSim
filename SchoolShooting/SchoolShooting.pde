@@ -91,7 +91,9 @@ background(150);
   
   items.spawnItems();
   items.detectItems();
-  //vicScreen.drawVicScreen();
+  if(vicScreen.won == true){
+    vicScreen.drawVicScreen();
+      }
     }
     
     
