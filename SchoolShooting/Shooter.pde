@@ -13,7 +13,7 @@ class Shooter extends Player {
    circle(position.x,position.y,size);
  }
  void movement(float x,float y,PVector botSum){//input player position
-   velocity.set((x-position.x)/1000,(y-position.y)/1000);
+   velocity.set((x-position.x)/10,(y-position.y)/10);
    velocity.add(botSum);
    position.add(velocity);
  }

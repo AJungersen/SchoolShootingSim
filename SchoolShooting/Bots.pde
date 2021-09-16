@@ -15,6 +15,8 @@ class Bots extends Player {
    circle(position.x,position.y,size);
    }
  void movement(){
+   velocity.normalize();
+   velocity.mult(3);
    position.add(velocity);
   }
  PVector botSum(float x,float y){//input Shooter location
@@ -33,33 +35,17 @@ class Bots extends Player {
   return botsum;
  }
   void randomMovement(int i){
-    velocity.x = (random(2)-1)*random(0.5, 2);
-    velocity.y = (random(2)-1)*random(0.5, 2);
+    velocity.set((random(2)-1)*random(0.5, 2),(random(2)-1)*random(0.5, 2));
     for(int j = 0; j < bots.size();j++){
-    if(dist(bots.get(i).position.x,bots.get(i).position.y,bots.get(j).position.y,bots.get(j).position.y)<10){
-      if(bots.get(i).position.x>bots.get(j).position.x){
-        bots.get(i).position.x+=0.2;
-      } else if(bots.get(i).position.x<bots.get(j).position.x){
-        bots.get(i).position.x+=0.2;
-      }
-      if(bots.get(i).position.y>bots.get(j).position.y){
-        bots.get(i).position.y+=0.2;
-      } else if(bots.get(i).position.y<bots.get(j).position.y){
-        bots.get(i).position.y+=0.2;
-        }
+    if(dist(position.x,position.y,bots.get(j).position.y,bots.get(j).position.y)<10){
+      velocity.add(PVector.sub(bots.get(j).position,position).mult(0.2));
       }
     }
   }
   
-  void flee(int i){
-      if(dist(shooter.position.x,shooter.position.y,bots.get(i).position.x,bots.get(i).position.y)<10000){
-        for(int j = 0; j < 1000;j++){
-          if(bots.get(i).position.x!=temporaryWall.x && shooter.position.x<bots.get(i).position.x){
-            bots.get(i).position.x += 0.01;
-          } else if(bots.get(i).position.x!=temporaryWall.x){
-            bots.get(i).position.x -= 0.01;
-          }
-        }
-      }
+  void flee(){
+    if(PVector.sub(shooter.position,position).mag()<1000){
+    velocity.add(PVector.sub(position,shooter.position).mult(0.2));
     }
   }
+}

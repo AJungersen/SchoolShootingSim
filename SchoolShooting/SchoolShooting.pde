@@ -16,15 +16,12 @@ void setup()
   println(items.RoomSwitch);
 
 
-  shooter = new Shooter(new PVector(500, 500),new PVector(10, 10), 10);
+  shooter = new Shooter(new PVector(500, 500),new PVector(10, 10), 25);
   for (int i = 0; i < 100; i++) {
-    bots.add(new Bots(new PVector(400, 400), new PVector(random(2)-1, random(2)-1), 10));
+    bots.add(new Bots(new PVector(400, 400), new PVector(random(2)-1, random(2)-1), 20));
   }
   //player = new Player(new PVector(500, 500),new PVector(0, 0), 20);
   
-  playScreen = new PlayScreen();
-  optionsScreen = new OptionsScreen();
-  textDisplayScreen = new TextDisplayScreen();
   
   DefaultBigRoom = new BigRoom();
   hallway = new Hallway();
@@ -35,7 +32,7 @@ void setup()
   Classroom1_119 = new Classroom();
   Classroom1_121 = new Classroom();
   
-  player = new Player(new PVector(playScreen.size.x - 75, playScreen.size.y - 75), new PVector(0, 0), 50);
+  player = new Player(new PVector(playScreen.size.x - 75, playScreen.size.y - 75), new PVector(0, 0), 25);
 }
 
 void draw()
@@ -48,14 +45,10 @@ background(150);
   textDisplayScreen.Draw(); //<>//
   
   translate(-player.position.copy().x+width/2, -player.position.copy().y+height/2);
-  
+   //<>//
   //PlayScreen
-  //playScreen.Draw();
-  
-  //Player
-  player.drawPlayer();
-  //Player.Movemnet();
-  
+  playScreen.Draw();
+  /*
   //Hallways
   Hallway1_1();
   Hallway1_2();
@@ -67,28 +60,30 @@ background(150);
   //Classroooms
   Classroom1_119();
   Classroom1_121();
-  
+  */
   
   player.drawPlayer();
   player.movement();
+  if(PVector.sub(player.position,shooter.position).mag()<20){
+  player.strike();
+  }
   
   //bots
   for(int i = 0; i < bots.size(); i++){ 
   bots.get(i).randomMovement(i);
+  bots.get(i).flee();
   bots.get(i).movement();
   bots.get(i).drawBot();
-  bots.get(i).flee(i);
   }
   //Hr. shooter
-  shooter.drawShooter(); //<>// //<>//
+  shooter.drawShooter();
   if(0<bots.size()){
   shooter.movement(player.position.x,player.position.y,bots.get(0).botSum(shooter.position.x,shooter.position.y));
   }
   shooter.shoot();
-   //<>//
  
   //bullet
-  for(int i = 0; i < bullets.size(); i++){ //<>//
+  for(int i = 0; i < bullets.size(); i++){
   bullets.get(i).drawBullet();
   bullets.get(i).updateLocation();
   bullets.get(i).hit();
