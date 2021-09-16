@@ -1,6 +1,8 @@
 Items items = new Items(); //<>// //<>// //<>// //<>//
 Shooter shooter;
 Player player;
+VicScreen vicScreen = new VicScreen();
+
 
 void setup()
 {
@@ -16,9 +18,9 @@ void setup()
   println(items.RoomSwitch);
 
 
-  shooter = new Shooter(new PVector(500, 500),new PVector(10, 10), 25);
+  shooter = new Shooter(new PVector(1500, 1500),new PVector(10, 10), 25);//i thnik thids migth lock the shooter to a specific position. idk if it's meant as temporarily
   for (int i = 0; i < 100; i++) {
-    bots.add(new Bots(new PVector(400, 400), new PVector(random(2)-1, random(2)-1), 20));
+    bots.add(new Bots(new PVector(400, 400), new PVector(random(2)-1, random(2)-1), 20));//considering whether we should put the player and students inside the classrooms instead of generation bots randomly
   }
   //player = new Player(new PVector(500, 500),new PVector(0, 0), 20);
   
@@ -37,16 +39,19 @@ void setup()
 
 void draw()
 {
+  if(vicScreen.won == true){
+    pushMatrix();//activate when activating vicscreen
+  }
 background(150);
   //Skærm indeling
-
+ //<>//
   playScreen.Draw();
   optionsScreen.Draw();
   textDisplayScreen.Draw(); //<>//
-  
+
   pushMatrix();
   translate(-player.position.copy().x+width/2, -player.position.copy().y+height/2);
-   //<>//
+
   //PlayScreen
   playScreen.Draw();
   
@@ -78,9 +83,7 @@ background(150);
   }
   //Hr. shooter
   shooter.drawShooter();
-  if(0<bots.size()){
-  shooter.movement(player.position.x,player.position.y,bots.get(0).botSum(shooter.position.x,shooter.position.y));
-  }
+  shooter.movement(player.position.x,player.position.y);
   shooter.shoot();
  
   //bullet
@@ -100,6 +103,10 @@ background(150);
   items.position.set(750,700);
   items.drawItems();
   }
+
+  if(vicScreen.won == true){
+    vicScreen.drawVicScreen();
+      }
     }
     
     
@@ -108,5 +115,4 @@ background(150);
     items.position.set(750,700);
     items.itemStatus = 3;   
    }
-    
   }

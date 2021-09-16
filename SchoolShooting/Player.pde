@@ -17,7 +17,6 @@ class Player {
  }
  
  void strike(){
-   
  if(keyPressed == true){
      if(key == ' '){
        if(random(10)>6){

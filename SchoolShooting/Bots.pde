@@ -16,12 +16,13 @@ class Bots extends Player {
    }
  void movement(){
    velocity.normalize();
-   velocity.mult(3);
+   velocity.mult(1);
    position.add(velocity);
   }
+  
  PVector botSum(float x,float y){//input Shooter location
  PVector calcVector = new PVector();
- PVector botsum = new PVector();
+ PVector botsum = new PVector(0,0);
    for(int i = 0; i < bots.size(); i++){ 
      calcVector.set(0,0);
 
@@ -31,7 +32,7 @@ class Bots extends Player {
      botsum.add(calcVector);
    }
    botsum.normalize();
-   botsum.mult(5);
+   botsum.mult(10);
   return botsum;
  }
   void randomMovement(int i){
