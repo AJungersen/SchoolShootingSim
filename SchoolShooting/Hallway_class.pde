@@ -23,7 +23,7 @@ class Hallway
   float doorSize = 150;
   PVector doorDistanceFromBoarder = new PVector(150, 20);
   
-    Hallway()
+    Hallway()//???
     {
     }
     

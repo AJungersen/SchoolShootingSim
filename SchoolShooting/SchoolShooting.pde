@@ -1,4 +1,5 @@
-Items items = new Items(); //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+
+Items items = new Items();
 Shooter shooter;
 Player player;
 VicScreen vicScreen = new VicScreen();
@@ -48,6 +49,7 @@ background(150);
  //<>//
   playScreen.Draw();
   optionsScreen.Draw();
+  textDisplayScreen.Draw();  //<>// //<>//
   textDisplayScreen.Draw(); //<>//
 
   pushMatrix();
@@ -86,6 +88,7 @@ background(150);
   shooter.drawShooter();
   shooter.movement(player.position.x,player.position.y);
   shooter.shoot();
+  println("player" + player.position + " shooter" + shooter.position);
  
   //bullet
   for(int i = 0; i < bullets.size(); i++){
