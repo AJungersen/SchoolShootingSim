@@ -1,26 +1,30 @@
 class VicScreen{
   boolean won = false;//set this one to true, when exiting the final door
   boolean lost = false;
-  float time = 0.0;//set to time spent leaving the area
-  int secStart, minStart, minCount, secCount, totalSec, totalMin;
+  int time = 0;
+  int j, min, sec, secStart, minStart, minCount, secCount, totalSec, totalMin;
+  
+  
+  
   VicScreen(){
     
   }
   
-  void totalSec(){
-    if(secCount<1){
-    int secWon = second();
-    totalSec = secStart - secWon;
+  void totalTime(){//it skips a minute once a minute. Working on it
+  sec = second();
+  if(sec>j){
+    j = sec;
+    time++;
+    if(j==59){
+      j = 0;
     }
-  }
-  
-  void totalMin(){
-    if(minCount<1){
-    int minWon = minute();
-    totalMin = minStart - minWon;
+    /*if(time==60){
+      time = 0;
+      min++;
+      }*/
     }
+    println(min + ":" + time);
   }
-  
   
   void drawVicScreen(){//do colours even matter?
     popMatrix();

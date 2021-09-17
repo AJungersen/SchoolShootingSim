@@ -36,7 +36,7 @@ class PlayScreen
     }
 }
 
-class OptionsScreen
+class OptionsScreen//ill use this for the timer
 {
   PVector size = new PVector(width * optionsScreenSizePercentage.x, height * optionsScreenSizePercentage.y);
   PVector position = new PVector(size.x/2, size.y/2 + playScreen.size.y);
@@ -52,6 +52,9 @@ class OptionsScreen
       fill(240);
       stroke(141, 31, 31);
       rect(position.x, position.y, size.x, size.y);
+      textSize(50);
+      fill(0);
+      text(vicScreen.min + ":" + vicScreen.time,(width/2)-150, position.y+20); 
     }
 }
 
