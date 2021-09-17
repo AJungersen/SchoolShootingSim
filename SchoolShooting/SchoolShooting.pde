@@ -1,4 +1,4 @@
-Items items;
+Items items; //<>//
 Shooter shooter;
 Player player;
 VicScreen vicScreen = new VicScreen();
@@ -44,15 +44,11 @@ void draw()
     pushMatrix();//activate when activating vicscreen
   }
 background(150); //<>//
-  //Skærm indeling
- //<>//
-  playScreen.Draw(); //<>//
-  optionsScreen.Draw();
-  textDisplayScreen.Draw();  //<>// //<>//
-  textDisplayScreen.Draw(); //<>// //<>//
 
-  pushMatrix();
-  translate(-player.position.copy().x+width/2, -player.position.copy().y+height/2);
+  vicScreen.totalTime(); //<>// //<>// //<>// //<>//
+
+  pushMatrix(); //<>//
+  translate(-player.position.copy().x+width/2, -player.position.copy().y+height/2); //<>// //<>// //<>// //<>//
 
   //PlayScreen
   playScreen.Draw();
@@ -102,6 +98,12 @@ background(150); //<>//
   itemList.get(i).drawItems();
   }
   popMatrix();
+  
+  //Skærm indeling
+  playScreen.Draw();
+  optionsScreen.Draw();
+  textDisplayScreen.Draw();  //<>//
+  textDisplayScreen.Draw();
   
  if(items.itemStatus == 3){
   items.newItem = false;
