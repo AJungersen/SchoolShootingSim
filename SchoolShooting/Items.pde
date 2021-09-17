@@ -6,13 +6,13 @@ class Items {
   boolean randomNumber = false;
   boolean newItem = true;
   PVector itemSize = new PVector(100, 100);
-  PVector position = new PVector (100,100);
+  PVector position = new PVector (100, 100);
   float itemWidth = 100;
   color itemColor;
-  
+
 
   void spawnItems() {
-     
+
     if (RoomSwitch == true) {
       if (select == true) {
         numItems = int(random(0, 10));
@@ -22,51 +22,58 @@ class Items {
         select = false;
       }
     }
-        if (numItems > 0) {
-          items.drawItems();
-          
-        }
-        if (numItems < 10) {
-          randomNumber = false; 
-        }
-      }
-   
-  
+    if (numItems > 0) {
+      items.drawItems();
+    }
+    if (numItems < 10) {
+      randomNumber = false;
+    }
+  }
+
+
 
   void drawItems() {
-      
-      switch(items.itemNum) {
-      case 1:
-        itemStats.Koben();
-        break;
 
-      case 2:
-        itemStats.Key();
-        break;
+    switch(items.itemNum) {
+    case 1:
+      itemStats.Crowbar();
+      break;
 
-      case 3:
-        itemStats.Shoes();
-        break;
+    case 2:
+      itemStats.Key();
+      break;
 
-      case 4:
-        itemStats.Bat();
-        break;
+    case 3:
+      itemStats.Shoes();
+      break;
 
-      case 5:
-        itemStats.Chair();
-        break;
+    case 4:
+      itemStats.Bat();
+      break;
 
-      case 6:
-        itemStats.Computer();
-        break;
-      }
+    case 5:
+      itemStats.Chair();
+      break;
+
+    case 6:
+      itemStats.Computer();
+      break;
+    }
   }
 
   void detectItems () {
-      if (dist(player.position.x, player.position.y, position.x, position.y)  <  itemWidth) {
-        fill(0);
-        text("e to pick up", 200, 300);
+    println("dist: " +dist(player.position.x, player.position.y, position.x, position.y));
+    println("w: " + itemWidth);
+    if (itemStatus ==3) {
+      return;
+    }
+    if (itemStatus == 1) {
+      if (dist(player.position.x, player.position.y, position.x, position.y)  <=  items.itemSize.x + player.size) {
+        println("here");
         itemStatus = 2;
+        return;
       }
     }
+    itemStatus = 1;
   }
+}

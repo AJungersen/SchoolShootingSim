@@ -1,4 +1,4 @@
-
+ //<>// //<>// //<>// //<>//
 Items items = new Items();
 Shooter shooter;
 Player player;
@@ -88,7 +88,7 @@ background(150);
   shooter.drawShooter();
   shooter.movement(player.position.x,player.position.y);
   shooter.shoot();
-  println("player" + player.position + " shooter" + shooter.position);
+ // println("player" + player.position + " shooter" + shooter.position);
  
   //bullet
   for(int i = 0; i < bullets.size(); i++){
@@ -104,7 +104,7 @@ background(150);
   
  if(items.itemStatus == 3){
   items.newItem = false;
-  items.position.set(750,700);
+  items.position.set( (textDisplayScreen.Position.y)-(items.itemSize.y/2),(textDisplayScreen.Position.x)-items.itemSize.x+10);
   items.drawItems();
   }
 
@@ -117,8 +117,12 @@ background(150);
     
     
   void keyPressed() {
-   if(key == 'e') {
-    items.position.set(750,700);
+   if(items.itemStatus == 2){
+    if(key == 'e') {
+    println("pickup succes");
+    println("dist" + dist(player.position.x, player.position.y, items.position.x, items.position.y));
+    println(items.itemWidth);
     items.itemStatus = 3;   
+    }
    }
   }
