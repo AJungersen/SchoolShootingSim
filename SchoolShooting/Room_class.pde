@@ -1,3 +1,4 @@
+ArrayList<Room> rooms = new ArrayList();
 // Room size b 2 og l 2.3 længde bredde forhold 0.87
 // Små lokaler size b 1.2 l 0.7
 // Forhold 0.6 0.3
@@ -319,6 +320,10 @@ class BigRoom extends Room
   BigRoom()
   {
     SetSize();
+    rooms.add(this);
+    if(random(1,2)<2){
+    itemList.add(new Items(position));
+    }
   }
 }
 
@@ -335,9 +340,13 @@ class Classroom extends Room
     Classroom()
     {
       SetSize();
+      rooms.add(this);
       
       xDoorPosition.x = position.x + xDoorDistanceFromBoarder;
       xDoorPosition.y = xDoorPosition.x + doorSize;
+      if(random(1,2)<3){
+      itemList.add(new Items(position));
+      }
     }
     
     void ClassroomDoor(Player _player)

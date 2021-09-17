@@ -1,4 +1,4 @@
-Items items = new Items();
+Items items;
 Shooter shooter;
 Player player;
 VicScreen vicScreen = new VicScreen();
@@ -14,10 +14,7 @@ void setup()
   optionsScreen = new OptionsScreen();
   textDisplayScreen = new TextDisplayScreen();
 
-  items.select = true;
-  println(items.RoomSwitch);
-
-
+  items = new Items(new PVector(0,0));
   shooter = new Shooter(new PVector(1500, 1500),new PVector(10, 10), 25);//i thnik thids migth lock the shooter to a specific position. idk if it's meant as temporarily
   for (int i = 0; i < 100; i++) {
     bots.add(new Bots(new PVector(400, 400), new PVector(random(2)-1, random(2)-1), 20));//considering whether we should put the player and students inside the classrooms instead of generation bots randomly
@@ -48,7 +45,7 @@ background(150);
   playScreen.Draw();
   optionsScreen.Draw();
   textDisplayScreen.Draw();  //<>// //<>//
-  textDisplayScreen.Draw(); //<>//
+  textDisplayScreen.Draw(); //<>// //<>//
 
   pushMatrix();
   translate(-player.position.copy().x+width/2, -player.position.copy().y+height/2);
@@ -86,7 +83,6 @@ background(150);
   shooter.drawShooter();
   shooter.movement(player.position.x,player.position.y);
   shooter.shoot();
-  println("player" + player.position + " shooter" + shooter.position);
  
   //bullet
   for(int i = 0; i < bullets.size(); i++){
@@ -95,17 +91,19 @@ background(150);
   bullets.get(i).hit();
   }
   if(items.newItem == true) {
-  items.spawnItems();
+  //items.spawnItems();
   items.detectItems();
+  }
+  for(int i = 0; i < itemList.size(); i++){
+  itemList.get(i).drawItems();
   }
   popMatrix();
   
  if(items.itemStatus == 3){
   items.newItem = false;
   items.position.set(750,700);
-  items.drawItems();
   }
-
+  
   if(vicScreen.won == true){
     vicScreen.drawVicScreen();
       } else if(vicScreen.lost == true){
