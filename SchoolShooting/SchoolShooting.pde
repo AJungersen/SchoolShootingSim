@@ -3,6 +3,7 @@ Shooter shooter;
 Player player;
 VicScreen vicScreen = new VicScreen();
 
+
 void setup()
 {
   background(150);
@@ -15,7 +16,6 @@ void setup()
 
   items.select = true;
   println(items.RoomSwitch);
-
 
 
   shooter = new Shooter(new PVector(1500, 1500),new PVector(10, 10), 25);//i thnik thids migth lock the shooter to a specific position. idk if it's meant as temporarily
@@ -39,13 +39,18 @@ void setup()
 
 void draw()
 {
-  //pushMatrix();//activate when activating vicscreen
+  if(vicScreen.won == true){
+    pushMatrix();//activate when activating vicscreen
+  }
 background(150);
   //Skærm indeling
  //<>//
   playScreen.Draw();
   optionsScreen.Draw();
   textDisplayScreen.Draw();  //<>// //<>//
+  textDisplayScreen.Draw(); //<>//
+
+  pushMatrix();
   translate(-player.position.copy().x+width/2, -player.position.copy().y+height/2);
 
   //PlayScreen
@@ -89,18 +94,29 @@ background(150);
   bullets.get(i).updateLocation();
   bullets.get(i).hit();
   }
-  
+  if(items.newItem == true) {
   items.spawnItems();
   items.detectItems();
-  //vicScreen.drawVicScreen();
+  }
+  popMatrix();
+  
+ if(items.itemStatus == 3){
+  items.newItem = false;
+  items.position.set(750,700);
+  items.drawItems();
+  }
+
+  if(vicScreen.won == true){
+    vicScreen.drawVicScreen();
+      } else if(vicScreen.lost == true){
+        vicScreen.drawDeathScreen();
+      }
     }
     
     
   void keyPressed() {
    if(key == 'e') {
-     println("pick up succes");
-     items.position.x = textDisplayScreen.Position.x + 20;
-     items.position.y = textDisplayScreen.Position.y + 20;
+    items.position.set(750,700);
+    items.itemStatus = 3;   
    }
-    
   }

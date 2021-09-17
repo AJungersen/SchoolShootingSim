@@ -4,6 +4,7 @@ class Items {
   boolean select = false;
   boolean RoomSwitch = false;
   boolean randomNumber = false;
+  boolean newItem = true;
   PVector itemSize = new PVector(100, 100);
   PVector position = new PVector (100,100);
   float itemWidth = 100;
@@ -21,11 +22,11 @@ class Items {
         select = false;
       }
     }
-        if (numItems > 5) {
+        if (numItems > 0) {
           items.drawItems();
           
         }
-        if (numItems < 5) {
+        if (numItems < 10) {
           randomNumber = false; 
         }
       }
@@ -37,49 +38,46 @@ class Items {
       switch(items.itemNum) {
       case 1:
         itemColor =  color(255, 0, 0);
-        println("koben");
+       // println("koben");
         fill(itemColor);
         ellipse(position.x, position.y, itemSize.x, itemSize.y);
         break;
 
       case 2:
         itemColor = color(0, 255, 0);
-        println("nøgle");
+      //  println("nøgle");
         fill(itemColor);
         ellipse(position.x, position.y, itemSize.x, itemSize.y);
         break;
 
       case 3:
         itemColor = color(0, 0, 255);
-        println("brugte løbesko");
+       // println("brugte løbesko");
         fill(itemColor);
         ellipse(position.x, position.y, itemSize.x, itemSize.y);
         break;
 
       case 4:
         itemColor = color(254, 3, 255);
-        println("rundboldbat");
+      //  println("rundboldbat");
         fill(itemColor);
         ellipse(position.x, position.y, itemSize.x, itemSize.y);
         break;
 
       case 5:
         itemColor = color(254, 255, 3);
-        println("stol");
+     //   println("stol");
         fill(itemColor);
         ellipse(position.x, position.y, itemSize.x, itemSize.y);
         break;
 
       case 6:
         itemColor = color(2, 254, 255);
-        println("computer");
+      //  println("computer");
         fill(itemColor);
         ellipse(position.x, position.y, itemSize.x, itemSize.y);
         break;
       }
-    
-    println(items.numItems);
-    println(items.itemNum);
   }
 
   void detectItems () {
@@ -87,9 +85,6 @@ class Items {
         fill(0);
         text("e to pick up", 200, 300);
         itemStatus = 2;
-      } else {
-        fill(itemColor);
-        itemStatus = 1;
       }
     }
   }
