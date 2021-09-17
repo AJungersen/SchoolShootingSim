@@ -1,9 +1,7 @@
- //<>//
-Items items = new Items();
+Items items = new Items(); //<>// //<>// //<>//
 Shooter shooter;
 Player player;
 VicScreen vicScreen = new VicScreen();
-ItemStats itemStats = new ItemStats();
 
 
 void setup()
@@ -47,13 +45,12 @@ void draw()
   if(vicScreen.won == true || vicScreen.lost == true){
     pushMatrix();//activate when activating vicscreen
   }
-background(150); //<>//
+background(150);
   //Skærm indeling
- //<>//
-  playScreen.Draw(); //<>//
+
+  playScreen.Draw();
   optionsScreen.Draw();
-  textDisplayScreen.Draw();  //<>// //<>//
-  textDisplayScreen.Draw(); //<>//
+  textDisplayScreen.Draw();
 
   pushMatrix();
   translate(-player.position.copy().x+width/2, -player.position.copy().y+height/2);
@@ -91,7 +88,6 @@ background(150); //<>//
   shooter.drawShooter();
   shooter.movement(player.position.x,player.position.y);
   shooter.shoot();
-  println("player" + player.position + " shooter" + shooter.position);
  
   //bullet
   for(int i = 0; i < bullets.size(); i++){
