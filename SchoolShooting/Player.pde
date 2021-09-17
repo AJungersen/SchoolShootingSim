@@ -43,17 +43,29 @@ class Player {
        if(keyCode == UP){
          player.velocity.add(0,-10);
        }
+     }
+    }
+    if(keyPressed==true){
+     if(key == CODED){
        if(keyCode == DOWN){
          player.velocity.add(0,10);
        }
+     }
+    }
+     if(keyPressed==true){
+     if(key == CODED){
        if(keyCode == RIGHT){
          player.velocity.add(10,0);
        }
+     }
+   }
+       if(keyPressed==true){
+     if(key == CODED){
        if(keyCode == LEFT){
          player.velocity.add(-10,0);
        }
+      }
     }
- }
  position.add(velocity);
  velocity.set(0,0);
 }
