@@ -37,45 +37,27 @@ class Items {
       
       switch(items.itemNum) {
       case 1:
-        itemColor =  color(255, 0, 0);
-       // println("koben");
-        fill(itemColor);
-        ellipse(position.x, position.y, itemSize.x, itemSize.y);
+        itemStats.Koben();
         break;
 
       case 2:
-        itemColor = color(0, 255, 0);
-      //  println("nøgle");
-        fill(itemColor);
-        ellipse(position.x, position.y, itemSize.x, itemSize.y);
+        itemStats.Key();
         break;
 
       case 3:
-        itemColor = color(0, 0, 255);
-       // println("brugte løbesko");
-        fill(itemColor);
-        ellipse(position.x, position.y, itemSize.x, itemSize.y);
+        itemStats.Shoes();
         break;
 
       case 4:
-        itemColor = color(254, 3, 255);
-      //  println("rundboldbat");
-        fill(itemColor);
-        ellipse(position.x, position.y, itemSize.x, itemSize.y);
+        itemStats.Bat();
         break;
 
       case 5:
-        itemColor = color(254, 255, 3);
-     //   println("stol");
-        fill(itemColor);
-        ellipse(position.x, position.y, itemSize.x, itemSize.y);
+        itemStats.Chair();
         break;
 
       case 6:
-        itemColor = color(2, 254, 255);
-      //  println("computer");
-        fill(itemColor);
-        ellipse(position.x, position.y, itemSize.x, itemSize.y);
+        itemStats.Computer();
         break;
       }
   }
