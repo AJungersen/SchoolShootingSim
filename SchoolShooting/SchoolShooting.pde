@@ -95,7 +95,9 @@ background(150); //<>//
   items.detectItems();
   }
   for(int i = 0; i < itemList.size(); i++){
+    if(itemList.get(i).itemStatus !=3){
   itemList.get(i).drawItems();
+    }
   }
   popMatrix();
   
@@ -104,6 +106,7 @@ background(150); //<>//
   optionsScreen.Draw();
   textDisplayScreen.Draw();  //<>//
   textDisplayScreen.Draw();
+  
   
  if(items.itemStatus == 3){
   items.newItem = false;
