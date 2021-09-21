@@ -43,9 +43,14 @@ void setup()
 void draw()
 {
   if(vicScreen.won == true || vicScreen.lost == true){
-    pushMatrix();//activate when activating vicscreen
+    //pushMatrix();//activate when activating vicscreen //<>//
   }
-background(150); //<>//
+background(150); //<>// //<>//
+  //Skærm indeling //<>//
+ //<>// //<>//
+  playScreen.Draw(); //<>// //<>//
+  optionsScreen.Draw(); //<>//
+  textDisplayScreen.Draw();  //<>// //<>//
 
   vicScreen.totalTime(); //<>// //<>// //<>// //<>//
 
@@ -67,7 +72,7 @@ background(150); //<>//
   Classroom1_119();
   Classroom1_121();
   
-  
+  if(vicScreen.won == false && vicScreen.lost == false){
   player.drawPlayer();
   player.movement();
   if(PVector.sub(player.position,shooter.position).mag()<20){
@@ -93,13 +98,15 @@ background(150); //<>//
   bullets.get(i).hit();
   }
   if(items.newItem == true) {
-  //items.spawnItems();
-  items.detectItems();
+  for(int i = 0; i < itemList.size(); i++){
+  itemList.get(i).detectItems();
+  }
   }
   for(int i = 0; i < itemList.size(); i++){
     if(itemList.get(i).itemStatus !=3){
   itemList.get(i).drawItems();
     }
+  }
   }
   popMatrix();
   
@@ -125,12 +132,14 @@ background(150); //<>//
     
     
   void keyPressed() {
-   if(items.itemStatus == 2){
+    for(int i = 0; i < itemList.size(); i++){
+   if(itemList.get(i).itemStatus == 2){
     if(key == 'e') {
     println("pickup succes");
-    println("dist" + dist(player.position.x, player.position.y, items.position.x, items.position.y));
-    println(items.itemWidth);
-    items.itemStatus = 3;   
+    //println("dist" + dist(player.position.x, player.position.y, itemList.get(i).position.x, itemList.get(i).position.y));
+    //println(items.itemWidth);
+    itemList.get(i).itemStatus = 3;   
     }
    }
+    }
   }

@@ -27,7 +27,8 @@ class VicScreen{
   }
   
   void drawVicScreen(){//do colours even matter?
-    popMatrix();
+    pushMatrix();
+    translate(0,-50);
     rectMode(CORNER);
     fill(0);
     rect(width*0.125,height*0.125,width*0.750,height*0.750);
@@ -51,10 +52,12 @@ class VicScreen{
     }
     secCount++;
     minCount++;
+    popMatrix();
   }
   
   void drawDeathScreen(){
-  popMatrix();
+    pushMatrix();
+    translate(0,-50);
     rectMode(CORNER);
     fill(0);
     rect(width*0.125,height*0.125,width*0.750,height*0.750);
@@ -75,5 +78,6 @@ class VicScreen{
         println("Restarting game");
       }
     }
+    popMatrix();
   }
 }
