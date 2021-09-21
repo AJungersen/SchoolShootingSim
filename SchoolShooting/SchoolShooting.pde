@@ -1,3 +1,4 @@
+ //<>//
 Items items; //<>// //<>// //<>// //<>//
 Shooter shooter;
 Player player;
@@ -18,13 +19,14 @@ void draw()
 {
   if(vicScreen.won == true || vicScreen.lost == true){ //<>//
     //pushMatrix();//activate when activating vicscreen //<>// //<>//
+
   } //<>//
 background(150); //<>// //<>// //<>// //<>//
   //Skærm indeling //<>// //<>// //<>//
  //<>// //<>// //<>// //<>// //<>//
   playScreen.Draw(); //<>// //<>// //<>//
-  optionsScreen.Draw(); //<>// //<>// //<>//
-  textDisplayScreen.Draw();  //<>// //<>// //<>// //<>//
+  optionsScreen.Draw(); //<>// //<>// //<>// //<>//
+  textDisplayScreen.Draw();  //<>// //<>// //<>// //<>// //<>//
 
   vicScreen.totalTime(); //<>// //<>//
 
@@ -40,16 +42,17 @@ background(150); //<>// //<>// //<>// //<>//
   
   //Rooms
   Room1_156RightSide();
-  Room1_156LeftSide();
+  Room1_156LeftSide(); //<>//
   
-  //Classroooms //<>//
+  //Classroooms //<>// //<>// //<>//
   Classroom1_119();
-  Classroom1_121(); //<>// //<>// //<>//
-  
+  Classroom1_121(); //<>// //<>// //<>// //<>//
+
   if(vicScreen.won == false && vicScreen.lost == false){ //<>// //<>// //<>//
-  player.drawPlayer(); //<>// //<>//
-  player.movement(); //<>// //<>//
-  if(PVector.sub(player.position,shooter.position).mag()<20){ //<>// //<>//
+  player.drawPlayer(); //<>// //<>// //<>//
+  player.movement(); //<>//
+  player.bodyBlock();
+  if(PVector.sub(player.position,shooter.position).mag()<20){ //<>//
   player.strike(); //<>//
   } //<>//
   
@@ -69,7 +72,7 @@ background(150); //<>// //<>// //<>// //<>//
   for(int i = 0; i < bullets.size(); i++){
   bullets.get(i).drawBullet();
   bullets.get(i).updateLocation();
-  bullets.get(i).hit();
+  //bullets.get(i).hit();
   }
   for(int i = 0; i < itemList.size(); i++){
   if(itemList.get(i).newItem == true) {
@@ -80,7 +83,7 @@ background(150); //<>// //<>// //<>// //<>//
     if(itemList.get(i).itemStatus !=3){ //<>//
   itemList.get(i).drawItems();
     }
-  } //<>//
+  } //<>// //<>//
   }
   popMatrix();
   
@@ -100,9 +103,9 @@ background(150); //<>// //<>// //<>// //<>//
   if(vicScreen.won == true){
     vicScreen.drawVicScreen();
       } else if(vicScreen.lost == true){
-        vicScreen.drawDeathScreen();
+        vicScreen.drawDeathScreen(); //<>//
       }
-    }
+    } //<>//
      //<>//
     
   void keyPressed() { //<>//
@@ -110,8 +113,6 @@ background(150); //<>// //<>// //<>// //<>//
    if(itemList.get(i).itemStatus == 2){
     if(key == 'e') {
     println("pickup succes");
-    //println("dist" + dist(player.position.x, player.position.y, itemList.get(i).position.x, itemList.get(i).position.y));
-    //println(items.itemWidth);
     itemList.get(i).itemStatus = 3;   
     println(itemList.get(i).itemStatus);
     } //<>//

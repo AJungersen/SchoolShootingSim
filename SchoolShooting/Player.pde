@@ -4,11 +4,13 @@ class Player {
  PVector velocity = new PVector();
  float size;
  boolean speedBoost;
+ int hitChance;
  
  Player(PVector p, PVector v, float s){
    position = p.copy();
    velocity = v.copy();
    size = s;
+   hitChance = 4;
    
   }
  
@@ -20,7 +22,7 @@ class Player {
  void strike(){
  if(keyPressed == true){
      if(key == ' '){
-       if(random(10)>6){
+       if(random(10)<hitChance){
          vicScreen.won = true;
        }  else {
          vicScreen.lost = true;
@@ -32,8 +34,8 @@ class Player {
  void bodyBlock(){
   for(int i = 0; i < bots.size(); i++){
    if(PVector.sub(bots.get(i).position,position).mag()<(bots.get(i).size+size)/2){
-     velocity.add(PVector.sub(position,bots.get(i).position).normalize().mult(4));
-     bots.get(i).velocity.add(PVector.sub(bots.get(i).position,position).normalize().mult(4));
+     velocity.add(PVector.sub(position,bots.get(i).position).normalize().mult(8));
+     bots.get(i).velocity.add(PVector.sub(bots.get(i).position,position).normalize().mult(8));
    }
   }
  }

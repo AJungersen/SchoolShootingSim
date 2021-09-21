@@ -39,8 +39,9 @@ class ItemStats {
       ellipse(items.position.x, items.position.y, items.itemSize.x, items.itemSize.y);
       //---------------------------//
       //Player løber hurtigere//  
-      if (items.itemStatus == 3) {  
-
+       for(int i = 0; i < itemList.size(); i++){
+      if (itemList.get(i).itemStatus == 3) {  
+        println("løbetid");
         if (time >= 0) {  
           time = duration - (millis() - begin)/1000;
           rectMode(CORNERS);
@@ -48,6 +49,7 @@ class ItemStats {
           player.speedBoost = true;   
           println(player.velocity);
           return;
+        }
         }
       }
     }
@@ -61,6 +63,11 @@ class ItemStats {
       //----------------------------//
       //Player kan slå shooter// 
       //dog men lav succesrate//
+      for(int i = 0; i < itemList.size(); i++){
+      if (itemList.get(i).itemStatus == 3) {
+        player.hitChance = player.hitChance+2;
+      }
+      }
     }
   }  
   void Chair() {
