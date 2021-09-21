@@ -29,5 +29,8 @@ class Bullet {
      }
     }
    }
+   if(dist(player.position.x,player.position.y,location.x,location.y)<((size+player.size)/2)){
+     vicScreen.lost = true;
+   }
  }
 }

@@ -20,9 +20,9 @@ class Player {
  if(keyPressed == true){
      if(key == ' '){
        if(random(10)>6){
-         //insert game won
+         vicScreen.won = true;
        }  else {
-         //insert game lost
+         vicScreen.lost = true;
        }
      }
    }

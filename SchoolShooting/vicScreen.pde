@@ -27,7 +27,7 @@ class VicScreen{
   }
   
   void drawVicScreen(){//do colours even matter?
-    popMatrix();
+    //popMatrix();
     rectMode(CORNER);
     fill(0);
     rect(width*0.125,height*0.125,width*0.750,height*0.750);
@@ -54,7 +54,7 @@ class VicScreen{
   }
   
   void drawDeathScreen(){
-  popMatrix();
+  //popMatrix();
     rectMode(CORNER);
     fill(0);
     rect(width*0.125,height*0.125,width*0.750,height*0.750);

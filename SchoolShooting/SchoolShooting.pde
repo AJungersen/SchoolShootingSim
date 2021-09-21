@@ -43,18 +43,14 @@ void setup()
 void draw()
 {
   if(vicScreen.won == true || vicScreen.lost == true){
-    pushMatrix();//activate when activating vicscreen
+    //pushMatrix();//activate when activating vicscreen //<>//
   }
-background(150); //<>//
-<<<<<<< Updated upstream
-=======
-  //Skærm indeling
+background(150); //<>// //<>//
+  //Skærm indeling //<>//
  //<>// //<>//
-  playScreen.Draw(); //<>//
-  optionsScreen.Draw();
+  playScreen.Draw(); //<>// //<>//
+  optionsScreen.Draw(); //<>//
   textDisplayScreen.Draw();  //<>// //<>//
-  textDisplayScreen.Draw(); //<>// //<>//
->>>>>>> Stashed changes
 
   vicScreen.totalTime(); //<>// //<>// //<>// //<>//
 
