@@ -60,6 +60,7 @@ class Items {
         return;
       }
     }
-    itemStatus = 1;
+    //itemStatus = 1;
+    println(itemStatus);
   }
 }

@@ -67,6 +67,7 @@ class Player {
        }
       }
     }
+
   if(speedBoost == true) {
   velocity.mult(1.5); 
  }
