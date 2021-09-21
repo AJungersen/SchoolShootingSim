@@ -23,7 +23,7 @@ class VicScreen{
       min++;
       }*/
     }
-    println(min + ":" + time);
+    //println(min + ":" + time);
   }
   
   void drawVicScreen(){//do colours even matter?

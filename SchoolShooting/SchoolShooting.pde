@@ -1,4 +1,4 @@
-Items items; //<>//
+Items items; //<>// //<>//
 Shooter shooter;
 Player player;
 VicScreen vicScreen = new VicScreen();
@@ -45,12 +45,12 @@ void draw()
   if(vicScreen.won == true || vicScreen.lost == true){
     //pushMatrix();//activate when activating vicscreen //<>//
   }
-background(150); //<>// //<>//
+background(150); //<>// //<>// //<>//
   //Skærm indeling //<>//
- //<>// //<>//
+ //<>// //<>// //<>//
   playScreen.Draw(); //<>// //<>//
-  optionsScreen.Draw(); //<>//
-  textDisplayScreen.Draw();  //<>// //<>//
+  optionsScreen.Draw(); //<>// //<>//
+  textDisplayScreen.Draw();  //<>// //<>// //<>//
 
   vicScreen.totalTime(); //<>// //<>// //<>// //<>//
 
@@ -89,7 +89,7 @@ background(150); //<>// //<>//
   //Hr. shooter
   shooter.drawShooter();
   shooter.movement(player.position.x,player.position.y);
-  shooter.shoot();
+//  shooter.shoot();
  
   //bullet
   for(int i = 0; i < bullets.size(); i++){
@@ -106,7 +106,7 @@ background(150); //<>// //<>//
     if(itemList.get(i).itemStatus !=3){
   itemList.get(i).drawItems();
     }
-  }
+  } //<>//
   }
   popMatrix();
   
@@ -139,6 +139,7 @@ background(150); //<>// //<>//
     //println("dist" + dist(player.position.x, player.position.y, itemList.get(i).position.x, itemList.get(i).position.y));
     //println(items.itemWidth);
     itemList.get(i).itemStatus = 3;   
+    println(items.itemStatus);
     }
    }
     }
