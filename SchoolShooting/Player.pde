@@ -3,7 +3,7 @@ class Player {
  PVector position = new PVector();
  PVector velocity = new PVector();
  float size;
- boolean speedBoost, noSpeedBoost;
+ boolean smallSpeedBoost, bigSpeedBoost, noSpeedBoost;
  int hitChance;
  
  Player(PVector p, PVector v, float s){
@@ -70,8 +70,11 @@ class Player {
       }
     }
 
-  if(speedBoost == true) {
+  if(smallSpeedBoost == true) {
   velocity.mult(1.5); 
+ }
+  if(bigSpeedBoost == true) {
+  velocity.mult(2); 
  }
   if(noSpeedBoost == true){
    velocity.mult(0.5); 

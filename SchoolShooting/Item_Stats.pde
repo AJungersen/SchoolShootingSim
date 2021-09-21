@@ -14,15 +14,13 @@ class ItemStats {
       //Spilleren løber langsommere//
        for(int i = 0; i < itemList.size(); i++){
       if (itemList.get(i).itemStatus == 3) {  
-        println("løbetid");
         if (time >= 0) {  
           time = duration - (millis() - begin)/1000;
           rectMode(CORNERS);
           rect(990, 740, 960, 605-(duration - (millis() - begin)/280));
           player.noSpeedBoost = true;   
-          println(player.velocity);
           return;
-        }
+          } 
         }
       }      
     }
@@ -45,15 +43,13 @@ class ItemStats {
       //Player løber hurtigere//  
        for(int i = 0; i < itemList.size(); i++){
       if (itemList.get(i).itemStatus == 3) {  
-        println("løbetid");
         if (time >= 0) {  
           time = duration - (millis() - begin)/1000;
           rectMode(CORNERS);
           rect(990, 740, 960, 605-(duration - (millis() - begin)/280));
-          player.speedBoost = true;   
-          println(player.velocity);
+          player.smallSpeedBoost = true;   
           return;
-        }
+          }
         }
       }
     }
@@ -61,7 +57,6 @@ class ItemStats {
   void Bat() {
     if (items.itemNum == 4) {
       items.itemColor = color(254, 3, 255);
-      // println("bat");
       fill(items.itemColor);
       
       ellipse(items.position.x, items.position.y, items.itemSize.x, items.itemSize.y);  
@@ -71,7 +66,7 @@ class ItemStats {
       for(int i = 0; i < itemList.size(); i++){
       if (itemList.get(i).itemStatus == 3) {
         player.hitChance = player.hitChance+2;
-      }
+        }
       }
     }
   }  
@@ -82,7 +77,19 @@ class ItemStats {
       ellipse(items.position.x, items.position.y, items.itemSize.x, items.itemSize.y);
       //------------------------------------//
       //Player bevæger sig langsommere//
-      //men kan slå shooter med høj succesrate//
+      //men kan slå shooter med høj succesrate// 
+      for(int i = 0; i < itemList.size(); i++){
+      if (itemList.get(i).itemStatus == 3) {
+        if (time >= 0) {  
+          time = duration - (millis() - begin)/1000;
+          rectMode(CORNERS);
+          rect(990, 740, 960, 605-(duration - (millis() - begin)/280));
+          player.bigSpeedBoost = true;  
+          player.hitChance = player.hitChance+4;
+          return;
+          }
+        }
+      }
     }
   }
   void Computer() {

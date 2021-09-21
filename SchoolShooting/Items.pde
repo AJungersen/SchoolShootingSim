@@ -48,19 +48,14 @@ class Items {
   }
 
   void detectItems () {
-    //println("dist: " +dist(player.position.x, player.position.y, position.x, position.y));
-    //println("w: " + itemWidth);
     if (itemStatus ==3) {
       return;
     }
     if (itemStatus == 1) {
       if (dist(player.position.x, player.position.y, position.x, position.y)  <=  itemSize.x + player.size) {
-        println("here");
         itemStatus = 2;
         return;
       }
     }
-    //itemStatus = 1;
-    println(itemStatus);
   }
 }

@@ -1,5 +1,4 @@
- //<>// //<>//
-Items items; //<>// //<>// //<>// //<>//
+Items items;  //<>//
 Shooter shooter;
 Player player;
 VicScreen vicScreen = new VicScreen();
@@ -17,21 +16,20 @@ reset();
 
 void draw()
 {
-  if(vicScreen.won == true || vicScreen.lost == true){ //<>//
-    //pushMatrix();//activate when activating vicscreen //<>// //<>//
+  if(vicScreen.won == true || vicScreen.lost == true){ 
+    //pushMatrix();//activate when activating vicscreen 
 
-  } //<>//
-background(150); //<>// //<>// //<>// //<>//
-  //Skærm indeling //<>// //<>// //<>//
- //<>// //<>// //<>// //<>// //<>//
-  playScreen.Draw(); //<>// //<>// //<>//
-  optionsScreen.Draw(); //<>// //<>// //<>// //<>//
-  textDisplayScreen.Draw();  //<>// //<>// //<>// //<>// //<>//
+  } 
+background(150); 
+  //Skærm indeling
+  playScreen.Draw(); 
+  optionsScreen.Draw(); 
+  textDisplayScreen.Draw();  
 
-  vicScreen.totalTime(); //<>// //<>//
+  vicScreen.totalTime(); 
 
-  pushMatrix(); //<>// //<>//
-  translate(-player.position.copy().x+width/2, -player.position.copy().y+height/2); //<>// //<>// //<>// //<>// //<>//
+  pushMatrix(); 
+  translate(-player.position.copy().x+width/2, -player.position.copy().y+height/2); 
 
   //PlayScreen
   playScreen.Draw();
@@ -42,24 +40,24 @@ background(150); //<>// //<>// //<>// //<>//
   
   //Rooms
   Room1_156RightSide();
-  Room1_156LeftSide(); //<>//
-   //<>//
-  //Classroooms //<>// //<>// //<>//
-  Classroom1_119(); //<>//
-  Classroom1_121(); //<>// //<>// //<>// //<>//
- //<>//
-  if(vicScreen.won == false && vicScreen.lost == false){ //<>// //<>// //<>// //<>//
-  player.drawPlayer(); //<>// //<>// //<>//
-  player.movement(); //<>//
-  player.bodyBlock();
-  if(PVector.sub(player.position,shooter.position).mag()<20){ //<>//
-  player.strike(); //<>//
-  } //<>//
+  Room1_156LeftSide(); 
   
-  //bots //<>//
+  //Classroooms 
+  Classroom1_119(); 
+  Classroom1_121(); 
+   //<>//
+  if(vicScreen.won == false && vicScreen.lost == false){
+  player.drawPlayer();  //<>//
+  player.movement();
+  player.bodyBlock(); //<>//
+  if(PVector.sub(player.position,shooter.position).mag()<20){  //<>//
+  player.strike(); 
+  } 
+  
+  //bots 
   for(int i = 0; i < bots.size(); i++){ 
-  bots.get(i).randomMovement(i); //<>//
-  bots.get(i).flee(); //<>//
+  bots.get(i).randomMovement(i); 
+  bots.get(i).flee();
   bots.get(i).movement();
   bots.get(i).drawBot();
   }
@@ -80,17 +78,17 @@ background(150); //<>// //<>// //<>// //<>//
   }
   }
   for(int i = 0; i < itemList.size(); i++){
-    if(itemList.get(i).itemStatus !=3){ //<>//
+    if(itemList.get(i).itemStatus !=3){
   itemList.get(i).drawItems();
     }
-  } //<>// //<>//
+  } 
   }
   popMatrix();
   
   //Skærm indeling
   playScreen.Draw();
   optionsScreen.Draw();
-  textDisplayScreen.Draw();  //<>// //<>//
+  textDisplayScreen.Draw(); 
   textDisplayScreen.Draw();
   
    for(int i = 0; i < itemList.size(); i++){
@@ -104,19 +102,16 @@ background(150); //<>// //<>// //<>// //<>//
   if(vicScreen.won == true){
     vicScreen.drawVicScreen();
       } else if(vicScreen.lost == true){
-        vicScreen.drawDeathScreen(); //<>// //<>//
+        vicScreen.drawDeathScreen(); 
       }
-    } //<>//
-     //<>//
+    } 
     
-  void keyPressed() { //<>//
+  void keyPressed() {  //<>//
     for(int i = 0; i < itemList.size(); i++){
    if(itemList.get(i).itemStatus == 2){
     if(key == 'e') {
-    println("pickup succes");
     itemList.get(i).itemStatus = 3;   
-    println(itemList.get(i).itemStatus);
-    } //<>//
+    }
    }
     }
   }
@@ -134,9 +129,7 @@ void reset(){
   for (int i = 0; i < 100; i++) {
     bots.add(new Bots(new PVector(400, 400), new PVector(random(2)-1, random(2)-1), 20));//considering whether we should put the player and students inside the classrooms instead of generation bots randomly
   }
-  //player = new Player(new PVector(500, 500),new PVector(0, 0), 20);
-  
-  
+    
   DefaultBigRoom = new BigRoom();
   hallway = new Hallway();
   
@@ -147,7 +140,7 @@ void reset(){
   Classroom1_121 = new Classroom();
   
   player = new Player(new PVector(playScreen.size.x - 75, playScreen.size.y - 75), new PVector(0, 0), 25);
-  //vicScreen.won = true;
+
   
   
   begin = millis();

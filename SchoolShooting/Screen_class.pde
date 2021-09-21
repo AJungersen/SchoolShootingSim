@@ -30,7 +30,6 @@ class PlayScreen
       rectMode(CENTER);
       strokeWeight(2);
       noFill();
-      //fill(150);
       stroke(0);
       rect(position.x, position.y, size.x, size.y);
     }

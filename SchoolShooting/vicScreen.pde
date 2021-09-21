@@ -43,7 +43,6 @@ class VicScreen{
         reset();
         won = false;
         items.select = true;
-        println("Restarting game");
       }
     }
     popMatrix();
@@ -64,13 +63,10 @@ class VicScreen{
     fill(0);
     textSize(35);
     text("Press to play again",10+(width/6)*2,200+height/2);
-    //println(mouseX, " ", mouseY);
     if(mousePressed == true){
       if(mouseX<(2*width/3) && mouseY<(height*0.7) && mouseX>(width/3) && mouseY>80){
-        //reset();
         lost = false;
         items.select = true;
-        println("Restarting game");
       }
     }
     popMatrix();
