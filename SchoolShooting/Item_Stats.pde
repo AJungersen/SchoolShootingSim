@@ -63,6 +63,11 @@ class ItemStats {
       //----------------------------//
       //Player kan slå shooter// 
       //dog men lav succesrate//
+      for(int i = 0; i < itemList.size(); i++){
+      if (itemList.get(i).itemStatus == 3) {
+        player.hitChance = player.hitChance+2;
+      }
+      }
     }
   }  
   void Chair() {
