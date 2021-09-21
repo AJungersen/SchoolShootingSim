@@ -72,7 +72,7 @@ background(150); //<>// //<>//
   Classroom1_119();
   Classroom1_121();
   
-  
+  if(vicScreen.won == false && vicScreen.lost == false){
   player.drawPlayer();
   player.movement();
   if(PVector.sub(player.position,shooter.position).mag()<20){
@@ -106,6 +106,7 @@ background(150); //<>// //<>//
     if(itemList.get(i).itemStatus !=3){
   itemList.get(i).drawItems();
     }
+  }
   }
   popMatrix();
   
