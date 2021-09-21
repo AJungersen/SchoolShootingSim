@@ -59,6 +59,7 @@ class ItemStats {
       items.itemColor = color(254, 3, 255);
       // println("bat");
       fill(items.itemColor);
+      
       ellipse(items.position.x, items.position.y, items.itemSize.x, items.itemSize.y);  
       //----------------------------//
       //Player kan slå shooter// 
