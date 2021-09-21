@@ -46,6 +46,15 @@ void draw()
     pushMatrix();//activate when activating vicscreen
   }
 background(150); //<>//
+<<<<<<< Updated upstream
+=======
+  //Skærm indeling
+ //<>// //<>//
+  playScreen.Draw(); //<>//
+  optionsScreen.Draw();
+  textDisplayScreen.Draw();  //<>// //<>//
+  textDisplayScreen.Draw(); //<>// //<>//
+>>>>>>> Stashed changes
 
   vicScreen.totalTime(); //<>// //<>// //<>// //<>//
 
@@ -93,8 +102,9 @@ background(150); //<>//
   bullets.get(i).hit();
   }
   if(items.newItem == true) {
-  //items.spawnItems();
-  items.detectItems();
+  for(int i = 0; i < itemList.size(); i++){
+  itemList.get(i).detectItems();
+  }
   }
   for(int i = 0; i < itemList.size(); i++){
     if(itemList.get(i).itemStatus !=3){
@@ -125,12 +135,14 @@ background(150); //<>//
     
     
   void keyPressed() {
-   if(items.itemStatus == 2){
+    for(int i = 0; i < itemList.size(); i++){
+   if(itemList.get(i).itemStatus == 2){
     if(key == 'e') {
     println("pickup succes");
-    println("dist" + dist(player.position.x, player.position.y, items.position.x, items.position.y));
+    println("dist" + dist(player.position.x, player.position.y, itemList.get(i).position.x, itemList.get(i).position.y));
     println(items.itemWidth);
-    items.itemStatus = 3;   
+    itemList.get(i).itemStatus = 3;   
     }
    }
+    }
   }

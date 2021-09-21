@@ -54,7 +54,7 @@ class Items {
       return;
     }
     if (itemStatus == 1) {
-      if (dist(player.position.x, player.position.y, position.x, position.y)  <=  items.itemSize.x + player.size) {
+      if (dist(player.position.x, player.position.y, position.x, position.y)  <=  itemSize.x + player.size) {
         println("here");
         itemStatus = 2;
         return;
