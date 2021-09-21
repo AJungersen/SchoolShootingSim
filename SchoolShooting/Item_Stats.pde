@@ -30,12 +30,12 @@ class ItemStats {
       ellipse(items.position.x, items.position.y, items.itemSize.x, items.itemSize.y);
       //---------------------------//
       //Player løber hurtigere//  
-      if (items.itemStatus == 3) {   
+      if (items.itemStatus == 3) {  
+        player.speedBoost = true;
         if (time >= 0) {  
           time = duration - (millis() - begin)/1000;
-          text(time, 80, 80);
           rectMode(CORNERS);
-          rect(990, 740, 950, 605-(duration - (millis() - begin)/280));
+          rect(990, 740, 960, 605-(duration - (millis() - begin)/280));
           return;
         }
       }
