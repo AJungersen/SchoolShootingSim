@@ -22,7 +22,7 @@ class Items {
 
     switch(items.itemNum) {
     case 1:
-      itemStats.Crowbar();
+      itemStats.Bagpack();
       break;
 
     case 2:

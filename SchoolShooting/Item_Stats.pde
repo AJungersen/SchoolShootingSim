@@ -5,13 +5,22 @@ class ItemStats {
 
 
 
-  void Crowbar() {
+  void Bagpack() {
     if (items.itemNum == 1) {
       items.itemColor =  color(255, 0, 0);
       fill(items.itemColor);
       ellipse(items.position.x, items.position.y, items.itemSize.x, items.itemSize.y);
       //--------------------------//
-      //Åbner alle døre//
+      //Spilleren løber langsommere//
+      if (items.itemStatus == 3) {  
+     //   player.speedBoost = true;
+        if (time >= 0) {  
+          time = duration - (millis() - begin)/1000;
+          rectMode(CORNERS);
+          rect(990, 740, 960, 605-(duration - (millis() - begin)/280));
+          return;
+        }
+      }      
     }
   }
   void Key() {
@@ -31,11 +40,13 @@ class ItemStats {
       //---------------------------//
       //Player løber hurtigere//  
       if (items.itemStatus == 3) {  
-        player.speedBoost = true;
+
         if (time >= 0) {  
           time = duration - (millis() - begin)/1000;
           rectMode(CORNERS);
           rect(990, 740, 960, 605-(duration - (millis() - begin)/280));
+          player.speedBoost = true;   
+          println(player.velocity);
           return;
         }
       }
