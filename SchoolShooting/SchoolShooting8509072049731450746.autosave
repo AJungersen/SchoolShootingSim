@@ -1,9 +1,11 @@
-Items items; //<>// //<>// //<>// //<>//
+import de.bezier.data.sql.*; //<>//
+
+SQLite dataBase;
+Items items; //<>// //<>// //<>//
 Shooter shooter;
 Player player;
 VicScreen vicScreen = new VicScreen();
 ItemStats itemStats = new ItemStats();
-Table highScores;
 
 
 void setup()
@@ -16,6 +18,8 @@ reset();
 
 void draw()
 {
+  
+  
   if(vicScreen.won == true || vicScreen.lost == true){ //<>//
     //pushMatrix();//activate when activating vicscreen //<>// //<>//
   } //<>//
@@ -42,14 +46,14 @@ background(150); //<>// //<>// //<>// //<>//
   Room1_156RightSide();
   Room1_156LeftSide();
   
-  //Classroooms //<>//
+  //Classroooms
   Classroom1_119();
-  Classroom1_121(); //<>// //<>// //<>//
+  Classroom1_121(); //<>//
   
-  if(vicScreen.won == false && vicScreen.lost == false){ //<>// //<>// //<>//
-  player.drawPlayer(); //<>// //<>//
-  player.movement(); //<>// //<>//
-  if(PVector.sub(player.position,shooter.position).mag()<20){ //<>// //<>//
+  if(vicScreen.won == false && vicScreen.lost == false){ //<>//
+  player.drawPlayer(); //<>//
+  player.movement(); //<>//
+  if(PVector.sub(player.position,shooter.position).mag()<20){ //<>//
   player.strike(); //<>//
   } //<>//
   
@@ -103,9 +107,9 @@ background(150); //<>// //<>// //<>// //<>//
         vicScreen.drawDeathScreen();
       }
     }
-     //<>//
     
-  void keyPressed() { //<>//
+    
+  void keyPressed() {
     for(int i = 0; i < itemList.size(); i++){
    if(itemList.get(i).itemStatus == 2){
     if(key == 'e') {
@@ -120,12 +124,10 @@ background(150); //<>// //<>// //<>// //<>//
   }
   
 void reset(){
+  dataBase = new SQLite(this, "highScores.sqlite");
   playScreen = new PlayScreen();
   optionsScreen = new OptionsScreen();
   textDisplayScreen = new TextDisplayScreen();
-  highScores = loadTable("gameHighScores.csv", "header");
-  TableRow newRow = highScores.addRow();
-  
 
   items = new Items(new PVector(0,0));
   shooter = new Shooter(new PVector(1500, 1500),new PVector(10, 10), 25);//i thnik thids migth lock the shooter to a specific position. idk if it's meant as temporarily
@@ -145,13 +147,8 @@ void reset(){
   Classroom1_121 = new Classroom();
   
   player = new Player(new PVector(playScreen.size.x - 75, playScreen.size.y - 75), new PVector(0, 0), 25);
-  //vicScreen.won = true;
+  vicScreen.won = true;
   
   
   begin = millis();
-  
-  for(int i = 0; i < itemList.size(); i++){
-    itemList.get(i).itemStatus = 1;
-  }
-  
 }
