@@ -12,13 +12,17 @@ class ItemStats {
       ellipse(items.position.x, items.position.y, items.itemSize.x, items.itemSize.y);
       //--------------------------//
       //Spilleren løber langsommere//
-      if (items.itemStatus == 3) {  
-     //   player.speedBoost = true;
+       for(int i = 0; i < itemList.size(); i++){
+      if (itemList.get(i).itemStatus == 3) {  
+        println("løbetid");
         if (time >= 0) {  
           time = duration - (millis() - begin)/1000;
           rectMode(CORNERS);
           rect(990, 740, 960, 605-(duration - (millis() - begin)/280));
+          player.noSpeedBoost = true;   
+          println(player.velocity);
           return;
+        }
         }
       }      
     }
