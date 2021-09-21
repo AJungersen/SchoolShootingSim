@@ -1,4 +1,4 @@
-Items items; //<>// //<>//
+Items items; //<>// //<>// //<>//
 Shooter shooter;
 Player player;
 VicScreen vicScreen = new VicScreen();
@@ -43,19 +43,19 @@ void setup()
 void draw()
 {
   if(vicScreen.won == true || vicScreen.lost == true){
-    //pushMatrix();//activate when activating vicscreen //<>//
+    //pushMatrix();//activate when activating vicscreen //<>// //<>//
   }
-background(150); //<>// //<>// //<>//
-  //Skærm indeling //<>//
- //<>// //<>// //<>//
-  playScreen.Draw(); //<>// //<>//
-  optionsScreen.Draw(); //<>// //<>//
-  textDisplayScreen.Draw();  //<>// //<>// //<>//
+background(150); //<>// //<>// //<>// //<>//
+  //Skærm indeling //<>// //<>//
+ //<>// //<>// //<>// //<>//
+  playScreen.Draw(); //<>// //<>// //<>//
+  optionsScreen.Draw(); //<>// //<>// //<>//
+  textDisplayScreen.Draw();  //<>// //<>// //<>// //<>//
 
-  vicScreen.totalTime(); //<>//
+  vicScreen.totalTime(); //<>// //<>//
 
-  pushMatrix(); //<>//
-  translate(-player.position.copy().x+width/2, -player.position.copy().y+height/2); //<>// //<>// //<>// //<>//
+  pushMatrix(); //<>// //<>//
+  translate(-player.position.copy().x+width/2, -player.position.copy().y+height/2); //<>// //<>// //<>// //<>// //<>//
 
   //PlayScreen
   playScreen.Draw();
@@ -113,7 +113,7 @@ background(150); //<>// //<>// //<>//
   //Skærm indeling
   playScreen.Draw();
   optionsScreen.Draw();
-  textDisplayScreen.Draw();  //<>//
+  textDisplayScreen.Draw();  //<>// //<>//
   textDisplayScreen.Draw();
   
    for(int i = 0; i < itemList.size(); i++){
@@ -139,7 +139,7 @@ background(150); //<>// //<>// //<>//
     //println("dist" + dist(player.position.x, player.position.y, itemList.get(i).position.x, itemList.get(i).position.y));
     //println(items.itemWidth);
     itemList.get(i).itemStatus = 3;   
-    println(items.itemStatus);
+    println(itemList.get(i).itemStatus);
     }
    }
     }
