@@ -35,7 +35,7 @@ class VicScreen{
     text("Press to play again",10+(width/6)*2,200+height/2);
     if(mousePressed){
       if(mouseX<(width/3) && mouseY<(height*0.7) && mouseX>(2*width/6) && mouseY>80){
-        //code to reset game
+        reset();
         won = false;
         items.select = true;
         println("Restarting game");
@@ -59,9 +59,10 @@ class VicScreen{
     fill(0);
     textSize(35);
     text("Press to play again",10+(width/6)*2,200+height/2);
-    if(mousePressed){
-      if(mouseX<(width/3) && mouseY<(height*0.7) && mouseX>(2*width/6) && mouseY>80){
-        //code to reset game
+    //println(mouseX, " ", mouseY);
+    if(mousePressed == true){
+      if(mouseX<(2*width/3) && mouseY<(height*0.7) && mouseX>(width/3) && mouseY>80){
+        //reset();
         lost = false;
         items.select = true;
         println("Restarting game");
