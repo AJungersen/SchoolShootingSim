@@ -145,4 +145,9 @@ void reset(){
   
   
   begin = millis();
+  
+  for(int i = 0; i < itemList.size(); i++){
+    itemList.get(i).itemStatus = 1;
+  }
+  
 }

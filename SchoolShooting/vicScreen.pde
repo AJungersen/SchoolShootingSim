@@ -28,7 +28,7 @@ class VicScreen{
     text("Congratulations",(width/4)+45,height/2);
     textSize(40);
     text("You made it out of your school alive", 25+width/8, (height/2)+50);
-    text("Your time was: " + min + ":" + sec, (width/4)-15, (height/2)+100);//i havent checked whther this is actually how time works, so it might just come back and bite us in the ass
+    text("Your time was: " + min + ":" + (sec-60*min), (width/4)-15, (height/2)+100);//i havent checked whther this is actually how time works, so it might just come back and bite us in the ass
     rect(width/3,height*0.7,2*width/6,80);
     fill(0);
     textSize(35);
@@ -41,7 +41,7 @@ class VicScreen{
         println("Restarting game");
       }
     }
-    //popMatrix();
+    popMatrix();
   }
   
   void drawDeathScreen(){
