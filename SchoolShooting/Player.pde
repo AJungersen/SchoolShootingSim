@@ -3,6 +3,7 @@ class Player {
  PVector position = new PVector();
  PVector velocity = new PVector();
  float size;
+ boolean speedBoost;
  
  Player(PVector p, PVector v, float s){
    position = p.copy();
@@ -54,6 +55,10 @@ class Player {
        }
     }
  }
+ if(speedBoost == true) {
+  velocity.mult(1.5); 
+ }
+ 
  position.add(velocity);
  velocity.set(0,0);
 }
