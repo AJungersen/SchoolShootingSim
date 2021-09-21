@@ -7,7 +7,6 @@ class VicScreen{
   
   
   VicScreen(){
-    
   }
   
 
@@ -15,10 +14,7 @@ class VicScreen{
   sec = round(millis()/1000);
   if(sec%60==0 && min*60<sec){
   min++;
-  sec-=60;
-  }
-  println(min, ':', sec-60*min);
-
+    }
   }
   
   void drawVicScreen(){//do colours even matter?
@@ -45,9 +41,7 @@ class VicScreen{
         println("Restarting game");
       }
     }
-
     //popMatrix();
-
   }
   
   void drawDeathScreen(){
