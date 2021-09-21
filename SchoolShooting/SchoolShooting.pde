@@ -36,6 +36,8 @@ void setup()
   //vicScreen.won = true;
   vicScreen.secStart = second();
   vicScreen.minStart = minute();
+  
+  begin = millis(); 
 }
 
 void draw()

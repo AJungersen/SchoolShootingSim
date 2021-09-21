@@ -14,7 +14,7 @@ class Items {
   Items(PVector _position) {  
         position.set(PVector.add(_position,new PVector(100,100)));
         numItems = int(random(0, 10));
-        itemNum = int(random(1, 6));
+        itemNum = 3;
         itemStatus = 1;
     }
 
