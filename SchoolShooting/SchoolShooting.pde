@@ -52,7 +52,7 @@ background(150); //<>// //<>// //<>//
   optionsScreen.Draw(); //<>// //<>//
   textDisplayScreen.Draw();  //<>// //<>// //<>//
 
-  vicScreen.totalTime(); //<>// //<>// //<>// //<>//
+  vicScreen.totalTime(); //<>//
 
   pushMatrix(); //<>//
   translate(-player.position.copy().x+width/2, -player.position.copy().y+height/2); //<>// //<>// //<>// //<>//
@@ -97,8 +97,8 @@ background(150); //<>// //<>// //<>//
   bullets.get(i).updateLocation();
   bullets.get(i).hit();
   }
-  if(items.newItem == true) {
   for(int i = 0; i < itemList.size(); i++){
+  if(itemList.get(i).newItem == true) {
   itemList.get(i).detectItems();
   }
   }
@@ -116,13 +116,13 @@ background(150); //<>// //<>// //<>//
   textDisplayScreen.Draw();  //<>//
   textDisplayScreen.Draw();
   
-  
- if(items.itemStatus == 3){
-  items.newItem = false;
-  items.position.set( (textDisplayScreen.Position.y)-(items.itemSize.y/2),(textDisplayScreen.Position.x)-items.itemSize.x+10);
-  items.drawItems();
+   for(int i = 0; i < itemList.size(); i++){
+ if(itemList.get(i).itemStatus == 3){
+  itemList.get(i).newItem = false;
+  itemList.get(i).position.set( (textDisplayScreen.Position.y)-(itemList.get(i).itemSize.y/2),(textDisplayScreen.Position.x)-itemList.get(i).itemSize.x+10);
+  itemList.get(i).drawItems();
   }
-  
+   }
   if(vicScreen.won == true){
     vicScreen.drawVicScreen();
       } else if(vicScreen.lost == true){
