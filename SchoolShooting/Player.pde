@@ -18,9 +18,17 @@ class Player {
  }
  
  void strike(){
+   int chance = 6;
  if(keyPressed == true){
      if(key == ' '){
-       if(random(10)>6){
+       if(items.itemNum == 4){
+        for(int i = 0; i < itemList.size(); i++){
+         if(itemList.get(i).itemStatus == 3){
+           
+         }
+        }
+       }
+       if(random(10)>chance){
          vicScreen.won = true;
        }  else {
          vicScreen.lost = true;
