@@ -54,7 +54,7 @@ class OptionsScreen//ill use this for the timer
       rect(position.x, position.y, size.x, size.y);
       textSize(50);
       fill(0);
-      text(vicScreen.min + ":" + vicScreen.time,(width/2)-150, position.y+20); 
+      text(vicScreen.min + ":" + vicScreen.sec,(width/2)-150, position.y+20); 
     }
 }
 

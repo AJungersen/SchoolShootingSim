@@ -34,8 +34,7 @@ void setup()
   
   player = new Player(new PVector(playScreen.size.x - 75, playScreen.size.y - 75), new PVector(0, 0), 25);
   //vicScreen.won = true;
-  vicScreen.secStart = second();
-  vicScreen.minStart = minute();
+  
   
   begin = millis(); 
 }
