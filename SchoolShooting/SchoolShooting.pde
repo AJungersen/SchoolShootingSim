@@ -1,4 +1,7 @@
-Items items; //<>// //<>// //<>// //<>//
+import de.bezier.data.sql.*; //<>// //<>//
+
+SQLite dataBase;
+Items items; //<>// //<>// //<>//
 Shooter shooter;
 Player player;
 VicScreen vicScreen = new VicScreen();
@@ -15,12 +18,12 @@ reset();
 
 void draw()
 {
-  if(vicScreen.won == true || vicScreen.lost == true){
+  if(vicScreen.won == true || vicScreen.lost == true){ //<>//
     //pushMatrix();//activate when activating vicscreen //<>// //<>//
-  }
+  } //<>//
 background(150); //<>// //<>// //<>// //<>//
-  //Skærm indeling //<>// //<>//
- //<>// //<>// //<>// //<>//
+  //Skærm indeling //<>// //<>// //<>//
+ //<>// //<>// //<>// //<>// //<>//
   playScreen.Draw(); //<>// //<>// //<>//
   optionsScreen.Draw(); //<>// //<>// //<>//
   textDisplayScreen.Draw();  //<>// //<>// //<>// //<>//
@@ -41,12 +44,12 @@ background(150); //<>// //<>// //<>// //<>//
   Room1_156RightSide();
   Room1_156LeftSide();
   
-  //Classroooms
+  //Classroooms //<>//
   Classroom1_119();
-  Classroom1_121(); //<>//
+  Classroom1_121(); //<>// //<>//
   
-  if(vicScreen.won == false && vicScreen.lost == false){ //<>//
-  player.drawPlayer(); //<>//
+  if(vicScreen.won == false && vicScreen.lost == false){ //<>// //<>//
+  player.drawPlayer(); //<>// //<>//
   player.movement(); //<>//
   if(PVector.sub(player.position,shooter.position).mag()<20){ //<>//
   player.strike(); //<>//
@@ -76,7 +79,7 @@ background(150); //<>// //<>// //<>// //<>//
   }
   }
   for(int i = 0; i < itemList.size(); i++){
-    if(itemList.get(i).itemStatus !=3){
+    if(itemList.get(i).itemStatus !=3){ //<>//
   itemList.get(i).drawItems();
     }
   } //<>//
@@ -102,7 +105,7 @@ background(150); //<>// //<>// //<>// //<>//
         vicScreen.drawDeathScreen();
       }
     }
-    
+     //<>//
     
   void keyPressed() {
     for(int i = 0; i < itemList.size(); i++){
