@@ -48,8 +48,8 @@ class Items {
   }
 
   void detectItems () {
-    println("dist: " +dist(player.position.x, player.position.y, position.x, position.y));
-    println("w: " + itemWidth);
+    //println("dist: " +dist(player.position.x, player.position.y, position.x, position.y));
+    //println("w: " + itemWidth);
     if (itemStatus ==3) {
       return;
     }

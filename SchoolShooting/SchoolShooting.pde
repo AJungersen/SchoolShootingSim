@@ -136,8 +136,8 @@ background(150); //<>// //<>//
    if(itemList.get(i).itemStatus == 2){
     if(key == 'e') {
     println("pickup succes");
-    println("dist" + dist(player.position.x, player.position.y, itemList.get(i).position.x, itemList.get(i).position.y));
-    println(items.itemWidth);
+    //println("dist" + dist(player.position.x, player.position.y, itemList.get(i).position.x, itemList.get(i).position.y));
+    //println(items.itemWidth);
     itemList.get(i).itemStatus = 3;   
     }
    }
