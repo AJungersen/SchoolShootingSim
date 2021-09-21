@@ -1,9 +1,9 @@
-ArrayList<Items> itemList = new ArrayList();
 class Items {
   //itemStatus: 1=not in range,  2=in range,  3=picked up
   int numItems, itemNum, itemStatus;
   boolean select = false;
   boolean RoomSwitch = false;
+  boolean randomNumber = false;
   boolean newItem = true;
   PVector itemSize = new PVector(100, 100);
   PVector position = new PVector (100, 100);
@@ -11,12 +11,27 @@ class Items {
   color itemColor;
 
 
-  Items(PVector _position) {  
-        position.set(PVector.add(_position,new PVector(100,100)));
+  void spawnItems() {
+
+    if (RoomSwitch == true) {
+      if (select == true) {
         numItems = int(random(0, 10));
+        //itemNum = int(random(1, 6));
         itemNum = 3;
         itemStatus = 1;
+        randomNumber = true;
+        select = false;
+      }
     }
+    if (numItems > 0) {
+      items.drawItems();
+    }
+    if (numItems < 10) {
+      randomNumber = false;
+    }
+  }
+
+
 
   void drawItems() {
 
