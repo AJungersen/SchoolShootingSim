@@ -20,13 +20,14 @@ void draw()
 {
   if(vicScreen.won == true || vicScreen.lost == true){ //<>//
     //pushMatrix();//activate when activating vicscreen //<>// //<>//
+
   } //<>//
 background(150); //<>// //<>// //<>// //<>//
   //Skærm indeling //<>// //<>// //<>//
  //<>// //<>// //<>// //<>// //<>//
   playScreen.Draw(); //<>// //<>// //<>//
-  optionsScreen.Draw(); //<>// //<>// //<>//
-  textDisplayScreen.Draw();  //<>// //<>// //<>// //<>//
+  optionsScreen.Draw(); //<>// //<>// //<>// //<>//
+  textDisplayScreen.Draw();  //<>// //<>// //<>// //<>// //<>//
 
   vicScreen.totalTime(); //<>// //<>//
 
@@ -82,7 +83,7 @@ background(150); //<>// //<>// //<>// //<>//
     if(itemList.get(i).itemStatus !=3){ //<>//
   itemList.get(i).drawItems();
     }
-  } //<>//
+  } //<>// //<>//
   }
   popMatrix();
   
@@ -112,8 +113,6 @@ background(150); //<>// //<>// //<>// //<>//
    if(itemList.get(i).itemStatus == 2){
     if(key == 'e') {
     println("pickup succes");
-    //println("dist" + dist(player.position.x, player.position.y, itemList.get(i).position.x, itemList.get(i).position.y));
-    //println(items.itemWidth);
     itemList.get(i).itemStatus = 3;   
     println(itemList.get(i).itemStatus);
     } //<>//
