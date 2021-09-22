@@ -25,8 +25,9 @@ background(150);
   playScreen.Draw(); 
   optionsScreen.Draw(); 
   textDisplayScreen.Draw();  
-
+if(vicScreen.won == false && vicScreen.lost == false){
   vicScreen.totalTime(); 
+}
 
   pushMatrix(); 
   translate(-player.position.copy().x+width/2, -player.position.copy().y+height/2); 
@@ -50,7 +51,7 @@ background(150);
   player.drawPlayer();  //<>//
   player.movement();
   player.bodyBlock(); //<>//
-  if(PVector.sub(player.position,shooter.position).mag()<20){  //<>//
+  if(PVector.sub(player.position,shooter.position).mag()<30){  //<>//
   player.strike(); 
   } 
   
