@@ -4,7 +4,7 @@ Player player;
 VicScreen vicScreen = new VicScreen();
 ItemStats itemStats = new ItemStats();
 Table highScores;
-
+boolean invis = false;
 
 void setup()
 {
