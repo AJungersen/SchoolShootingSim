@@ -42,7 +42,7 @@ class Items {
       break;
 
     case 6:
-      itemStats.Computer();
+      itemStats.Camojakke();
       break;
     }
   }
