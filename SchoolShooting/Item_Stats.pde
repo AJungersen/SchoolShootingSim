@@ -72,7 +72,7 @@ class ItemStats {
   }  
   void Chair() {
     if (items.itemNum == 5) {
-      items.itemColor = color(254, 255, 3);
+items.itemColor = color(254, 255, 3);
       fill(items.itemColor);
       ellipse(items.position.x, items.position.y, items.itemSize.x, items.itemSize.y);
       //------------------------------------//
@@ -84,7 +84,7 @@ class ItemStats {
           time = duration - (millis() - begin)/1000;
           rectMode(CORNERS);
           rect(990, 740, 960, 605-(duration - (millis() - begin)/280));
-          player.bigSpeedBoost = true;  
+          player.bigSpeedBoost = true;   
           player.hitChance = player.hitChance+4;
           return;
           }
@@ -92,7 +92,7 @@ class ItemStats {
       }
     }
   }
-  void Computer() {
+  void Camojakke() {
     if (items.itemNum == 6) {
       items.itemColor = color(2, 254, 255);
       fill(items.itemColor);

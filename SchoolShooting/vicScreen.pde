@@ -34,8 +34,6 @@ class VicScreen{
     fill(0);
     textSize(35);
     text("Press to play again",10+(width/6)*2,200+height/2);
-    //newRow = ("name", vicScreen.playerName); 
-    //newRow = ("name", vicScreen.playerName);
     
     
     if(mousePressed){
