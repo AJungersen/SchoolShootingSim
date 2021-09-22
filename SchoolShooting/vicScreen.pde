@@ -3,7 +3,6 @@ class VicScreen{
   boolean lost = false;
   int sec;
   int min;
-  int emptyRow;
   String playerName = "John Doe";
   
   
@@ -12,9 +11,11 @@ class VicScreen{
   
 
   void totalTime(){
-  sec = round(millis()/1000);
-  if(sec%60==0 && min*60<sec){
-  min++;
+    if(won == false){
+    sec = round(millis()/1000);
+    if(sec%60==0 && min*60<sec){
+      min++;
+      }
     }
   }
   
@@ -34,7 +35,12 @@ class VicScreen{
     fill(0);
     textSize(35);
     text("Press to play again",10+(width/6)*2,200+height/2);
-    
+
+    newRow.setString("name", playerName); 
+    newRow.setInt("minutes", min);
+    newRow.setInt("seconds", sec-60*min);
+    saveTable(highScores, "gameHighScores.csv");
+
     
     if(mousePressed){
       if(mouseX<(width/3) && mouseY<(height*0.7) && mouseX>(2*width/6) && mouseY>80){
