@@ -1,10 +1,12 @@
-Items items;  //<>// //<>//
+Items items;  //<>// //<>// //<>//
 Shooter shooter;
 Player player;
 VicScreen vicScreen = new VicScreen();
 ItemStats itemStats = new ItemStats();
+StartScreen startScreen = new StartScreen();
 Table highScores;
 boolean invis = false;
+int timeStart;
 
 void setup()
 {
@@ -14,8 +16,11 @@ void setup()
 reset();
 }
 
-void draw()
-{
+void draw(){
+  if(startScreen.gameplay==false){
+    startScreen.drawStartScreen();
+  }
+if(startScreen.gameplay==true){
   if(vicScreen.won == true || vicScreen.lost == true){ 
     //pushMatrix();//activate when activating vicscreen 
 
@@ -41,12 +46,12 @@ if(vicScreen.won == false && vicScreen.lost == false){
   
   //Rooms
   Room1_156RightSide();
-  Room1_156LeftSide(); 
+  Room1_156LeftSide();  //<>//
   
-  //Classroooms 
+  //Classroooms  //<>//
   Classroom1_119(); 
-  Classroom1_121();  //<>//
-   //<>//
+  Classroom1_121();  //<>// //<>//
+   //<>// //<>//
   if(vicScreen.won == false && vicScreen.lost == false){ //<>//
   player.drawPlayer();  //<>//
   player.movement(); //<>//
@@ -102,10 +107,10 @@ if(vicScreen.won == false && vicScreen.lost == false){
    }
   if(vicScreen.won == true){
     vicScreen.drawVicScreen();
-      } else if(vicScreen.lost == true){
+      } else if(vicScreen.lost == true){ //<>//
         vicScreen.drawDeathScreen(); 
       }
-    } 
+    } }
      //<>//
   void keyPressed() {  //<>//
     for(int i = 0; i < itemList.size(); i++){
@@ -118,7 +123,9 @@ if(vicScreen.won == false && vicScreen.lost == false){
     }
   }
   
-void reset(){
+void reset(){  
+  startScreen.gameplay = false;
+  timeStart = millis()/1000;
   playScreen = new PlayScreen();
   optionsScreen = new OptionsScreen();
   textDisplayScreen = new TextDisplayScreen();

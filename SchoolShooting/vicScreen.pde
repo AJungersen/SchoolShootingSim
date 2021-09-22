@@ -12,7 +12,7 @@ class VicScreen{
   
 
   void totalTime(){
-  sec = round(millis()/1000);
+  sec = round(millis()/1000)-timeStart;
   if(sec%60==0 && min*60<sec){
   min++;
     }
@@ -37,7 +37,7 @@ class VicScreen{
     
     
     if(mousePressed){
-      if(mouseX<(width/3) && mouseY<(height*0.7) && mouseX>(2*width/6) && mouseY>80){
+      if(mouseX<(2*width/3) && mouseY<(height*0.7) && mouseX>(width/3) && mouseY>80){
         reset();
         won = false;
         items.select = true;
@@ -63,6 +63,7 @@ class VicScreen{
     text("Press to play again",10+(width/6)*2,200+height/2);
     if(mousePressed == true){
       if(mouseX<(2*width/3) && mouseY<(height*0.7) && mouseX>(width/3) && mouseY>80){
+        reset();
         lost = false;
         items.select = true;
       }
