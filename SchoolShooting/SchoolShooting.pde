@@ -1,4 +1,4 @@
-Items items;  //<>//
+Items items;  //<>// //<>//
 Shooter shooter;
 Player player;
 VicScreen vicScreen = new VicScreen();
@@ -45,12 +45,12 @@ if(vicScreen.won == false && vicScreen.lost == false){
   
   //Classroooms 
   Classroom1_119(); 
-  Classroom1_121(); 
+  Classroom1_121();  //<>//
    //<>//
-  if(vicScreen.won == false && vicScreen.lost == false){
+  if(vicScreen.won == false && vicScreen.lost == false){ //<>//
   player.drawPlayer();  //<>//
-  player.movement();
-  player.bodyBlock(); //<>//
+  player.movement(); //<>//
+  player.bodyBlock(); //<>// //<>//
   if(PVector.sub(player.position,shooter.position).mag()<30){  //<>//
   player.strike(); 
   } 
@@ -106,12 +106,13 @@ if(vicScreen.won == false && vicScreen.lost == false){
         vicScreen.drawDeathScreen(); 
       }
     } 
-    
+     //<>//
   void keyPressed() {  //<>//
     for(int i = 0; i < itemList.size(); i++){
    if(itemList.get(i).itemStatus == 2){
     if(key == 'e') {
     itemList.get(i).itemStatus = 3;   
+    begin = millis();
     }
    }
     }
@@ -144,7 +145,7 @@ void reset(){
 
   
   
-  begin = millis();
+
   
   for(int i = 0; i < itemList.size(); i++){
     itemList.get(i).itemStatus = 1;

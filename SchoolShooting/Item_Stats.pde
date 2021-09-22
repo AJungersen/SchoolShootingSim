@@ -99,6 +99,17 @@ items.itemColor = color(254, 255, 3);
       ellipse(items.position.x, items.position.y, items.itemSize.x, items.itemSize.y); 
       //---------------------------------------//
       //Slukker for alt lys midlertidigt//
+      for(int i = 0; i < itemList.size(); i++){
+      if (itemList.get(i).itemStatus == 3) {  
+        if (time >= 0) {  
+          time = duration - (millis() - begin)/1000;
+          rectMode(CORNERS);
+          rect(990, 740, 960, 605-(duration - (millis() - begin)/280));
+          invis = true;  
+          return;
+          } 
+        }
+      }
     }
   }
 }
