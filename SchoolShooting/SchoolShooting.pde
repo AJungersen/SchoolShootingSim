@@ -1,4 +1,4 @@
-Items items;
+Items items; //<>//
 Shooter shooter;
 Player player;
 VicScreen vicScreen = new VicScreen();
@@ -8,7 +8,7 @@ Table highScores;
 boolean invis = false;
 int timeStart;
 TableRow newRow;
-
+int gameDif = 0;
 
 void setup()
 {
@@ -48,23 +48,23 @@ if(vicScreen.won == false && vicScreen.lost == false){
   
   //Rooms
   Room1_156RightSide();
-  Room1_156LeftSide();  //<>//
+  Room1_156LeftSide();  //<>// //<>//
   
-  //Classroooms  //<>//
+  //Classroooms  //<>// //<>//
   Classroom1_119(); 
-  Classroom1_121();
+  Classroom1_121(); //<>//
    //<>// //<>//
-  if(vicScreen.won == false && vicScreen.lost == false){ //<>//
-  player.drawPlayer();  //<>//
-  player.movement(); //<>//
+  if(vicScreen.won == false && vicScreen.lost == false){ //<>// //<>//
+  player.drawPlayer();  //<>// //<>//
+  player.movement(); //<>// //<>//
   player.bodyBlock(); //<>// //<>//
-  if(PVector.sub(player.position,shooter.position).mag()<30){  //<>//
-  player.strike(); 
-  } 
+  if(PVector.sub(player.position,shooter.position).mag()<30){  //<>// //<>//
+  player.strike();  //<>//
+  }  //<>//
   
-  //bots 
-  for(int i = 0; i < bots.size(); i++){ 
-  bots.get(i).randomMovement(i); 
+  //bots  //<>//
+  for(int i = 0; i < bots.size(); i++){  //<>//
+  bots.get(i).randomMovement(i);  //<>//
   bots.get(i).flee();
   bots.get(i).movement();
   bots.get(i).drawBot();
@@ -111,22 +111,21 @@ if(vicScreen.won == false && vicScreen.lost == false){
     vicScreen.drawVicScreen();
       } else if(vicScreen.lost == true){ //<>//
         vicScreen.drawDeathScreen(); 
-      }
-    } }
-      vicScreen.won=true; //<>//
     }
-  void keyPressed() {  //<>//
-    for(int i = 0; i < itemList.size(); i++){
+}
+}
+  void keyPressed() {
+    for(int i = 0; i < itemList.size(); i++){ //<>//
    if(itemList.get(i).itemStatus == 2){
     if(key == 'e') {
     itemList.get(i).itemStatus = 3;   
     begin = millis();
     }
-   }
+   } //<>//
     }
   }
-  
-void reset(){  
+   //<>//
+void reset(){   //<>//
   startScreen.gameplay = false;
   timeStart = millis()/1000;
   playScreen = new PlayScreen();

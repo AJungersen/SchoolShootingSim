@@ -22,7 +22,7 @@ class Shooter extends Player {
    position.add(velocity.mult(0.3));
  }
  void shoot(){
-   if(frameCount%50==0){
+   if(frameCount%(80/gameDif)==0){
      PVector closestBlob = new PVector();
      float d = 1000;
      for(int i=0; i<bots.size();i++){

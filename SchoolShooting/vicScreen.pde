@@ -21,6 +21,7 @@ class VicScreen{
       }
     }
   }
+  }
   
   void drawVicScreen(){//do colours even matter?
     pushMatrix();
