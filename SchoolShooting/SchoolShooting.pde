@@ -1,4 +1,4 @@
-Items items;  //<>// //<>// //<>//
+Items items;
 Shooter shooter;
 Player player;
 VicScreen vicScreen = new VicScreen();
@@ -7,6 +7,8 @@ StartScreen startScreen = new StartScreen();
 Table highScores;
 boolean invis = false;
 int timeStart;
+TableRow newRow;
+
 
 void setup()
 {
@@ -50,7 +52,7 @@ if(vicScreen.won == false && vicScreen.lost == false){
   
   //Classroooms  //<>//
   Classroom1_119(); 
-  Classroom1_121();  //<>// //<>//
+  Classroom1_121();
    //<>// //<>//
   if(vicScreen.won == false && vicScreen.lost == false){ //<>//
   player.drawPlayer();  //<>//
@@ -111,7 +113,8 @@ if(vicScreen.won == false && vicScreen.lost == false){
         vicScreen.drawDeathScreen(); 
       }
     } }
-     //<>//
+      vicScreen.won=true; //<>//
+    }
   void keyPressed() {  //<>//
     for(int i = 0; i < itemList.size(); i++){
    if(itemList.get(i).itemStatus == 2){
@@ -130,7 +133,10 @@ void reset(){
   optionsScreen = new OptionsScreen();
   textDisplayScreen = new TextDisplayScreen();
   highScores = loadTable("gameHighScores.csv", "header");
-  TableRow newRow = highScores.addRow();
+  highScores.addColumn("name");
+  highScores.addColumn("minutes");
+  highScores.addColumn("seconds");
+  newRow = highScores.addRow();
   
 
   items = new Items(new PVector(0,0));
