@@ -28,8 +28,7 @@ class Player {
     ellipse(position.x, position.y, size, size);
 
     position.add(velocity);
-    player.velocity.set(0,0);
-    
+    println(position);
   }
 
   void strike() {
@@ -52,7 +51,11 @@ class Player {
         bots.get(i).velocity.add(PVector.sub(bots.get(i).position, position).normalize().mult(8));
       }
     }
-    velocity.add(bBlock);
+    position.add(bBlock);
     bBlock.set(0,0);
   }
 }
+//4785 407
+//4475 -6230
+//-4595 -6120
+//-4560 400
