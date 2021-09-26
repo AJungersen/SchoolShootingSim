@@ -205,7 +205,7 @@ void reset() {
   shooter = new Shooter(new PVector(0, 550), new PVector(10, 10), 25);//i thnik thids migth lock the shooter to a specific position. idk if it's meant as temporarily
   
   for (int i = 0; i < 100; i++) {
-    bots.add(new Bots(new PVector(400, 400), new PVector(random(2)-1, random(2)-1), 20));//considering whether we should put the player and students inside the classrooms instead of generation bots randomly
+    bots.add(new Bots(new PVector(random(2)*400, random(2)*400), new PVector(random(2)-1, random(2)-1), 20));//considering whether we should put the player and students inside the classrooms instead of generation bots randomly
   }
 
   for (int i = 0; i < itemList.size(); i++) {

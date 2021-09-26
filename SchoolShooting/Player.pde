@@ -28,7 +28,8 @@ class Player {
     ellipse(position.x, position.y, size, size);
 
     position.add(velocity);
-    //player.velocity.set(0, 0);
+    player.velocity.set(0,0);
+    
   }
 
   void strike() {
@@ -44,11 +45,14 @@ class Player {
   }
 
   void bodyBlock() {
+    PVector bBlock = new PVector();
     for (int i = 0; i < bots.size(); i++) {
       if (PVector.sub(bots.get(i).position, position).mag()<(bots.get(i).size+size)/2) {
-        velocity.add(PVector.sub(position, bots.get(i).position).normalize().mult(8));
+        bBlock.add(PVector.sub(position, bots.get(i).position).normalize().mult(1));
         bots.get(i).velocity.add(PVector.sub(bots.get(i).position, position).normalize().mult(8));
       }
     }
+    velocity.add(bBlock);
+    bBlock.set(0,0);
   }
 }
