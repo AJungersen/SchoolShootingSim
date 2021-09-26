@@ -1,4 +1,4 @@
-Items items; //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+Items items; //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 Shooter shooter;
 VicScreen vicScreen = new VicScreen();
 ItemStats itemStats = new ItemStats();
@@ -17,8 +17,23 @@ int x = 0;
 
 int numberOfHallways = 32;
 
+PImage backpack, bat, cap, chair, doorKey, shoes;
+
 void setup()
 {
+  backpack = loadImage("backpack.png");
+  backpack.resize(100,100);
+  bat = loadImage("bat.png");
+  bat.resize(100,100);
+  cap = loadImage("camo hat.png");
+  cap.resize(100,60);
+  chair = loadImage("chair.png");
+  chair.resize(100,100);
+  doorKey = loadImage("key.png");
+  doorKey.resize(100,50);
+  shoes = loadImage("shoes.png");
+  shoes.resize(100,70);
+  
   background(150);
   size(1000, 750);
 
@@ -174,7 +189,7 @@ void draw() { //<>//
       for (int i = 0; i < itemList.size(); i++) {
         if (itemList.get(i).itemStatus == 3) {
           
-          itemList.get(i).position.set( (textDisplayScreen.Position.y)-(itemList.get(i).itemSize.y/2), (textDisplayScreen.Position.x)-itemList.get(i).itemSize.x+10);
+          itemList.get(i).position.set( (textDisplayScreen.Position.y)-(itemList.get(i).itemSize.y/2)-50, (textDisplayScreen.Position.x)-itemList.get(i).itemSize.x-60);
           items.position.set(itemList.get(i).position);
           itemList.get(i).drawItems();
         }
