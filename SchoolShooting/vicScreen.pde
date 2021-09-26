@@ -168,11 +168,6 @@ class VicScreen{
     textSize(35);
     text("Press to play again",10+(width/6)*2,200+height/2);
 
-    newRow.setString("name", playerName); 
-    newRow.setInt("minutes", min);
-    newRow.setInt("seconds", sec-60*min);
-    
-
     
     if(mousePressed){
       if(mouseX<(2*width/3) && mouseY<(height*0.7) && mouseX>(width/3) && mouseY>80){
