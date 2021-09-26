@@ -1,4 +1,4 @@
-Items items; //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+Items items; //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 Shooter shooter;
 VicScreen vicScreen = new VicScreen();
 ItemStats itemStats = new ItemStats();
@@ -45,12 +45,12 @@ void setup()
    {
    println(hallways.get(i).hallwayNumber, hallways.get(i).positionLeftCornerTop, hallways.get(i).positionRightCornerBottom);
    }*/
-
+ //<>//
   reset();
-
+ //<>//
 }
-
-void draw() { //<>//
+ //<>//
+void draw() { //<>// //<>//
 
   // println(player.hallwayImIn);   //<>//
   if (startScreen.gameplay==false) {
@@ -106,7 +106,7 @@ void draw() { //<>//
             players.get(i).position.y < hallways.get(hallwayToCheckArrayNumber).positionRightCornerBottom.y)
           {
             players.get(i).hallwayImIn = hallways.get(hallwayToCheckArrayNumber).hallwayNumber;
-            break;
+            break; //<>//
           }
 
           numberOfHallwaysChecked++;
@@ -202,7 +202,7 @@ void reset() {
 
   player = new Player(new PVector(playScreen.size.x - 75, playScreen.size.y - 75), new PVector(0, 0), 50);
   
-  shooter = new Shooter(new PVector(0, 0), new PVector(10, 10), 25);//i thnik thids migth lock the shooter to a specific position. idk if it's meant as temporarily
+  shooter = new Shooter(new PVector(0, 550), new PVector(10, 10), 25);//i thnik thids migth lock the shooter to a specific position. idk if it's meant as temporarily
   
   for (int i = 0; i < 100; i++) {
     bots.add(new Bots(new PVector(400, 400), new PVector(random(2)-1, random(2)-1), 20));//considering whether we should put the player and students inside the classrooms instead of generation bots randomly
