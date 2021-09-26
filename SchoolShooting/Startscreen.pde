@@ -4,25 +4,37 @@ boolean gameplay;
  gameplay = false; 
  }
  void drawStartScreen(){
-   background(0,0,250);
+   rectMode(CORNERS);
+   stroke(141, 31, 31);
+   rect(1, 1, width-2, height-2);
    fill(255);
    stroke(0);
    rectMode(CENTER);
-   rect(width*0.23,height/2,width*0.5,height*0.6);
-   rect(width*0.75,height*0.5,width/2,height*0.1);
-   rect(width*0.75,height*0.65,width/2,height*0.1);
-   rect(width*0.75,height*0.8,width/2,height*0.1);
+   stroke(141, 31, 31);
+   strokeWeight(3);
+   rect(width*0.23, height/2, width*0.5, height*0.6);
+   rect(width*0.75, height*0.5, width/2, height*0.1);
+   rect(width*0.75, height*0.65, width/2, height*0.1);
+   rect(width*0.75, height*0.8, width/2, height*0.1);
+   line(width*0.12, height*0.32, width*0.34, height*0.32);
+   stroke(179, 31, 31);
+   line(width*0.1, height*0.46, width*0.4-40, height*0.46);
+   line(width*0.1, height*0.61, width*0.4-40, height*0.61);
+   
    fill(0);
+   textSize(50);
+   fill(255);
+   text("Choose difficulty", width/2+40, height*0.3);
+   fill(0);
+   text("Controls", width*0.13, height*0.3);
    textSize(30);
-   text("Choose difficulty", width/2,height*0.3);
-   text("Controls", width*0.01,height*0.3);
-   text("press e to pickup item",width*0.01,height*0.4);
-   text("press space to strike shooter",width*0.01,height*0.5);
-   text("Use arrow keys to move",width*0.01,height*0.6);
-   text("easy",width/2,height*0.5);
-   text("medium",width/2,height*0.65);
-   text("hard",width/2,height*0.8);
-   println("før");
+   text("Press e to pickup item", width*0.08-10, height*0.4);
+   text("Press space to strike shooter", width*0.03-10, height*0.54);
+   text("Use W, A, S, D to move", width*0.06, height*0.7);
+   text("Easy", width*0.7+20, height*0.5+10);
+   text("Medium", width*0.7-8, height*0.65+10);
+   text("Hard", width*0.7+20, height*0.8+10);
+   
    if(mousePressed==true && mouseX>width*0.75-width/4 && mouseX<width*0.75+width/4 && mouseY>height*0.5-height*0.05 && mouseY<height*0.5+height*0.05){
      gameDif = 1;
     gameplay = true; 

@@ -1,9 +1,7 @@
   int begin; 
-  int duration = 50;
-  int time = 50;
+  int duration = 20;
+  int time = 20;
 class ItemStats {
-
-
 
   void Bagpack() {
     if (items.itemNum == 1) {
@@ -17,10 +15,11 @@ class ItemStats {
         if (time >= 0) {  
           time = duration - (millis() - begin)/1000;
           rectMode(CORNERS);
-          rect(990, 740, 960, 605-(duration - (millis() - begin)/280));
-          player.noSpeedBoost = true;   
+          rect(990, 740, 960, 625-(duration - (millis() - begin)/280));
+          bagpackSpeedBoost = true;   
           return;
-          } 
+          }
+          bagpackSpeedBoost = false;
         }
       }      
     }
@@ -46,10 +45,11 @@ class ItemStats {
         if (time >= 0) {  
           time = duration - (millis() - begin)/1000;
           rectMode(CORNERS);
-          rect(990, 740, 960, 605-(duration - (millis() - begin)/280));
-          player.smallSpeedBoost = true;   
+          rect(990, 740, 960, 625-(duration - (millis() - begin)/280));
+          shoeSpeedBoost = true;   
           return;
           }
+          shoeSpeedBoost = false;
         }
       }
     }
@@ -83,11 +83,12 @@ items.itemColor = color(254, 255, 3);
         if (time >= 0) {  
           time = duration - (millis() - begin)/1000;
           rectMode(CORNERS);
-          rect(990, 740, 960, 605-(duration - (millis() - begin)/280));
-          player.bigSpeedBoost = true;   
+          rect(990, 740, 960, 625-(duration - (millis() - begin)/280));
+          chairSpeedBoost = true;   
           player.hitChance = player.hitChance+4;
           return;
           }
+          chairSpeedBoost = false;
         }
       }
     }
@@ -104,7 +105,7 @@ items.itemColor = color(254, 255, 3);
         if (time >= 0) {  
           time = duration - (millis() - begin)/1000;
           rectMode(CORNERS);
-          rect(990, 740, 960, 605-(duration - (millis() - begin)/280));
+          rect(990, 740, 960, 625-(duration - (millis() - begin)/280));
           invis = true;  
           return;
           } 

@@ -1,0 +1,52 @@
+Classroom classroom_2;
+Classroom classroom_6;
+Classroom classroom_7;
+Classroom classroom_8;
+Classroom classroom_9;
+Classroom classroom_10;
+Classroom classroom_11;
+Classroom classroom_12;
+Classroom classroom_14;
+Classroom classroom_16;
+Classroom classroom_17;
+Classroom classroom_19;
+Classroom classroom_20;
+Classroom classroom_21;
+//Classroom classroom_22;
+Classroom classroom_23;
+Classroom classroom_24;
+Classroom classroom_25;
+Classroom classroom_26;
+Classroom classroom_27;
+Classroom classroom_29;
+Classroom classroom_30;
+Classroom classroom_31;
+Classroom classroom_32;
+
+void classroomDefinetion()
+{
+  classroom_2 = new Classroom(100, DoorPlacement.left, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.horizontal, hallway2, false, "classroom_2");
+  classroom_6 = new Classroom(100, DoorPlacement.left, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.horizontal, hallway6, false, "classroom_6");
+  classroom_7 = new Classroom(100, DoorPlacement.left, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.vertical, hallway7, false, "classroom_7");
+  classroom_8 = new Classroom(100, DoorPlacement.left, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.vertical, hallway8, false, "classroom_8");
+  classroom_9 = new Classroom(100, DoorPlacement.left, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.vertical, hallway9, false, "classroom_9");
+  classroom_10 = new Classroom(100, DoorPlacement.left, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.vertical, hallway10, false, "classroom_10");
+  classroom_11 = new Classroom(100, DoorPlacement.left, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.vertical, hallway11, false, "classroom_11");
+  classroom_12 = new Classroom(100, DoorPlacement.left, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.vertical, hallway12, false, "classroom_12");
+  classroom_14 = new Classroom(100, DoorPlacement.right, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.horizontal, hallway14, false, "classroom_14");
+  classroom_16 = new Classroom(100, DoorPlacement.right, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.horizontal, hallway16, false, "classroom_16");
+  classroom_17 = new Classroom(100, DoorPlacement.right, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.horizontal, hallway17, false, "classroom_17");
+  classroom_19 = new Classroom(100, DoorPlacement.right, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.horizontal, hallway19, false, "classroom_19");
+  classroom_20 = new Classroom(100, DoorPlacement.right, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.horizontal, hallway20, false, "classroom_20");
+  classroom_21 = new Classroom(100, DoorPlacement.right, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.horizontal, hallway21, false, "classroom_21");
+  //classroom_22 = new Classroom(100, DoorPlacement.right, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.horizontal, hallway22, false, "classroom_22");
+  classroom_23 = new Classroom(100, DoorPlacement.right, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.vertical, hallway23, false, "classroom_23");
+  classroom_24 = new Classroom(100, DoorPlacement.right, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.vertical, hallway24, false, "classroom_24");
+  classroom_25 = new Classroom(100, DoorPlacement.right, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.vertical, hallway25, false, "classroom_25");
+  classroom_26 = new Classroom(100, DoorPlacement.right, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.vertical, hallway26, false, "classroom_26");
+  classroom_27 = new Classroom(100, DoorPlacement.right, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.vertical, hallway27, false, "classroom_27");
+  classroom_29 = new Classroom(100, DoorPlacement.left, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.horizontal, hallway29, false, "classroom_29");
+  classroom_30 = new Classroom(100, DoorPlacement.left, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.horizontal, hallway30, false, "classroom_30");
+  classroom_31 = new Classroom(100, DoorPlacement.left, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.horizontal, hallway31, false, "classroom_31");
+  classroom_32 = new Classroom(100, DoorPlacement.left, RoomSide.middle, RoomPlacement.bottom, RoomOrientation.horizontal, hallway32, false, "classroom_32");
+}
