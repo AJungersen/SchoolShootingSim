@@ -132,8 +132,7 @@ if(vicScreen.won == false && vicScreen.lost == false){
 }
    //<>// //<>// //<>// //<>//
 if(vicScreen.won == false && vicScreen.lost == false){ //<>// //<>//
-  player.drawPlayer();  //<>// //<>//
-  player.movement(); //<>// //<>//
+  player.drawPlayer();  //<>// //<>// //<>//
   player.bodyBlock(); //<>// //<>//
   if(PVector.sub(player.position,shooter.position).mag()<30){  //<>// //<>//
   player.strike();  //<>//
@@ -191,17 +190,7 @@ if(vicScreen.won == false && vicScreen.lost == false){ //<>// //<>//
     }
 }
 }
-  void keyPressed() {
-    for(int i = 0; i < itemList.size(); i++){ //<>//
-   if(itemList.get(i).itemStatus == 2){
-    if(key == 'e') {
-    itemList.get(i).itemStatus = 3;   
-    begin = millis();
-    }
-   } //<>//
-    }
-  }
-   //<>//
+   //<>// //<>// //<>//
 void reset(){   //<>//
   startScreen.gameplay = false;
   timeStart = millis()/1000;

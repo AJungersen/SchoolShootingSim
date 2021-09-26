@@ -3,8 +3,6 @@
   int time = 50;
 class ItemStats {
 
-
-
   void Bagpack() {
     if (items.itemNum == 1) {
       items.itemColor =  color(255, 0, 0);
@@ -18,7 +16,7 @@ class ItemStats {
           time = duration - (millis() - begin)/1000;
           rectMode(CORNERS);
           rect(990, 740, 960, 605-(duration - (millis() - begin)/280));
-          player.noSpeedBoost = true;   
+          bagpackSpeedBoost = true;   
           return;
           } 
         }
@@ -47,7 +45,7 @@ class ItemStats {
           time = duration - (millis() - begin)/1000;
           rectMode(CORNERS);
           rect(990, 740, 960, 605-(duration - (millis() - begin)/280));
-          player.smallSpeedBoost = true;   
+          shoeSpeedBoost = true;   
           return;
           }
         }
@@ -84,7 +82,7 @@ items.itemColor = color(254, 255, 3);
           time = duration - (millis() - begin)/1000;
           rectMode(CORNERS);
           rect(990, 740, 960, 605-(duration - (millis() - begin)/280));
-          player.bigSpeedBoost = true;   
+          chairSpeedBoost = true;   
           player.hitChance = player.hitChance+4;
           return;
           }

@@ -6,7 +6,6 @@ class Player {
   PVector position = new PVector();
   PVector velocity = new PVector();
   float size;
-  boolean smallSpeedBoost, bigSpeedBoost, noSpeedBoost;
   int hitChance;
   int hallwayImIn = 1;
   
@@ -22,8 +21,13 @@ class Player {
   }
 
   void drawPlayer() {
-    fill(0, 200, 0);
-    circle(position.x, position.y, size);
+      stroke(0);
+      strokeWeight(1);
+      ellipseMode(CENTER);
+      fill(0,200,0);
+      ellipse(position.x, position.y, size, size);
+      
+      position.add(velocity);
   }
 
   void strike() {
@@ -45,48 +49,5 @@ class Player {
         bots.get(i).velocity.add(PVector.sub(bots.get(i).position, position).normalize().mult(8));
       }
     }
-  }
-
-  void movement() {
-    if (keyPressed==true) {
-      if (key == CODED) {
-        if (keyCode == UP) {
-          player.velocity.add(0, -10);
-        }
-      }
-    }
-    if (keyPressed==true) {
-      if (key == CODED) {
-        if (keyCode == DOWN) {
-          player.velocity.add(0, 10);
-        }
-      }
-    }
-    if (keyPressed==true) {
-      if (key == CODED) {
-        if (keyCode == RIGHT) {
-          player.velocity.add(10, 0);
-        }
-      }
-    }
-    if (keyPressed==true) {
-      if (key == CODED) {
-        if (keyCode == LEFT) {
-          player.velocity.add(-10, 0);
-        }
-      }
-    }
-
-    if (smallSpeedBoost == true) {
-      velocity.mult(1.5);
-    }
-    if (bigSpeedBoost == true) {
-      velocity.mult(2);
-    }
-    if (noSpeedBoost == true) {
-      velocity.mult(0.5);
-    }
-    position.add(velocity);
-    velocity.set(0, 0);
   }
 }
