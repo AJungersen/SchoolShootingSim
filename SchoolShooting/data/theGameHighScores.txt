@@ -1,1 +1,5 @@
-name minutes seconds
+Mary 59 59
+Charlie 59 58
+Albert 59 57
+Jane 40 56
+Adam 0 3

@@ -1,4 +1,4 @@
-Items items; //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+Items items;  //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 Shooter shooter;
 VicScreen vicScreen = new VicScreen();
 ItemStats itemStats = new ItemStats();
@@ -17,8 +17,23 @@ int x = 0;
 
 int numberOfHallways = 32;
 
+PImage backpack, bat, cap, chair, doorKey, shoes;
+
 void setup()
 {
+  backpack = loadImage("backpack.png");
+  backpack.resize(100,100);
+  bat = loadImage("bat.png");
+  bat.resize(100,100);
+  cap = loadImage("camo hat.png");
+  cap.resize(100,60);
+  chair = loadImage("chair.png");
+  chair.resize(100,100);
+  doorKey = loadImage("key.png");
+  doorKey.resize(100,50);
+  shoes = loadImage("shoes.png");
+  shoes.resize(100,70);
+  
   background(150);
   size(1000, 750);
 
@@ -50,23 +65,23 @@ void setup()
  //<>//
 }
  //<>//
-void draw() { //<>// //<>//
+void draw() { //<>// //<>// //<>//
 
-  // println(player.hallwayImIn);   //<>//
+  // println(player.hallwayImIn);   //<>// //<>//
   if (startScreen.gameplay==false) {
-    startScreen.drawStartScreen(); //<>//
-  } //<>//
-  if (startScreen.gameplay==true) { //<>//
-    if (vicScreen.won == true || vicScreen.lost == true) {  //<>//
-      //pushMatrix();//activate when activating vicscreen //<>//
-    }  //<>//
-    background(150); //<>//
- //<>//
- //<>//
+    startScreen.drawStartScreen(); //<>// //<>//
+  } //<>// //<>//
+  if (startScreen.gameplay==true) { //<>// //<>//
+    if (vicScreen.won == true || vicScreen.lost == true) {  //<>// //<>//
+      //pushMatrix();//activate when activating vicscreen //<>// //<>//
+    }  //<>// //<>//
+    background(150); //<>// //<>//
+ //<>// //<>//
+ //<>// //<>//
     //Check which hallway the diffrent players stand in
-    for (int i = 0; i < players.size(); i++) //<>//
-    { //<>//
-      if (players.get(i).velocity != new PVector(0, 0)) //<>//
+    for (int i = 0; i < players.size(); i++) //<>// //<>//
+    { //<>// //<>//
+      if (players.get(i).velocity != new PVector(0, 0)) //<>// //<>//
       {
         int hallwayToCheckArrayNumber = 0;
         int numberOfHallwaysChecked = 0;
@@ -113,7 +128,7 @@ void draw() { //<>// //<>//
         } 
         while (numberOfHallwaysChecked < 3);
       }
- //<>//
+ //<>// //<>//
     }
 
     pushMatrix(); 
@@ -121,17 +136,17 @@ void draw() { //<>// //<>//
 
     //PlayScreen
     playScreen.Draw();
- //<>//
+ //<>// //<>//
 
 
   //  if (vicScreen.won == false && vicScreen.lost == false) { 
       player.drawPlayer();
-      player.bodyBlock(); //<>//
-      if (PVector.sub(player.position, shooter.position).mag()<30) {  //<>// //<>//
+      player.bodyBlock(); //<>// //<>//
+      if (PVector.sub(player.position, shooter.position).mag()<30) {  //<>// //<>// //<>//
         player.strike();
       } 
- //<>//
-      //bots  //<>//
+ //<>// //<>//
+      //bots  //<>// //<>//
       for (int i = 0; i < bots.size(); i++) { 
         bots.get(i).randomMovement(i); 
         bots.get(i).flee();
@@ -147,7 +162,7 @@ void draw() { //<>// //<>//
       for (int i = 0; i < bullets.size(); i++) {
         bullets.get(i).drawBullet();
         bullets.get(i).updateLocation();
-        // bullets.get(i).hit();
+        bullets.get(i).hit();
       }
 
       //Hallways
@@ -174,14 +189,16 @@ void draw() { //<>// //<>//
       for (int i = 0; i < itemList.size(); i++) {
         if (itemList.get(i).itemStatus == 3) {
           
-          itemList.get(i).position.set( (textDisplayScreen.Position.y)-(itemList.get(i).itemSize.y/2), (textDisplayScreen.Position.x)-itemList.get(i).itemSize.x+10);
+          itemList.get(i).position.set( (textDisplayScreen.Position.y)-(itemList.get(i).itemSize.y/2)-50, (textDisplayScreen.Position.x)-itemList.get(i).itemSize.x-60);
           items.position.set(itemList.get(i).position);
           itemList.get(i).drawItems();
         }
       }
 
-      if (vicScreen.won == true) {
+      if (vicScreen.won == true && vicScreen.highScoresResults != true) {
         vicScreen.drawVicScreen();
+      } else if(vicScreen.won == true && vicScreen.highScoresResults == true){
+        vicScreen.drawHighScore();
       } else if (vicScreen.lost == true) {
         vicScreen.drawDeathScreen();
       }

@@ -2,7 +2,7 @@ ArrayList<Items> itemList = new ArrayList();
 class Items {
   //itemStatus: 1=not in range,  2=in range,  3=picked up
   int numItems, itemNum, itemStatus;
-  PVector itemSize = new PVector(100, 100);
+  PVector itemSize = new PVector(40, 40);
   PVector position = new PVector (100, 100);
   float itemWidth = 100;
   color itemColor;
@@ -20,7 +20,7 @@ class Items {
     }
 
   void drawItems() {  
-      if(numItems <= 5) {
+      if(numItems <= 10) {
     switch(items.itemNum) {
     case 1:
       itemStats.Bagpack();
@@ -48,7 +48,7 @@ class Items {
       break;
 
     case 6:
-      itemStats.Camojakke();
+      itemStats.Camohat();
       println(items.itemNum);
       break;
      

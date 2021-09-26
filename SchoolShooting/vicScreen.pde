@@ -1,13 +1,15 @@
 class VicScreen{
+  PrintWriter printWriter;
   boolean won = false;//set this one to true, when exiting the final door
   boolean lost = false;
-  boolean highScoresResults = true;
+  boolean highScoresResults = false;
   int sec;
   int min;
-  String playerName = "John Doe";
+  //int temp = times.length;
   String[] tider;
   String[] line;
-  String[] newLine = new String[3];
+  String[] newLine = new String[1];
+  //String[] newData = new String[temp + 1];
   String oneName, twoName, threeName, fourName, fiveName;
   int oneMin = 100, twoMin = 100, threeMin = 100, fourMin = 100, fiveMin = 100;
   int oneSec = 60, twoSec = 60, threeSec = 60, fourSec = 60, fiveSec = 60;
@@ -56,31 +58,38 @@ class VicScreen{
       
         if(keyPressed){
         if(key != CODED && key != BACKSPACE){
+        if(key == ENTER){}else{
         enterName = enterName + key;
         delay(100);
+        }
         } else if(key == BACKSPACE && enterName.length() > 0){
         enterName = enterName.substring(0, enterName.length()-1);
         delay(100);  
         }
         if(key == ENTER){
-          newLine[0] = enterName;
-          newLine[1] = str(min);
-          newLine[2] = str(sec-(min*60));
-          saveStrings("theGameHighScores.txt", newLine);
-        println(newLine[0] + newLine[1] + newLine[2]);
-        delay(100);  
+          
+          /*for(int y = 0; y < newData.length; y++){
+          newData[y] = times[y];
+          if(y==newData.length-1){
+          newData[y] = enterName + " " + str(min) + " " + str(sec-(min*60));
+              }
+            }*/ 
+          saveStrings("data/theGameHighScores.txt", times);
+          reset();
+          won = false;
+          highScoresResults = false;
         }
       }
-  }
+    }
   
    
    
   void highScoresTableCalculate(){//not an actual table  
-    for(int i = 1; i < times.length; i++){
+    for(int i = 0; i < times.length; i++){
     line = split(times[i], ' ');//remember to initialize stuff from other file
     int minHigh = Integer.valueOf(line[1]);
     int secHigh = Integer.valueOf(line[2]);
-    for(int j = 0; j < 5; j++){
+    for(int j = 0; j < times.length; j++){
     if(minHigh < oneMin || minHigh==oneMin && secHigh <= oneSec){
       if(minHigh==oneMin && secHigh==oneSec){
       } else {
@@ -163,16 +172,19 @@ class VicScreen{
     textSize(40);
     text("You made it out of your school alive", 25+width/8, (height/2)+50);
     text("Your time was: " + min + ":" + (sec-60*min), (width/4)-15, (height/2)+100);//i havent checked whther this is actually how time works, so it might just come back and bite us in the ass
-    rect(width/3,height*0.7,2*width/6,80);
+    rect(width/4,height*0.7,width/2,80);
     fill(0);
     textSize(35);
-    text("Press to play again",10+(width/6)*2,200+height/2);
+    text("Press to go to high scores",(width/4)+35,200+height/2);
+    
+    
+    
+
 
     
     if(mousePressed){
       if(mouseX<(2*width/3) && mouseY<(height*0.7) && mouseX>(width/3) && mouseY>80){
-        reset();
-        won = false;
+        highScoresResults = true;
       }
     }
     popMatrix();
