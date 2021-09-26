@@ -117,7 +117,7 @@ void draw() {
 
 
 
-    if (vicScreen.won == false && vicScreen.lost == false) { 
+  //  if (vicScreen.won == false && vicScreen.lost == false) { 
       player.drawPlayer();
       player.bodyBlock(); //<>//
       if (PVector.sub(player.position, shooter.position).mag()<30) {  //<>//
@@ -142,19 +142,6 @@ void draw() {
         bullets.get(i).updateLocation();
         // bullets.get(i).hit();
       }
-      /*
-
-       for (int i = 0; i < itemList.size(); i++) {
-       if (itemList.get(i).newItem == true{      
-       itemList.get(i).detectItems();
-       }
-       }
-       for (int i = 0; i < itemList.size(); i++) {
-       if (itemList.get(i).itemStatus !=3) {
-       itemList.get(i).drawItems();
-       }
-       }
-       }*/
 
       //Hallways
       drawHallways();
@@ -191,7 +178,7 @@ void draw() {
       } else if (vicScreen.lost == true) {
         vicScreen.drawDeathScreen();
       }
-    }
+    //}
   }
 }
 
@@ -207,13 +194,13 @@ void reset() {
   highScores.addColumn("seconds");
   newRow = highScores.addRow();
 
-
+  player = new Player(new PVector(playScreen.size.x - 75, playScreen.size.y - 75), new PVector(0, 0), 50);
+  
   shooter = new Shooter(new PVector(0, 0), new PVector(10, 10), 25);//i thnik thids migth lock the shooter to a specific position. idk if it's meant as temporarily
+  
   for (int i = 0; i < 100; i++) {
     bots.add(new Bots(new PVector(400, 400), new PVector(random(2)-1, random(2)-1), 20));//considering whether we should put the player and students inside the classrooms instead of generation bots randomly
   }
-
-  player = new Player(new PVector(playScreen.size.x - 75, playScreen.size.y - 75), new PVector(0, 0), 50);
 
   for (int i = 0; i < itemList.size(); i++) {
     itemList.get(i).itemStatus = 1;

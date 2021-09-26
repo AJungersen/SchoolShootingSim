@@ -14,6 +14,13 @@ enum HallwayOrentation {
     vertical
 }
 
+enum HallwayDoor {
+  right, 
+    left, 
+    top, 
+    bottom
+}
+
 //--------------------------------------
 
 class Hallway
@@ -29,6 +36,8 @@ class Hallway
 
   int hallwayNumber;
 
+  HallwayDoor doorPassed;
+
   HallwayOrentation hallwayOrentation;
 
   void setSize(HallwayOrentation _hallwayOrentation)
@@ -40,7 +49,7 @@ class Hallway
     {
       size = new PVector(playScreen.size.y, playScreen.size.x);
     }
-   // println("test", playScreen.size.y * 0.6 - positionRightCornerBottom.y);
+    // println("test", playScreen.size.y * 0.6 - positionRightCornerBottom.y);
 
     hallways.add(this);
   }
@@ -460,9 +469,15 @@ class Hallway
     PFont fontType;
     PVector xDoor = new PVector(positionLeftCornerTop.x, positionLeftCornerTop.x + doorSize);
 
-    if ((_player.position.x >= xDoor.x + _player.size/2) && 
+    if ((_player.velocity.y > 0 && 
+      (_player.position.x >= xDoor.x + _player.size/2) && 
       (_player.position.x <= xDoor.y - _player.size/2) && 
-      (_player.position.y > positionLeftCornerTop.y + _player.size/2))
+      (player.position.y >= positionRightCornerBottom.y - _player.size/2 &&
+      _player.position.y < positionRightCornerBottom.y + _player.size/2)) ||
+      (_player.velocity.y < 0 && (_player.position.x >= xDoor.x + _player.size/2) && 
+      (_player.position.x <= xDoor.y - _player.size/2) && 
+      _player.position.y > positionRightCornerBottom.y - _player.size/2 &&
+      _player.position.y <= positionRightCornerBottom.y + _player.size/2))
     {
       if (_hallwayDoor == HallwayDoorState.locked) {
 
@@ -475,6 +490,8 @@ class Hallway
         collisionHorisontalWallBottom(_player);
       } else if (_hallwayDoor == HallwayDoorState.unlocked)
       {
+       // println(xDoor.x + _player.size/2, xDoor.y - _player.size/2, "p", _player.position);
+        vicScreen.won = true;
       }
     } else
     {

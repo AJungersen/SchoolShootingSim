@@ -2,7 +2,6 @@ ArrayList<Items> itemList = new ArrayList();
 class Items {
   //itemStatus: 1=not in range,  2=in range,  3=picked up
   int numItems, itemNum, itemStatus;
-  boolean select = false;
   PVector itemSize = new PVector(100, 100);
   PVector position = new PVector (100, 100);
   float itemWidth = 100;

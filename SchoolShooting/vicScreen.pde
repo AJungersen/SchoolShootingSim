@@ -50,7 +50,6 @@ class VicScreen{
       if(mouseX<(2*width/3) && mouseY<(height*0.7) && mouseX>(width/3) && mouseY>80){
         reset();
         won = false;
-        items.select = true;
       }
     }
     popMatrix();
@@ -75,7 +74,6 @@ class VicScreen{
       if(mouseX<(2*width/3) && mouseY<(height*0.7) && mouseX>(width/3) && mouseY>80){
         reset();
         lost = false;
-        items.select = true;
       }
     }
     popMatrix();
