@@ -4,6 +4,7 @@ Player player;
 VicScreen vicScreen = new VicScreen();
 ItemStats itemStats = new ItemStats();
 StartScreen startScreen = new StartScreen();
+String[] times;
 Table highScores;
 boolean invis = false;
 int timeStart;
@@ -15,6 +16,7 @@ void setup()
   background(150);
   size(1000, 750);
   frameRate(60);
+  highScores = loadTable("gameHighScores.csv");
 reset();
 }
 
@@ -107,12 +109,16 @@ if(vicScreen.won == false && vicScreen.lost == false){
   itemList.get(i).drawItems();
   }
    }
-  if(vicScreen.won == true){
+  if(vicScreen.won==true && vicScreen.highScoresResults==true){
+    vicScreen.drawHighScore();
+    }else if(vicScreen.won == true){
     vicScreen.drawVicScreen();
-      } else if(vicScreen.lost == true){ //<>//
+    } else if(vicScreen.lost == true){ //<>//
         vicScreen.drawDeathScreen(); 
     }
 }
+  
+  
 }
   void keyPressed() {
     for(int i = 0; i < itemList.size(); i++){ //<>//
@@ -131,7 +137,7 @@ void reset(){   //<>//
   playScreen = new PlayScreen();
   optionsScreen = new OptionsScreen();
   textDisplayScreen = new TextDisplayScreen();
-  highScores = loadTable("gameHighScores.csv", "header");
+  times = loadStrings("theGameHighScores.txt");
   highScores.addColumn("name");
   highScores.addColumn("minutes");
   highScores.addColumn("seconds");
