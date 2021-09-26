@@ -1,1 +1,6 @@
 name minutes seconds
+John 20 59
+Debra 21 59
+Mike 22 59
+Patrick 23 59
+Immy 24 59
