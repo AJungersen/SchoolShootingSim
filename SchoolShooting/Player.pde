@@ -28,6 +28,7 @@ class Player {
     ellipse(position.x, position.y, size, size);
 
     position.add(velocity);
+    //player.velocity.set(0, 0);
   }
 
   void strike() {

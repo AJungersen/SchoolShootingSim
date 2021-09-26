@@ -31,15 +31,17 @@ void keyPressed() {
 
   if (shoeSpeedBoost == true) {
     player.velocity.mult(1.5);
+    println(player.velocity);
   }
   if (chairSpeedBoost == true) {
     player.velocity.mult(0.2);
+    println(player.velocity);
   }
   if (bagpackSpeedBoost == true) {
     player.velocity.mult(0.5);
+    println(player.velocity);
   }
-  player.position.add(player.velocity);
-  player.velocity.set(0, 0);
+
 }
 
 void keyReleased() {

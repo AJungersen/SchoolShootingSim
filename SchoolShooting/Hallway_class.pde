@@ -40,7 +40,7 @@ class Hallway
     {
       size = new PVector(playScreen.size.y, playScreen.size.x);
     }
-    println("test", playScreen.size.y * 0.6 - positionRightCornerBottom.y);
+   // println("test", playScreen.size.y * 0.6 - positionRightCornerBottom.y);
 
     hallways.add(this);
   }

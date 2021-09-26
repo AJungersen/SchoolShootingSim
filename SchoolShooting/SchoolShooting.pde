@@ -37,19 +37,16 @@ void setup()
 
   classroomDefinetion();
 
-  //player = new Player(new PVector(playScreen.size.x - 75, playScreen.size.y - 75), new PVector(0,0), 50);
-
-  println("");
-  for (int i = 0; i < hallways.size(); i++)
-  {
-    println(hallways.get(i).hallwayNumber, hallways.get(i).positionLeftCornerTop, hallways.get(i).positionRightCornerBottom);
-  }
+  /* for (int i = 0; i < hallways.size(); i++)
+   {
+   println(hallways.get(i).hallwayNumber, hallways.get(i).positionLeftCornerTop, hallways.get(i).positionRightCornerBottom);
+   }*/
 
   reset();
 }
 
 void draw() {
-  println(player.position);
+
   // println(player.hallwayImIn);  
   if (startScreen.gameplay==false) {
     startScreen.drawStartScreen();
@@ -58,7 +55,8 @@ void draw() {
     if (vicScreen.won == true || vicScreen.lost == true) { 
       //pushMatrix();//activate when activating vicscreen
     } 
-    background(150); 
+    background(150);
+
     //Check which hallway the diffrent players stand in
     for (int i = 0; i < players.size(); i++)
     {
@@ -117,9 +115,7 @@ void draw() {
     //PlayScreen
     playScreen.Draw();
 
-    //Hallways
-    drawHallways();
-    collisionChecks();
+
 
     if (vicScreen.won == false && vicScreen.lost == false) { 
       player.drawPlayer();
@@ -146,48 +142,55 @@ void draw() {
         bullets.get(i).updateLocation();
         // bullets.get(i).hit();
       }
-      for (int i = 0; i < itemList.size(); i++) {
-        if (itemList.get(i).newItem == true) {
-          itemList.get(i).detectItems();
-        }
+      /*
+
+       for (int i = 0; i < itemList.size(); i++) {
+       if (itemList.get(i).newItem == true{      
+       itemList.get(i).detectItems();
+       }
+       }
+       for (int i = 0; i < itemList.size(); i++) {
+       if (itemList.get(i).itemStatus !=3) {
+       itemList.get(i).drawItems();
+       }
+       }
+       }*/
+
+      //Hallways
+      drawHallways();
+      collisionChecks();
+      popMatrix();  
+
+      //Skærm indeling
+      playScreen.Draw(); 
+      optionsScreen.Draw(); 
+      textDisplayScreen.Draw();  
+
+      if (vicScreen.won == false && vicScreen.lost == false) {
+        vicScreen.totalTime();
       }
+
+
+      //Skærm indeling
+      playScreen.Draw();
+      optionsScreen.Draw();
+      textDisplayScreen.Draw(); 
+      textDisplayScreen.Draw();
+
       for (int i = 0; i < itemList.size(); i++) {
-        if (itemList.get(i).itemStatus !=3) {
+        if (itemList.get(i).itemStatus == 3) {
+          
+          itemList.get(i).position.set( (textDisplayScreen.Position.y)-(itemList.get(i).itemSize.y/2), (textDisplayScreen.Position.x)-itemList.get(i).itemSize.x+10);
+          items.position.set(itemList.get(i).position);
           itemList.get(i).drawItems();
         }
       }
-    } 
 
-    popMatrix();  
-
-    //Skærm indeling
-    playScreen.Draw(); 
-    optionsScreen.Draw(); 
-    textDisplayScreen.Draw();  
-
-    if (vicScreen.won == false && vicScreen.lost == false) {
-      vicScreen.totalTime();
-    }
-
-
-    //Skærm indeling
-    playScreen.Draw();
-    optionsScreen.Draw();
-    textDisplayScreen.Draw(); 
-    textDisplayScreen.Draw();
-
-    for (int i = 0; i < itemList.size(); i++) {
-      if (itemList.get(i).itemStatus == 3) {
-        itemList.get(i).newItem = false;
-        itemList.get(i).position.set( (textDisplayScreen.Position.y)-(itemList.get(i).itemSize.y/2), (textDisplayScreen.Position.x)-itemList.get(i).itemSize.x+10);
-        items.position.set(itemList.get(i).position);
-        itemList.get(i).drawItems();
+      if (vicScreen.won == true) {
+        vicScreen.drawVicScreen();
+      } else if (vicScreen.lost == true) {
+        vicScreen.drawDeathScreen();
       }
-    }
-    if (vicScreen.won == true) {
-      vicScreen.drawVicScreen();
-    } else if (vicScreen.lost == true) {
-      vicScreen.drawDeathScreen();
     }
   }
 }
@@ -205,7 +208,6 @@ void reset() {
   newRow = highScores.addRow();
 
 
-  items = new Items(new PVector(0, 0));
   shooter = new Shooter(new PVector(1500, 1500), new PVector(10, 10), 25);//i thnik thids migth lock the shooter to a specific position. idk if it's meant as temporarily
   for (int i = 0; i < 100; i++) {
     bots.add(new Bots(new PVector(400, 400), new PVector(random(2)-1, random(2)-1), 20));//considering whether we should put the player and students inside the classrooms instead of generation bots randomly

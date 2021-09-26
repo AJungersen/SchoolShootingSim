@@ -55,7 +55,10 @@ class Room
   String roomName = "";
 
   boolean roomOverlap = false;
-
+  
+  boolean beenInThisRoomBefore = false;
+  int roomItemArrayNum = -1;
+  
   void setSize(RoomOrientation _roomOrientation) {
   }
 
@@ -77,7 +80,6 @@ class Room
     //---------- horizontal rooms ----------
     if (roomOrientation == RoomOrientation.horizontal) 
     {
-      println(roomOrientation);
       //---------- top ----------
       if (roomPlacement == RoomPlacement.top) 
       {
@@ -159,7 +161,6 @@ class Room
         }
       }
     }
-    println(position, size);
   }
 
   //-------------------------------
@@ -179,14 +180,28 @@ class Room
       rectMode(CENTER);
       fill(0);
 
-      //rect(position.x + size.x/2 + width/2, position.y, width, height * 3);
-      //rect(position.x - size.x/2 - width/2, position.y, width, height * 3);
+      rect(position.x + size.x/2 + width/2, position.y, width, height * 3);
+      rect(position.x - size.x/2 - width/2, position.y, width, height * 3);
 
-      //rect(position.x, position.y + size.y/2 + height/2, size.x, height);
-      //rect(position.x, position.y - size.y/2 - height/2, size.x, height);
-
-      noFill();
+      rect(position.x, position.y + size.y/2 + height/2, size.x, height);
+      rect(position.x, position.y - size.y/2 - height/2, size.x, height);
+      
+      
+      if(beenInThisRoomBefore == false){
+      roomItemArrayNum = itemList.size();
+        items = new Items (position.copy(), roomName);
+      
+      beenInThisRoomBefore = true;
+      }
+      
+      if(roomItemArrayNum >= 0 && itemList.get(roomItemArrayNum).itemStatus != 3) {
+       itemList.get(roomItemArrayNum).drawItems(); 
+       itemList.get(roomItemArrayNum).detectItems();
+      }
+      
+      noFill();      
     }
+    
     stroke(0);
     strokeWeight(1.5);
     rectMode(CENTER);
@@ -523,8 +538,6 @@ class Room
     PVector doorPosition3 = doorPositions.get(2).copy();
     PVector doorPosition4 = doorPositions.get(3).copy();
 
-    //println(doorPosition1, doorPosition2, doorPosition3, doorPosition4);
-
     stroke(255);
     strokeWeight(3);
 
@@ -549,7 +562,6 @@ class SmallRoom extends Room
     if (_roomOrientation == RoomOrientation.horizontal)
     {
       size = new PVector(playScreen.size.copy().x * smallRoomSizePresentage.copy().x, playScreen.size.copy().y * smallRoomSizePresentage.copy().y);
-      println("big");
     } else
     {
       size = new PVector(playScreen.size.copy().y * smallRoomSizePresentage.copy().y, playScreen.size.copy().x * smallRoomSizePresentage.copy().x);
@@ -571,7 +583,6 @@ class MediumRoom extends Room
     if (_roomOrientation == RoomOrientation.horizontal)
     {
       size = new PVector(playScreen.size.copy().x * mediumRoomSizePresentage.copy().x, playScreen.size.copy().y * mediumRoomSizePresentage.copy().y);
-      println("big");
     } else
     {
       size = new PVector(playScreen.size.copy().y * mediumRoomSizePresentage.copy().y, playScreen.size.copy().x * mediumRoomSizePresentage.copy().x);
@@ -593,7 +604,6 @@ class BigRoom extends Room
     if (_roomOrientation == RoomOrientation.horizontal)
     {
       size = new PVector(playScreen.size.copy().x * bigRoomSizePresentage.copy().x, playScreen.size.copy().y * bigRoomSizePresentage.copy().y);
-      println("big");
     } else
     {
       size = new PVector(playScreen.size.copy().y * bigRoomSizePresentage.copy().y, playScreen.size.copy().x * bigRoomSizePresentage.copy().x);
@@ -615,7 +625,6 @@ class Classroom extends Room
     if (_roomOrientation == RoomOrientation.horizontal)
     {
       size = new PVector(playScreen.size.copy().x * classroomSizePresentage.copy().x, playScreen.size.copy().y * classroomSizePresentage.copy().y);
-      println("class");
     } else
     {
       size = new PVector(playScreen.size.copy().y * classroomSizePresentage.copy().y, playScreen.size.copy().x * classroomSizePresentage.copy().x);
@@ -637,7 +646,6 @@ class MediumClassroom extends Room
     if (_roomOrientation == RoomOrientation.horizontal)
     {
       size = new PVector(playScreen.size.copy().x * mediumClassroomSizePresentage.copy().x, playScreen.size.copy().y * mediumClassroomSizePresentage.copy().y);
-      println("class");
     } else
     {
       size = new PVector(playScreen.size.copy().y * mediumClassroomSizePresentage.copy().y, playScreen.size.copy().x * mediumClassroomSizePresentage.copy().x);

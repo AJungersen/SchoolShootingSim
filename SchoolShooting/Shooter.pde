@@ -5,6 +5,8 @@ class Shooter extends Player {
    position.set(p);
    velocity.set(v);
    size = s;
+   
+   players.add(this);
  }
  
  void drawShooter(){

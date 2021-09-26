@@ -18,7 +18,8 @@ class ItemStats {
           rect(990, 740, 960, 605-(duration - (millis() - begin)/280));
           bagpackSpeedBoost = true;   
           return;
-          } 
+          }
+          bagpackSpeedBoost = false;
         }
       }      
     }
@@ -48,6 +49,7 @@ class ItemStats {
           shoeSpeedBoost = true;   
           return;
           }
+          shoeSpeedBoost = false;
         }
       }
     }
@@ -86,6 +88,7 @@ items.itemColor = color(254, 255, 3);
           player.hitChance = player.hitChance+4;
           return;
           }
+          chairSpeedBoost = false;
         }
       }
     }
