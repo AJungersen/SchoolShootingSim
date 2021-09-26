@@ -171,7 +171,7 @@ class VicScreen{
     newRow.setString("name", playerName); 
     newRow.setInt("minutes", min);
     newRow.setInt("seconds", sec-60*min);
-    saveTable(highScores, "gameHighScores.csv");
+    
 
     
     if(mousePressed){

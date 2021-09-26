@@ -5,7 +5,7 @@ VicScreen vicScreen = new VicScreen();
 ItemStats itemStats = new ItemStats();
 StartScreen startScreen = new StartScreen();
 String[] times;
-Table highScores;
+
 boolean invis = false;
 int timeStart;
 TableRow newRow;
@@ -16,7 +16,7 @@ void setup()
   background(150);
   size(1000, 750);
   frameRate(60);
-  highScores = loadTable("gameHighScores.csv");
+  
 reset();
 }
 
@@ -138,10 +138,7 @@ void reset(){   //<>//
   optionsScreen = new OptionsScreen();
   textDisplayScreen = new TextDisplayScreen();
   times = loadStrings("theGameHighScores.txt");
-  highScores.addColumn("name");
-  highScores.addColumn("minutes");
-  highScores.addColumn("seconds");
-  newRow = highScores.addRow();
+  
   
 
   items = new Items(new PVector(0,0));
