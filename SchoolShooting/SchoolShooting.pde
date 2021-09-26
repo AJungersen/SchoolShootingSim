@@ -1,4 +1,4 @@
-Items items; //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+Items items; //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 Shooter shooter;
 VicScreen vicScreen = new VicScreen();
 ItemStats itemStats = new ItemStats();
@@ -50,23 +50,23 @@ void setup()
  //<>//
 }
  //<>//
-void draw() { //<>// //<>//
+void draw() { //<>// //<>// //<>//
 
-  // println(player.hallwayImIn);   //<>//
+  // println(player.hallwayImIn);   //<>// //<>//
   if (startScreen.gameplay==false) {
-    startScreen.drawStartScreen(); //<>//
-  } //<>//
-  if (startScreen.gameplay==true) { //<>//
-    if (vicScreen.won == true || vicScreen.lost == true) {  //<>//
-      //pushMatrix();//activate when activating vicscreen //<>//
-    }  //<>//
-    background(150); //<>//
- //<>//
- //<>//
+    startScreen.drawStartScreen(); //<>// //<>//
+  } //<>// //<>//
+  if (startScreen.gameplay==true) { //<>// //<>//
+    if (vicScreen.won == true || vicScreen.lost == true) {  //<>// //<>//
+      //pushMatrix();//activate when activating vicscreen //<>// //<>//
+    }  //<>// //<>//
+    background(150); //<>// //<>//
+ //<>// //<>//
+ //<>// //<>//
     //Check which hallway the diffrent players stand in
-    for (int i = 0; i < players.size(); i++) //<>//
-    { //<>//
-      if (players.get(i).velocity != new PVector(0, 0)) //<>//
+    for (int i = 0; i < players.size(); i++) //<>// //<>//
+    { //<>// //<>//
+      if (players.get(i).velocity != new PVector(0, 0)) //<>// //<>//
       {
         int hallwayToCheckArrayNumber = 0;
         int numberOfHallwaysChecked = 0;
@@ -113,7 +113,7 @@ void draw() { //<>// //<>//
         } 
         while (numberOfHallwaysChecked < 3);
       }
- //<>//
+ //<>// //<>//
     }
 
     pushMatrix(); 
@@ -121,17 +121,17 @@ void draw() { //<>// //<>//
 
     //PlayScreen
     playScreen.Draw();
- //<>//
+ //<>// //<>//
 
 
   //  if (vicScreen.won == false && vicScreen.lost == false) { 
       player.drawPlayer();
-      player.bodyBlock(); //<>//
-      if (PVector.sub(player.position, shooter.position).mag()<30) {  //<>// //<>//
+      player.bodyBlock(); //<>// //<>//
+      if (PVector.sub(player.position, shooter.position).mag()<30) {  //<>// //<>// //<>//
         player.strike();
       } 
- //<>//
-      //bots  //<>//
+ //<>// //<>//
+      //bots  //<>// //<>//
       for (int i = 0; i < bots.size(); i++) { 
         bots.get(i).randomMovement(i); 
         bots.get(i).flee();

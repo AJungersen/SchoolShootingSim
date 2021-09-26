@@ -4,10 +4,9 @@ class VicScreen{
   boolean highScoresResults = false;
   int sec;
   int min;
-  String playerName = "John Doe";
   String[] tider;
   String[] line;
-  String[] newLine = new String[3];
+  String[] newLine = new String[1];
   String oneName, twoName, threeName, fourName, fiveName;
   int oneMin = 100, twoMin = 100, threeMin = 100, fourMin = 100, fiveMin = 100;
   int oneSec = 60, twoSec = 60, threeSec = 60, fourSec = 60, fiveSec = 60;
@@ -63,9 +62,7 @@ class VicScreen{
         delay(100);  
         }
         if(key == ENTER){
-          newLine[0] = enterName;
-          newLine[1] = str(min);
-          newLine[2] = str(sec-(min*60));
+          newLine[0] = enterName + " " + str(min) + " " + str(sec-(min*60));
           saveStrings("theGameHighScores.txt", newLine);
           reset();
           won = false;
