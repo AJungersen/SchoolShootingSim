@@ -1,6 +1,6 @@
 ArrayList<Bots> bots = new ArrayList();
 class Bots extends Player {
-  PVector temporaryWall = new PVector(width,0);
+
   
   
  Bots(PVector p, PVector v, float s){

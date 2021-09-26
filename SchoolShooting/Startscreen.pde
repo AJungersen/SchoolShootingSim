@@ -30,7 +30,7 @@ boolean gameplay;
    text("Easy",width/2,height*0.5);
    text("Medium",width/2,height*0.65);
    text("Hard",width/2,height*0.8);
-   println("før");
+   //println("før");
    if(mousePressed==true && mouseX>width*0.75-width/4 && mouseX<width*0.75+width/4 && mouseY>height*0.5-height*0.05 && mouseY<height*0.5+height*0.05){
      gameDif = 1;
     gameplay = true; 

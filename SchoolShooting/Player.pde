@@ -1,14 +1,14 @@
 ArrayList<Player> dots = new ArrayList();
 Player player;
-Player player2;
+
 
 class Player {
-  PVector position = new PVector();
+  PVector position;
   PVector velocity = new PVector();
   float size;
   int hitChance;
   int hallwayImIn = 1;
-  
+
   String roomImIn = "none";  
 
   Player(PVector p, PVector v, float s) {
@@ -16,18 +16,18 @@ class Player {
     velocity = v.copy();
     size = s;
     hitChance = 4;
-    
-    players.add(this);    
+
+    players.add(this);
   }
 
   void drawPlayer() {
-      stroke(0);
-      strokeWeight(1);
-      ellipseMode(CENTER);
-      fill(0,200,0);
-      ellipse(position.x, position.y, size, size);
-      
-      position.add(velocity);
+    stroke(0);
+    strokeWeight(1);
+    ellipseMode(CENTER);
+    fill(0, 200, 0);
+    ellipse(position.x, position.y, size, size);
+
+    position.add(velocity);
   }
 
   void strike() {

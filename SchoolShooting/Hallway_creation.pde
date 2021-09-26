@@ -276,7 +276,6 @@ void drawHallway1()
   smallRoom_1_2.drawRoom(player);
   smallRoom_1_3.drawRoom(player);
   
-  println(smallRoom_1_3.position);
 }
 
 //-----------------------
