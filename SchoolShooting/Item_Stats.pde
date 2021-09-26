@@ -1,6 +1,6 @@
   int begin; 
-  int duration = 50;
-  int time = 50;
+  int duration = 20;
+  int time = 20;
 class ItemStats {
 
   void Bagpack() {
@@ -15,7 +15,7 @@ class ItemStats {
         if (time >= 0) {  
           time = duration - (millis() - begin)/1000;
           rectMode(CORNERS);
-          rect(990, 740, 960, 605-(duration - (millis() - begin)/280));
+          rect(990, 740, 960, 625-(duration - (millis() - begin)/280));
           bagpackSpeedBoost = true;   
           return;
           }
@@ -45,7 +45,7 @@ class ItemStats {
         if (time >= 0) {  
           time = duration - (millis() - begin)/1000;
           rectMode(CORNERS);
-          rect(990, 740, 960, 605-(duration - (millis() - begin)/280));
+          rect(990, 740, 960, 625-(duration - (millis() - begin)/280));
           shoeSpeedBoost = true;   
           return;
           }
@@ -83,7 +83,7 @@ items.itemColor = color(254, 255, 3);
         if (time >= 0) {  
           time = duration - (millis() - begin)/1000;
           rectMode(CORNERS);
-          rect(990, 740, 960, 605-(duration - (millis() - begin)/280));
+          rect(990, 740, 960, 625-(duration - (millis() - begin)/280));
           chairSpeedBoost = true;   
           player.hitChance = player.hitChance+4;
           return;
@@ -105,7 +105,7 @@ items.itemColor = color(254, 255, 3);
         if (time >= 0) {  
           time = duration - (millis() - begin)/1000;
           rectMode(CORNERS);
-          rect(990, 740, 960, 605-(duration - (millis() - begin)/280));
+          rect(990, 740, 960, 625-(duration - (millis() - begin)/280));
           invis = true;  
           return;
           } 
