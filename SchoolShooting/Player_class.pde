@@ -12,6 +12,7 @@ void keyPressed() {
   if (key == 'w')
   {
     player.velocity.y = -10;
+    
   }
 
   if (key == 's')
