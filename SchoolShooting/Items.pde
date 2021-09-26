@@ -12,8 +12,7 @@ class Items {
   Items(PVector _position, String _myRoom) {  
         position = _position;
         numItems = int(random(0, 10));
-        //itemNum = int(random(0,6));
-        itemNum = 6;
+        itemNum = int(random(0,6));
         itemStatus = 1;
         myRoom = _myRoom;
         

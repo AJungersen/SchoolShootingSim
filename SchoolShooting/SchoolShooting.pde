@@ -162,7 +162,7 @@ void draw() { //<>// //<>// //<>//
       for (int i = 0; i < bullets.size(); i++) {
         bullets.get(i).drawBullet();
         bullets.get(i).updateLocation();
-        // bullets.get(i).hit();
+        bullets.get(i).hit();
       }
 
       //Hallways
