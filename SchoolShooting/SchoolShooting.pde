@@ -180,8 +180,10 @@ void draw() { //<>//
         }
       }
 
-      if (vicScreen.won == true) {
+      if (vicScreen.won == true && vicScreen.highScoresResults != true) {
         vicScreen.drawVicScreen();
+      } else if(vicScreen.won == true && vicScreen.highScoresResults == true){
+        vicScreen.drawHighScore();
       } else if (vicScreen.lost == true) {
         vicScreen.drawDeathScreen();
       }

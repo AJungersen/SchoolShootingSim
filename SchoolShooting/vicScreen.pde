@@ -1,7 +1,7 @@
 class VicScreen{
   boolean won = false;//set this one to true, when exiting the final door
   boolean lost = false;
-  boolean highScoresResults = true;
+  boolean highScoresResults = false;
   int sec;
   int min;
   String playerName = "John Doe";
@@ -67,8 +67,9 @@ class VicScreen{
           newLine[1] = str(min);
           newLine[2] = str(sec-(min*60));
           saveStrings("theGameHighScores.txt", newLine);
-        println(newLine[0] + newLine[1] + newLine[2]);
-        delay(100);  
+          reset();
+          won = false;
+          highScoresResults = false;
         }
       }
   }
@@ -163,21 +164,18 @@ class VicScreen{
     textSize(40);
     text("You made it out of your school alive", 25+width/8, (height/2)+50);
     text("Your time was: " + min + ":" + (sec-60*min), (width/4)-15, (height/2)+100);//i havent checked whther this is actually how time works, so it might just come back and bite us in the ass
-    rect(width/3,height*0.7,2*width/6,80);
+    rect(width/4,height*0.7,width/2,80);
     fill(0);
     textSize(35);
-    text("Press to play again",10+(width/6)*2,200+height/2);
-
-    newRow.setString("name", playerName); 
-    newRow.setInt("minutes", min);
-    newRow.setInt("seconds", sec-60*min);
+    text("Press to go to high scores",(width/4)+35,200+height/2);
+    
+    
     
 
     
     if(mousePressed){
       if(mouseX<(2*width/3) && mouseY<(height*0.7) && mouseX>(width/3) && mouseY>80){
-        reset();
-        won = false;
+        highScoresResults = true;
       }
     }
     popMatrix();
