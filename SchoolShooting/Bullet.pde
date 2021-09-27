@@ -9,6 +9,8 @@ class Bullet {
    velocity.set(v,u);
    velocity.normalize();
    velocity.mult(20);
+   
+   //players.add(this);
  }
  void drawBullet(){
    fill(0);
