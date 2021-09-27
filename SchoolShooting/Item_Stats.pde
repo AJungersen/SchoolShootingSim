@@ -5,7 +5,7 @@ class ItemStats {
 
 
 
-  void Bagpack() {
+  void Backpack() {
     if (items.itemNum == 1) {
       items.itemColor =  color(255, 0, 0);
       fill(items.itemColor);
