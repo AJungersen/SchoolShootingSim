@@ -20,7 +20,7 @@ class Items {
     }
 
   void drawItems() {  
-      if(numItems <= 10) {
+      if(numItems <= 5) {
     switch(items.itemNum) {
     case 1:
       itemStats.Backpack();
